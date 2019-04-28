@@ -4,7 +4,7 @@
 	"version": "1.0.0",
 	"description": "home.ryanspice.com",
 	"main": "index.js",
-	"author": "Ryan Spice-Finnie <spice.ryan@hotmail.com>",
+	"author": "Ryan Spice-Finnie <contact@ryanspice.com>",
 	"license": "MIT",
 	"private": false,
 	"scripts": {
@@ -17,8 +17,7 @@
 		"preview": "yarn webpack-dev-server --config webpack.prod.js --env.NODE_ENV=production --env.production"
 	},
 	"dependencies": {
-		"async.2018": "^1.1.0-RC4",
-		"xterm": "^3.12.2"
+		"async.2018": "^1.1.0-RC4"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.2.0",
