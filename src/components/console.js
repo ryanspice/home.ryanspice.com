@@ -1,6 +1,30 @@
 //@flow
 
 import Messages from "../messages";
+function getCaretPosition(editableDiv) {
+  var caretPos = 0,
+    sel, range;
+  if (window.getSelection) {
+    sel = window.getSelection();
+    if (sel.rangeCount) {
+      range = sel.getRangeAt(0);
+      if (range.commonAncestorContainer.parentNode == editableDiv) {
+        caretPos = range.endOffset;
+      }
+    }
+  } else if (document.selection && document.selection.createRange) {
+    range = document.selection.createRange();
+    if (range.parentElement() == editableDiv) {
+      var tempEl = document.createElement("span");
+      editableDiv.insertBefore(tempEl, editableDiv.firstChild);
+      var tempRange = range.duplicate();
+      tempRange.moveToElementText(tempEl);
+      tempRange.setEndPoint("EndToEnd", range);
+      caretPos = tempRange.text.length;
+    }
+  }
+  return caretPos;
+}
 function setEndOfContenteditable(contentEditableElement)
 {
     var range,selection;
@@ -24,63 +48,139 @@ function setEndOfContenteditable(contentEditableElement)
 let temp = '';
 const version = `ryanspice.com [Version 9.0.xxxxx.xxx]`;
 const copy = `Copyright (C) ryanspice.com. All rights reserved.`;
-//const dir = `C:\\Users\\Ryan\\Home>`;
-//const directory = "~ryanspice.com::guest>";
-const directory = "~ryanspice.com\\Users\\Guest>";
+const directory = "~ryanspice.com\\users\\guest>";
 
 const commands = {
 	'asd':()=>{
 
-		return 'asd';
+		return ['asd'];
+	},
+	'yarn start':()=>{
+
+		return [
+			'spice-terminal v0.0.1',
+			'error Command "start" not found.',
+//			'info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.',
+			'try running "help"'
+		];
+	},
+	'help':()=>{
+
+		return [
+
+		`Usage: yarn start [application/game] [flags]`,
+		``,
+		`Displays help information.`,
+		``,
+		`Options`,
+		``,
+		`-h, --help                          output usage information`,
+		`-info                               details on the project`,
+		``,
+		`Commands`,
+		``,
+		`Applications:`,
+		``,
+		`auth                                login to ryanspice.com admin panel`,
+		``,
+		`Boilerplates / Frameworks:`,
+		``,
+		`Async2018                           my take on a modern JS framework`,
+		`SpiceJS                             a canvas based 2D game engine`,
+		`SpiceDocs                           a document boilerplate`,
+		`WebpackBabelFlowBoilerplate         webpack 4 + babel 7 + flowtype`,
+		`BabelBoilerplate                    webpack 4 + babel 7`,
+		``,
+		``,
+		`Games:`,
+		``,
+		`SnowBoarding`,
+		`KongQuest`,
+		`Reverence Lost`,
+		`Bovxel`,
+		`Dodgeball`,
+		``,
+		``,
+		``,
+		`Visit https://github.com/ryanspice or;`,
+		`Contact me at contact@ryanspice.com to learn more about what I can do.`,
+
+		];
 	}
+
 }
 
-window.Terminal = {
-	keyup:(evt)=>{
-
-		if (evt.key=="Enter"){
-
-			evt.preventDefault();
+let writeToConsole = function(evt){
 
 			let textarea= evt.target.children[0];
 
-			let taLength = textarea.innerText.split(directory).length-1;
-			let taValue = textarea.innerText.split(directory)[textarea.innerText.split(directory).length-1];
-			taValue = taValue.trim();
-			//console.log(taValue);
+			let taLength = textarea.innerText.length;
+			if (taLength<27)
+			evt.target.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>yarn start</span><span id="blinking-cursor" contenteditable="false">_</span>`;
 
-			if (taLength>12)
-				textarea.innerText = directory;
-
-			let results = null;
-			try{
-				results = commands[taValue]();
-			}catch(e){
-				results = `	`+e.toString();
-			}
-
-			textarea.innerText = textarea.innerText+"\n"+results+"\n"+directory;
-
-			setEndOfContenteditable(evt.target);
-
-			//console.log(textarea);
-
-			document.getElementById('written').focus();
-
-			textarea.innerText = textarea.innerText.trim();//.replace("<br/>","\\n");
-
-			if (evt.target.children[2])
-				evt.target.children[2].remove();
 
 			setTimeout(()=>{
+
+				let taValue = textarea.innerText.split(directory)[textarea.innerText.split(directory).length-1];
+				taValue = taValue.trim();
+
+				//console.log(taValue);
+
+			//	if (taLength>12)
+				//	textarea.innerText = directory;
+
+				let results = null;
+				let i = 0;
+				try{
+					results = "";
+					(commands[taValue]()).forEach(val=>{
+						results=val;
+						i++;
+
+						//loop each function output
+
+							setTimeout(()=>{
+								textarea.innerHTML = textarea.innerHTML+"<br/>"+val;
+								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+							},100*i)
+
+						});
+
+						//run director output
+
+						setTimeout(()=>{
+								textarea.innerHTML = textarea.innerHTML+"<br/>"+"end"+"<br/>"+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+						},500+100*i)
+
+				}catch(e){
+					results = `	`+e.toString();
+				}
+
+			//	textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+
+				setEndOfContenteditable(evt.target);
+
+				//console.log(textarea);
+
+				document.getElementById('written').focus();
+
+	//			textarea.innerText = textarea.innerText.trim();//.replace("<br/>","\\n");
 
 				if (evt.target.children[2])
 					evt.target.children[2].remove();
 
+				setTimeout(()=>{
+
+					if (evt.target.children[2])
+						evt.target.children[2].remove();
+
+					document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+
+				},100);
+
 			},100);
 
-		}
-	}
 }
 
 import {
@@ -99,9 +199,54 @@ class Console extends AsyncView {
 			id:`console`,
 			mounted:()=>{
 
+				window.Terminal = {
+					running:false,
+					keyup:(evt)=>{
+
+
+						let textarea= evt.target.children[0];
+						//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1])
+						//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length)
+
+
+						if (evt.ctrlKey)
+						if (evt.key=="a"){
+							evt.preventDefault();
+						}
+
+						if (getCaretPosition(textarea)<1){
+							if (evt.key=="ArrowLeft"){
+								evt.preventDefault();
+							}
+							if (evt.key=="Backspace"){
+								evt.preventDefault();
+							}
+
+						}
+						if(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length<29){
+
+							if (evt.key=="Backspace"){
+								evt.preventDefault();
+								//evt.target.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;yarn start</i></span><span id="blinking-cursor" contenteditable="false">_</span>`;
+						}
+					}
+
+						//if (Terminal.running)
+						//							evt.preventDefault();
+
+						if (evt.key=="Enter"){
+							Terminal.running=true;
+							evt.preventDefault();
+							writeToConsole(evt);
+
+						}
+
+					}
+				}
+
 			},
 			innerHTML:`
-			<div id ="" class="" style="overflow-y:hidden;min-width:512px;border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
+			<div id ="" class="" style="min-width:512px;border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
 			<div class="traffic-lights " style="padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;">
 
 				<button
@@ -119,13 +264,14 @@ class Console extends AsyncView {
 			</div>
 
 			<div
+				id="console-scroll"
 				value="0"
 				onblur="document.getElementById('blinking-cursor').style.display='inline-block'"
 				onfocus="document.getElementById('blinking-cursor').style.display='none'; this.selectionStart = this.selectionEnd = this.children[0].innerText.length-1;"
 				onkeydown="Terminal.keyup(event)"
-				style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);height:100%; margin-top:6.5rem;padding:1rem;font-size:2rem" contenteditable>
+				style="resize:vertical;overflow-y:auto;font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);height:100%; margin-top:6.5rem;padding:1rem;" contenteditable spellcheck="false">
 
-			<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" >${directory} </span><span id="blinking-cursor" contenteditable="false">_</span>
+			<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;yarn start</i></span><span id="blinking-cursor" contenteditable="false">_</span>
 
 			<h1 hidden style="color:rgba(25,25,25,0.25);pointer-events:none;" contenteditable="false">
 				Web Applications Developer

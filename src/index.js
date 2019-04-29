@@ -14,6 +14,7 @@ import Console from "./components/console";
 import Pre from "./components/pre";
 
 import Content from "./components/content";
+import Footer from "./components/footer";
 
 import LoginInput from "./components/login_input";
 

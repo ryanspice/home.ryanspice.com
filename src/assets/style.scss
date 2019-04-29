@@ -109,7 +109,7 @@ height:20vh;
 
 
      /* Position and center the image to scale nicely on all screens */
-     background-position: center;
+     background-position: center top;
      background-repeat: no-repeat;
      background-size: cover;
      position: relative;
@@ -371,13 +371,24 @@ $color_cursor:rgba(255,255,255,0.25);
 
 #blinking-cursor {
   font-weight: 100;
-  font-size: 30px;
+  //font-size: 30px;
   color: #2E3D48;
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
   -ms-animation: 1s blink step-end infinite;
   -o-animation: 1s blink step-end infinite;
   animation: 1s blink step-end infinite;
+}
+
+#console-scroll {
+
+	* {
+
+		animation:none;
+		transition: none;
+
+	}
+
 }
 
 //ANIATMIONS
