@@ -28,31 +28,34 @@ Displays help information.
 
 Options
 
-  -h, --help                          output usage information
-  -info                               details on the project
+	-h, --help                          output usage information
+	-info                               details on the project
 
 Commands
 
   Applications:
 
-  auth                                login to ryanspice.com admin panel
+	auth                                login to ryanspice.com admin panel
+	help                                display commands
+	image                               generate new image
+	theme                               set the primary colours of this page based off the image
 
   Boilerplates / Frameworks:
 
-  Async2018                           my take on a modern JS framework
-  SpiceJS                             a canvas based 2D game engine
-  SpiceDocs                           a document boilerplate
-  WebpackBabelFlowBoilerplate         webpack 4 + babel 7 + flowtype
-  BabelBoilerplate                    webpack 4 + babel 7
+	Async2018                           my take on a modern JS framework
+	BabelBoilerplate                    webpack 4 + babel 7
+	SpiceJS                             a canvas based 2D game engine
+	SpiceDocs                           a document boilerplate
+	WebpackBabelFlowBoilerplate         webpack 4 + babel 7 + flowtype
 
 
   Games:
 
-  SnowBoarding
-  KongQuest
-  Reverence Lost
-  Bovxel
-  Dodgeball
+	Bovxel
+	Dodgeball
+	KongQuest
+	Reverence Lost
+	SnowBoarding
 
 
 

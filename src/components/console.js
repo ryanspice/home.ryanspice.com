@@ -50,11 +50,9 @@ const version = `ryanspice.com [Version 9.0.xxxxx.xxx]`;
 const copy = `Copyright (C) ryanspice.com. All rights reserved.`;
 const directory = "~ryanspice.com\\users\\guest>";
 
+const command = (...args) => { return ()=> [...args]};
 const commands = {
-	'asd':()=>{
-
-		return ['asd'];
-	},
+	'yarn':command('you cannot actually run yarn;','or anything in this terminal for that matter', 'try "help"'),
 	'yarn start':()=>{
 
 		return [
@@ -106,6 +104,21 @@ const commands = {
 		`Contact me at contact@ryanspice.com to learn more about what I can do.`,
 
 		];
+	},
+	'theme':evt=>{
+
+		SetColourTheme();
+
+		return [writeToConsole_Swatches];
+	},
+	'image':(evt)=>{
+
+		document.body.style.backgroundImage = '';
+		document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/random")';
+
+		theme();
+
+		return ['done'];
 	}
 
 }
@@ -152,7 +165,7 @@ let writeToConsole = function(evt){
 						//run director output
 
 						setTimeout(()=>{
-								textarea.innerHTML = textarea.innerHTML+"<br/>"+"end"+"<br/>"+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+								textarea.innerHTML = textarea.innerHTML+"<br/>"+"\n"+"<br/>"+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
 								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
 						},500+100*i)
 
@@ -160,7 +173,8 @@ let writeToConsole = function(evt){
 					results = `	`+e.toString();
 				}
 
-			//	textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+				if (!commands[taValue])
+				textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
 
 				setEndOfContenteditable(evt.target);
 
@@ -186,8 +200,11 @@ let writeToConsole = function(evt){
 
 }
 
+let SetColourTheme;
+let writeToConsole_Swatches = '';
+
+import("../Vibrant");
 let theme = async function(){
-				await import("../Vibrant");
 				let img = await new Image();
 				img.style.display = "none";
 				img.crossOrigin = "Anonymous";
@@ -196,26 +213,36 @@ let theme = async function(){
 				    height = img.height;
 
 						let vib = await new window.Vibrant(img,32,3);
-						console.log(vib);
-						let Swatch = (type)=>{
-							try{
-							var sw = [
-								'DarkMutedSwatch',
-								'DarkVibrantSwatch',
-								'LightMutedSwatch',
-								'LightVibrantSwatch',
-								'MutedSwatch',
-								'VibrantSwatch'
-							]
 
-							return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;}
-							catch(e){
-								return false;
+						SetColourTheme = ()=>{
+
+							const Swatch = (type)=>{
+
+								try{
+								var sw = [
+									'DarkMutedSwatch',
+									'DarkVibrantSwatch',
+									'LightMutedSwatch',
+									'LightVibrantSwatch',
+									'MutedSwatch',
+									'VibrantSwatch'
+								]
+
+								return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
+
+							}	catch(e){
+
+									return false;
+
+								}
+
 							}
-						}
+
 
 						let color = Swatch(0);
 						let linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
+
+						writeToConsole_Swatches = [color,linkcolor];
 						console.log(color);
 						document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}*{
 							transition: all 0.3s ease;
@@ -223,11 +250,16 @@ let theme = async function(){
 						}</style>`));
 
 						Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+
+						writeToConsole_Swatches = ['done'];
+					};
 				}
 
 				img.src = 'https://source.unsplash.com/random';
+
 				await document.body.append(img);
 				console.log(img);
+			return img;
 };
 
 import {
@@ -263,15 +295,17 @@ class Console extends AsyncView {
 							evt.preventDefault();
 						}
 
+
 						if (getCaretPosition(textarea)<1){
 							if (evt.key=="ArrowLeft"){
 								evt.preventDefault();
 							}
 							if (evt.key=="Backspace"){
-								evt.preventDefault();
+							//	evt.preventDefault();
 							}
 
 						}
+
 						if(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length<29){
 
 							if (evt.key=="Backspace"){
