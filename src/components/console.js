@@ -110,6 +110,9 @@ const commands = {
 
 }
 
+// ES6
+
+
 let writeToConsole = function(evt){
 
 			let textarea= evt.target.children[0];
@@ -183,6 +186,50 @@ let writeToConsole = function(evt){
 
 }
 
+let theme = async function(){
+				await import("../Vibrant");
+				let img = await new Image();
+				img.style.display = "none";
+				img.crossOrigin = "Anonymous";
+				img.onload = async ()=>{
+				    var width = img.width,
+				    height = img.height;
+
+						let vib = await new window.Vibrant(img,32,3);
+						console.log(vib);
+						let Swatch = (type)=>{
+							try{
+							var sw = [
+								'DarkMutedSwatch',
+								'DarkVibrantSwatch',
+								'LightMutedSwatch',
+								'LightVibrantSwatch',
+								'MutedSwatch',
+								'VibrantSwatch'
+							]
+
+							return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;}
+							catch(e){
+								return false;
+							}
+						}
+
+						let color = Swatch(0);
+						let linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
+						console.log(color);
+						document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}*{
+							transition: all 0.3s ease;
+
+						}</style>`));
+
+						Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+				}
+
+				img.src = 'https://source.unsplash.com/random';
+				await document.body.append(img);
+				console.log(img);
+};
+
 import {
 	AsyncView
 } from "../entry";
@@ -197,7 +244,9 @@ class Console extends AsyncView {
 			renderTo:`main`,
 			className:``,
 			id:`console`,
-			mounted:()=>{
+			mounted:async ()=>{
+				theme();
+
 
 				window.Terminal = {
 					running:false,
