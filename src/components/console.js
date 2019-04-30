@@ -1,6 +1,11 @@
 //@flow
 
 import Messages from "../messages";
+
+function openInNewTab(url) {
+  var win = window.open(url, '_blank');
+  win.focus();
+}
 function getCaretPosition(editableDiv) {
   var caretPos = 0,
     sel, range;
@@ -45,6 +50,7 @@ function setEndOfContenteditable(contentEditableElement)
         range.select();//Select the range (make it the visible selection
     }
 }
+
 let temp = '';
 const version = `ryanspice.com [Version 9.0.xxxxx.xxx]`;
 const copy = `Copyright (C) ryanspice.com. All rights reserved.`;
@@ -54,10 +60,6 @@ const command = (...args) => { return ()=> [...args]};
 const commands = {
 	'auth':command('please wait',()=>{
 
-		function openInNewTab(url) {
-		  var win = window.open(url, '_blank');
-		  win.focus();
-		}
 		openInNewTab('http://auth.ryanspice.com/')
 		return 'opening auth.ryanspice.com';},'done'),
 
@@ -121,8 +123,8 @@ const commands = {
 	},
 	'image':(evt)=>{
 
-		document.body.style.backgroundImage = '';
-		document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/random")';
+		document.getElementsByTagName('footer')[0].style.backgroundImage = document.body.style.backgroundImage = '';
+		document.getElementsByTagName('footer')[0].style.backgroundImage = document.body.style.backgroundImage = 'linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/random")';
 
 		theme();
 
@@ -131,6 +133,25 @@ const commands = {
 	,'close':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-top'); return ['done'];}
 	,'minimize':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-minimize'); return ['done'];}
 	,'maximize':(evt)=>{document.getElementById('console').classList.add('slide-out-maximize'); return ['done'];}
+
+	,'Async2018':(evt)=>{openInNewTab('https://github.com/ryanspice/async-2018'); return ['done'];}
+	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return ['done'];}
+	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return ['done'];}
+
+	,'esdoc-babel-plugin':(evt)=>{openInNewTab('https://github.com/ryanspice/esdoc-babel-plugin'); return ['done'];}
+	,'vuejs-webpack4':(evt)=>{openInNewTab('https://github.com/ryanspice/vuejs-webpack4'); return ['done'];}
+	,'ng4+lightning':(evt)=>{openInNewTab('https://github.com/ryanspice/ng4-lightning-currency-compare'); return ['done'];}
+	,'babel-boilerplate':(evt)=>{openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate'); return ['done'];}
+
+
+	,'Fabagohey':(evt)=>{openInNewTab('https://github.com/ryanspice/fabagohey'); return ['done'];}
+	,'ReverenceLost':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=ReverenceLost'); return ['done'];}
+	,'KongQuest':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=KongQuest'); return ['done'];}
+	,'SnowBoarding':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=SnowBoarding'); return ['done'];}
+	,'FlappyFish':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=FlappyFish'); return ['done'];}
+	,'Bovxel':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=Bovxel'); return ['done'];}
+	,'Dodgeball (GameMaker)':(evt)=>{openInNewTab('https://ryanspice.com/Dodgeball/Dodgeball.zip'); return ['done'];}
+
 
 }
 
@@ -215,15 +236,14 @@ let writeToConsole = function(evt){
 window.SetColourTheme = ()=>{};
 let writeToConsole_Swatches = '';
 
-import("../Vibrant");
 let theme = async function(){
+				await require("../Vibrant");
 				let img = await new Image();
 				img.style.display = "none";
 				img.crossOrigin = "Anonymous";
 				img.onload = async ()=>{
 				    var width = img.width,
 				    height = img.height;
-
 						let vib = await new window.Vibrant(img,32,3);
 
 						SetColourTheme = ()=>{

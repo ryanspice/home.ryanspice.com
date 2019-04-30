@@ -11,7 +11,7 @@ class Footer extends AsyncView {
 	constructor(){
 
 		return super({
-			type:`div`,
+			type:`footer`,
 			style:` border-radius: 1rem;
 			    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
 			    margin-bottom: 1rem;

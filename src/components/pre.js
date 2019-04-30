@@ -12,7 +12,7 @@ class Pre extends AsyncView {
 
 		return super({
 			type:`pre`,
-			style:`padding:2rem;display:block;min-width:512px;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`,
+			style:`padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`,
 			renderTo:`main`,
 			className:``,
 			id:``,
@@ -44,8 +44,10 @@ Commands:
   Boilerplates / Frameworks:
 
 	Async2018                           my take on a modern JS framework
-	BabelBoilerplate                    webpack 4 + babel 7
-	SpiceJS                             a canvas based 2D game engine
+	Async2018-VirtualScroll             a list component with only X number of elements
+	Home                                this page based off of Async2018 which used BabelBoilerplate
+	SpiceJS-2015                        a canvas based 2D game engine based on prototype inheritence
+	SpiceJS                             a canvas based 2D game engine based on ES6
 	SpiceDocs                           a document boilerplate
 	WebpackBabelFlowBoilerplate         webpack 4 + babel 7 + flowtype
 
@@ -54,10 +56,19 @@ Commands:
 
 	Bovxel
 	Dodgeball
+	FlappyFish
+	Fabagohey
 	KongQuest
-	Reverence Lost
+	ReverenceLost
 	SnowBoarding
 
+
+  Contributions:
+
+	esdoc-babel-plugion                 update dependencies for Babel7
+	babel-boilerplate                   babel 7 + webpack 4
+	ng4+lightning
+	vuejs-webpack4                      vuejs + babel 7 + webpack 4
 
 
 Visit https://github.com/ryanspice or;
