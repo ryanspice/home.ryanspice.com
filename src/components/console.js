@@ -52,11 +52,19 @@ const directory = "~ryanspice.com\\users\\guest>";
 
 const command = (...args) => { return ()=> [...args]};
 const commands = {
+	'auth':command('please wait',()=>{
+
+		function openInNewTab(url) {
+		  var win = window.open(url, '_blank');
+		  win.focus();
+		}
+		openInNewTab('http://auth.ryanspice.com/')
+		return 'opening auth.ryanspice.com';},'done'),
+
 	'yarn':command('you cannot actually run yarn;','or anything in this terminal for that matter', 'try "help"'),
 	'yarn start':()=>{
 
 		return [
-			'spice-terminal v0.0.1',
 			'error Command "start" not found.',
 //			'info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.',
 			'try running "help"'
@@ -120,6 +128,9 @@ const commands = {
 
 		return ['done'];
 	}
+	,'close':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-top'); return ['done'];}
+	,'minimize':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-minimize'); return ['done'];}
+	,'maximize':(evt)=>{document.getElementById('console').classList.add('slide-out-maximize'); return ['done'];}
 
 }
 
@@ -139,7 +150,7 @@ let writeToConsole = function(evt){
 
 				let taValue = textarea.innerText.split(directory)[textarea.innerText.split(directory).length-1];
 				taValue = taValue.trim();
-
+				last.push(taValue);
 				//console.log(taValue);
 
 			//	if (taLength>12)
@@ -150,6 +161,11 @@ let writeToConsole = function(evt){
 				try{
 					results = "";
 					(commands[taValue]()).forEach(val=>{
+
+							if (typeof val == 'function')
+								val = val();
+
+
 						results=val;
 						i++;
 
@@ -174,15 +190,11 @@ let writeToConsole = function(evt){
 				}
 
 				if (!commands[taValue])
-				textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+					textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
 
 				setEndOfContenteditable(evt.target);
 
-				//console.log(textarea);
-
-				document.getElementById('written').focus();
-
-	//			textarea.innerText = textarea.innerText.trim();//.replace("<br/>","\\n");
+				//document.getElementById('written').focus();
 
 				if (evt.target.children[2])
 					evt.target.children[2].remove();
@@ -200,7 +212,7 @@ let writeToConsole = function(evt){
 
 }
 
-let SetColourTheme;
+window.SetColourTheme = ()=>{};
 let writeToConsole_Swatches = '';
 
 import("../Vibrant");
@@ -266,6 +278,12 @@ import {
 	AsyncView
 } from "../entry";
 
+
+let lastIndex = 0;
+const last = [
+
+]
+
 class Console extends AsyncView {
 
 	constructor(){
@@ -295,6 +313,21 @@ class Console extends AsyncView {
 							evt.preventDefault();
 						}
 
+							if (evt.key=="ArrowUp"){
+								evt.preventDefault();
+								if (lastIndex<0)
+									lastIndex=0;
+
+								textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-1-(lastIndex++)||0]||last[0]}</i></span>`;
+
+							}
+							if (evt.key=="ArrowDown"){
+								evt.preventDefault();
+								if (lastIndex>last.length-1)
+								lastIndex=last.length-1;
+								textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-(lastIndex--)||last.length-1]||last[last.length-1]}</i></span>`;
+
+							}
 
 						if (getCaretPosition(textarea)<1){
 							if (evt.key=="ArrowLeft"){
@@ -333,11 +366,11 @@ class Console extends AsyncView {
 			<div class="traffic-lights " style="padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;">
 
 				<button
-					onclick="document.getElementById('console').classList.toggle('slide-out-blurred-top')"
+					onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-top')"
 					class="traffic-light traffic-light-close" id="close"></button>
 
 				<button
-					onclick="document.getElementById('console').classList.toggle('slide-out-blurred-minimize')"
+					onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-minimize')"
 					class="traffic-light traffic-light-minimize" id="minimize"></button>
 
 				<button

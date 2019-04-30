@@ -14,7 +14,8 @@ class Footer extends AsyncView {
 			type:`div`,
 			style:` border-radius: 1rem;
 			    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
-			    margin: 1rem;
+			    margin-bottom: 1rem;
+
 			    height: 10vh;
 			    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://source.unsplash.com/random);
 			    background-position: center bottom;

@@ -26,18 +26,19 @@ Usage: yarn start [application/game] [flags]
 
 Displays help information.
 
-Options
+Options:
 
 	-h, --help                          output usage information
 	-info                               details on the project
 
-Commands
-
-  Applications:
+Commands:
 
 	auth                                login to ryanspice.com admin panel
+	close                               close window
 	help                                display commands
 	image                               generate new image
+	maximize                            maximize window
+	minimze                             minimize window
 	theme                               set the primary colours of this page based off the image
 
   Boilerplates / Frameworks:

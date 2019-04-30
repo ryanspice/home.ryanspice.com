@@ -68,7 +68,16 @@ class Header extends AsyncView {
 						padding:1rem;
 						top:3px;
 						cursor:pointer;
-					  position: relative;
+					}
+
+										header ul li:hover {
+											padding-bottom:200px;
+										}
+
+
+					header ul li div h5,
+					header ul li div {
+						display:block;
 					}
 
 					header ul li:hover {
@@ -158,18 +167,18 @@ class Header extends AsyncView {
 
 					  <div class="dropdown-content acrylic">
 					    <h5>info</h5>
-					    <h5>facebook</h5>
-					    <h5>github</h5>
-					    <h5>twitter</h5>
+							<h5><a style="color:white;" href="https://twitter.com/ryanspice?lang=en" target="_blank">twitter</a></h5>
+					    <h5><a style="color:white;" href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank">linkedin</a></h5>
+					    <h5><a style="color:white;" href="https://github.com/ryanspice" target="_blank">github</a></h5>
 					  </div>
 
 					</li>
 				</ul>
 
 				<span>
-					<a><i data-feather="twitter" ></i></a>
-					<a><i data-feather="linkedin" ></i></a>
-					<a><i data-feather="github" style="margin-right:0rem;"></i></a>
+					<a href="https://twitter.com/ryanspice?lang=en" target="_blank"><i data-feather="twitter" ></i></a>
+					<a href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank"><i data-feather="linkedin" ></i></a>
+					<a href="https://github.com/ryanspice" target="_blank"><i data-feather="github" style="margin-right:0rem;"></i></a>
 				</span>
 
 				`
