@@ -72,7 +72,17 @@ $breakpoints: (
 
 	@media (min-width: 767px) {
 	}
+
+
+		pre {
+			display:none !important;
+		}
+	}
 	@media (max-width: 767px) {
+
+		pre {
+			display:none;
+		}
 
 		header ul {
 
