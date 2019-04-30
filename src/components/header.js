@@ -40,6 +40,7 @@ class Header extends AsyncView {
 						cursor:pointer;
 					}
 
+
 					header a {
 
 						display:inline-block;
@@ -55,14 +56,6 @@ class Header extends AsyncView {
 
 					}
 
-					header ul {
-						display:inline-block;
-						margin:0px auto;
-						font-size:2.25rem;
-								min-width:220px;
-								padding:0px;
-					}
-
 					header ul li {
 						display:inline-block;
 						padding:1rem;
@@ -71,7 +64,7 @@ class Header extends AsyncView {
 					}
 
 										header ul li:hover {
-											padding-bottom:200px;
+											//padding-bottom:200px;
 										}
 
 
@@ -80,15 +73,10 @@ class Header extends AsyncView {
 						display:block;
 					}
 
-					header ul li:hover {
-						color:rgba(255,255,255,0.75);
-					}
-
 					.dropdown-content {
 
     margin: 0px;
     padding: 0px;
-					  display: none;
 					  position: absolute;
 					  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 					  //padding: 12px 16px;
@@ -119,7 +107,8 @@ class Header extends AsyncView {
 
 					  display: block;
 					}
-
+					/*
+*/
 				</style>
 				<a>
 					<h2>ryanspice.com</h2>

@@ -1,5 +1,4 @@
 
-@import url("../../node_modules/xterm/dist/xterm.css");
 //$main-color:#008c99;
 //$
 //$
@@ -66,13 +65,78 @@ $breakpoints: (
 	}
 }
 
-	header ul {
+header {
+	position:relative;z-index:5;
+
+	* {position:relative;z-index:5;}
+}
+
+section {
+	* {position:relative;z-index:4;}
+}
+
+#login > header > ul  {
+	> li {
+
+			> div {
+				display:none;
+			}
+
+			&:hover {
+
+					> div {
+						display:table;
+					}
+
+		}
 	}
+	&:hover {
+
+		//display:table;
+	}
+}
+
+
+header a {
+	margin-right:1rem;
+}
+
+header ul {
+	display:inline-block;
+	margin:1.1rem auto;
+	font-size:2.25rem;
+	min-width:220px;
+	padding:0px;
+}
+
+	header ul li:hover {
+		color:rgba(255,255,255,0.75);
+	}
+
+.dropdown-content {
+
+	display: none;
+	opacity:0;
+	transform: translateY(-2em);
+
+	:hover {
+		display: inline-block;
+		opacity:1;
+	}
+
+}
 
 
 	@media (min-width: 767px) {
+
+		header ul {
+//			position:absolute;
+		}
+
 	}
 	@media (max-width: 767px) {
+
+
 
 		header ul {
 
