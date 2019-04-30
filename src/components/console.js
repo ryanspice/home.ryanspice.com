@@ -56,8 +56,31 @@ const version = `ryanspice.com [Version 9.0.xxxxx.xxx]`;
 const copy = `Copyright (C) ryanspice.com. All rights reserved.`;
 const directory = "~ryanspice.com\\users\\guest>";
 
+const msg = {
+	opening:'opening',
+	links:[
+		'https://github.com/ryanspice/async-2018',
+		'https://ryanspice.com/demo/asyncx/virtual-scroll.html',
+		'https://github.com/ryanspice/js.ryanspice.2018',
+		'https://github.com/ryanspice/esdoc-babel-plugin',
+		'https://github.com/ryanspice/vuejs-webpack4',
+		'https://github.com/ryanspice/ng4-lightning-currency-compare',
+		'https://github.com/ryanspice/babel-flow-webpack4-boilerplate',
+		'https://github.com/ryanspice/fabagohey',
+		'https://ryanspice.com/game.php?game=ReverenceLost',
+		'https://ryanspice.com/game.php?game=KongQuest',
+		'https://ryanspice.com/game.php?game=SnowBoarding',
+		'https://ryanspice.com/game.php?game=FlappyFish',
+		'https://ryanspice.com/game.php?game=Bovxel',
+		'https://ryanspice.com/Dodgeball/Dodgeball.zip'
+	]
+}
+
 const command = (...args) => { return ()=> [...args]};
 const commands = {
+
+	//COMMANDS
+
 	'auth':command('please wait',()=>{
 
 		openInNewTab('http://auth.ryanspice.com/')
@@ -68,7 +91,6 @@ const commands = {
 
 		return [
 			'error Command "start" not found.',
-//			'info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.',
 			'try running "help"'
 		];
 	},
@@ -134,23 +156,30 @@ const commands = {
 	,'minimize':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-minimize'); return ['done'];}
 	,'maximize':(evt)=>{document.getElementById('console').classList.add('slide-out-maximize'); return ['done'];}
 
-	,'Async2018':(evt)=>{openInNewTab('https://github.com/ryanspice/async-2018'); return ['done'];}
-	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return ['done'];}
-	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return ['done'];}
+	//BOILERPLATES / FRAMEWORKS
 
-	,'esdoc-babel-plugin':(evt)=>{openInNewTab('https://github.com/ryanspice/esdoc-babel-plugin'); return ['done'];}
-	,'vuejs-webpack4':(evt)=>{openInNewTab('https://github.com/ryanspice/vuejs-webpack4'); return ['done'];}
-	,'ng4+lightning':(evt)=>{openInNewTab('https://github.com/ryanspice/ng4-lightning-currency-compare'); return ['done'];}
-	,'babel-boilerplate':(evt)=>{openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate'); return ['done'];}
+	,'Async2018':(evt)=>{openInNewTab('https://github.com/ryanspice/async-2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/async-2018\''];}
+	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
+	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/js.ryanspice.2018\''];}
 
+	//CONTRIBUTIONS
 
-	,'Fabagohey':(evt)=>{openInNewTab('https://github.com/ryanspice/fabagohey'); return ['done'];}
-	,'ReverenceLost':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=ReverenceLost'); return ['done'];}
-	,'KongQuest':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=KongQuest'); return ['done'];}
-	,'SnowBoarding':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=SnowBoarding'); return ['done'];}
-	,'FlappyFish':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=FlappyFish'); return ['done'];}
-	,'Bovxel':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=Bovxel'); return ['done'];}
-	,'Dodgeball (GameMaker)':(evt)=>{openInNewTab('https://ryanspice.com/Dodgeball/Dodgeball.zip'); return ['done'];}
+	,'esdoc-babel-plugin':(evt)=>{openInNewTab('https://github.com/ryanspice/esdoc-babel-plugin'); return [msg.opening + " '" + 'https://github.com/ryanspice/esdoc-babel-plugin\''];}
+	,'vuejs-webpack4':(evt)=>{openInNewTab('https://github.com/ryanspice/vuejs-webpack4'); return [msg.opening + " '" + 'https://github.com/ryanspice/vuejs-webpack4\''];}
+	,'ng4+lightning':(evt)=>{openInNewTab('https://github.com/ryanspice/ng4-lightning-currency-compare'); return [msg.opening + " '" + 'https://github.com/ryanspice/ng4-lightning-currency-compare\''];}
+	,'babel-boilerplate':(evt)=>{openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate'); return [msg.opening + " '" + 'https://github.com/ryanspice/babel-flow-webpack4-boilerplate\''];}
+
+	,'animated-banner':(evt)=>{openInNewTab('https://ryanspice.com/dev/newman/KevinNewmanHomeBannerVanillaJS-POC.html'); return [msg.opening + " '" + 'https://github.com/ryanspice/babel-flow-webpack4-boilerplate\''];}
+
+	//GAMES
+
+	,'Fabagohey':(evt)=>{openInNewTab('https://github.com/ryanspice/fabagohey'); return [msg.opening + " '" + 'https://github.com/ryanspice/fabagohey\''];}
+	,'ReverenceLost':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=ReverenceLost'); return [msg.opening + " '" + 'https://ryanspice.com/game.php?game=ReverenceLost\''];}
+	,'KongQuest':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=KongQuest'); return [msg.opening + " '" + 'https://ryanspice.com/game.php?game=KongQuest\''];}
+	,'SnowBoarding':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=SnowBoarding'); return [msg.opening + " '" + 'https://ryanspice.com/game.php?game=SnowBoarding\''];}
+	,'FlappyFish':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=FlappyFish'); return [msg.opening + " '" + 'https://ryanspice.com/game.php?game=FlappyFish\''];}
+	,'Bovxel':(evt)=>{openInNewTab('https://ryanspice.com/game.php?game=Bovxel'); return [msg.opening + " '" + 'https://ryanspice.com/game.php?game=Bovxel\''];}
+	,'Dodgeball (GameMaker)':(evt)=>{openInNewTab('https://ryanspice.com/Dodgeball/Dodgeball.zip'); return [msg.opening + " '" + 'https://ryanspice.com/Dodgeball/Dodgeball.zip\''];}
 
 
 }
@@ -407,7 +436,7 @@ class Console extends AsyncView {
 				onkeydown="Terminal.keyup(event)"
 				style="resize:vertical;overflow-y:auto;font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);height:100%; margin-top:6.5rem;padding:1rem;" contenteditable spellcheck="false">
 
-			<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;yarn start</i></span><span id="blinking-cursor" contenteditable="false">_</span>
+			<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;</i></span><span id="blinking-cursor" contenteditable="false">_</span>
 
 			<h1 hidden style="color:rgba(25,25,25,0.25);pointer-events:none;" contenteditable="false">
 				Web Applications Developer

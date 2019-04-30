@@ -41,7 +41,7 @@ Commands:
 	minimze                             minimize window
 	theme                               set the primary colours of this page based off the image
 
-  Boilerplates / Frameworks:
+ Boilerplates / Frameworks:
 
 	Async2018                           my take on a modern JS framework
 	Async2018-VirtualScroll             a list component with only X number of elements
@@ -52,7 +52,7 @@ Commands:
 	WebpackBabelFlowBoilerplate         webpack 4 + babel 7 + flowtype
 
 
-  Games:
+ Games:
 
 	Bovxel
 	Dodgeball
@@ -63,12 +63,14 @@ Commands:
 	SnowBoarding
 
 
-  Contributions:
+ Contributions:
 
 	esdoc-babel-plugion                 update dependencies for Babel7
 	babel-boilerplate                   babel 7 + webpack 4
 	ng4+lightning
 	vuejs-webpack4                      vuejs + babel 7 + webpack 4
+
+	animated-banner                  POC in vanilla JS for drawing moving shapes
 
 
 Visit https://github.com/ryanspice or;
