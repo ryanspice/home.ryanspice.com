@@ -9,7 +9,6 @@ window.openInNewWindow = (msg)=>{
 
 window.openInNewTab = function openInNewTab(url) {
 
-	return `opening "${url}"`;
   var win = window.open(url, '_blank');
   win.focus();
 	return 'opening "'+url+'"';
@@ -150,7 +149,8 @@ const commands = {
 	,'Tetris':(evt)=>{openInNewTab('https://ryanspice.com/Tetris/'); return [msg.opening + " '" + 'https://ryanspice.com/Tetris/\''];}
 	,'tetris':(evt)=>{openInNewTab('https://ryanspice.com/Tetris/'); return [msg.opening + " '" + 'https://ryanspice.com/Tetris/\''];}
 	,'snow':(evt)=>{openInNewTab('https://ryanspice.com/examples/particles/'); return [msg.opening + " '" + 'let it snow\''];}
-	,'rain':(evt)=>{openInNewTab('https://ryanspice.com/examples/particles_rain/'); return [msg.opening + " '" + 'let it rain\''];}
+	,'rain':(evt)=>{openInNewTab('https://ryanspice.com/rain/'); return [msg.opening + " '" + 'let it rain\''];}
+	,'iso':(evt)=>{openInNewTab('https://ryanspice.com/isometric/'); return [msg.opening + " '" + 'https://ryanspice.com/isometric/\''];}
 //	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
 //	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/js.ryanspice.2018\''];}
 

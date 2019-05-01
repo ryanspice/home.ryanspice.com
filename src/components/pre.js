@@ -39,9 +39,10 @@ Usage: [command]
  Apps / Examples:
 
 	<a href="javascript:openInNewWindow('${messages.links['auth'].link}');">auth</a>                                login to ryanspice.com admin panel
-	<a href="javascript:openInNewTab('${messages.links['animated-banner'].link}');">animated-banner</a>                     POC in vanilla JS for drawing moving shapes
+	<a href="javascript:openInNewTab('${messages.links['banner'].link}');">animated-banner</a>                     POC in vanilla JS for drawing moving shapes
 	<a href="javascript:openInNewWindow('${messages.links['snow'].link}');">snow</a>                                a canvas particle example
 	<a href="javascript:openInNewWindow('${messages.links['rain'].link}');">rain</a>                                a canvas particle example
+	<a href="https://ryanspice.com/background/" target="_blank">mountains</a>                           a canvas animated background
 	<a href="javascript:openInNewWindow('${messages.links['Async2018-VirtualScroll'].link}');">virtual-scroll</a>                      a list component with only X number of elements, async2018
 
  Boilerplates / Frameworks:
@@ -50,8 +51,8 @@ Usage: [command]
 	<a href="${messages.links['Home'].link}" target="_blank">Home</a>                                this page based off of Async2018 which used BabelBoilerplate
 	<a href="${messages.links['SpiceJS-2016'].link}" target="_blank">SpiceJS-2016</a>                        a canvas based 2D game engine based on prototype inheritence
 	<a href="${messages.links['SpiceJS'].link}" target="_blank">SpiceJS</a>                             a canvas based 2D game engine based on ES6
-	<a href="${messages.links['SpiceDocs'].link}" target="_blank">SpiceDocs</a>                           a document boilerplate
 	<a href="${messages.links['WebpackBabelFlowBoilerplate'].link}" target="_blank">WebpackBabelFlowBoilerplate</a>         webpack 4 + babel 7 + flowtype
+	<a href="https://ryanspice.com/mapper/" target="_blank">WinJS Mock UI</a>
 
 
  Games:
@@ -59,6 +60,7 @@ Usage: [command]
 	<a href="javascript:openInNewWindow('${messages.links['Tetris'].link}');">Tetris</a>
 	<a href="javascript:openInNewWindow('${messages.links['Bovxel'].link}');">Bovxel</a>
 	<a href="javascript:openInNewWindow('${messages.links['Dodgeball'].link}');">Dodgeball</a>
+	<a href="https://ryanspice.com/minesweeper/" target="_blank">Minesweeper</a>
 	<a href="javascript:openInNewWindow('${messages.links['FlappyFish'].link}');">FlappyFish</a>
 	<a href="javascript:openInNewWindow('${messages.links['Fabagohey'].link}');">Fabagohey</a>
 	<a href="javascript:openInNewWindow('${messages.links['KongQuest'].link}');">KongQuest</a>
