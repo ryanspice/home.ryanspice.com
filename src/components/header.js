@@ -150,7 +150,7 @@ class Header extends AsyncView {
 
 					<li>
 
-						<a href="https://ryanspice.com/#games"> games </a>
+						<a href="https://ryanspice.com/?old#games"> games </a>
 						<!--
 					  <div class="dropdown-content acrylic" disabled>
 					    <h5><a href="#" />Bovxel</a></h5>
