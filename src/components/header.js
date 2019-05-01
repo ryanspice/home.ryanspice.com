@@ -86,10 +86,10 @@ class Header extends AsyncView {
 
 					.dropdown-content {
 
-    margin: 0px;
-    padding: 0px;
-					  display: none;
-					  position: absolute;
+						margin: 0px;
+						padding: 0px;
+						display: none;
+						position: absolute;
 					  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 					  //padding: 12px 16px;
 					  z-index: 1;
@@ -124,7 +124,6 @@ class Header extends AsyncView {
 
 				<h2>ryanspice.com</h2>
 
-
 				<ul>
 
 					<li>
@@ -155,7 +154,7 @@ class Header extends AsyncView {
 
 					</li>
 
-					<li>
+					<li class="hidden">
 
 						blog
 
@@ -166,7 +165,7 @@ class Header extends AsyncView {
 						contact
 
 					  <div class="dropdown-content acrylic">
-					    <h5>info</h5>
+					    <h5><a style="color:rgba(225,225,225,255);" href="mailto:contact@ryanspice.com" target="_self">email</a></h5>
 							<h5><a style="color:rgba(225,225,225,255);" href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank">linkedin</a></h5>
 							<h5><a style="color:rgba(225,225,225,255);" href="https://twitter.com/ryanspice?lang=en" target="_blank">twitter</a></h5>
 					    <h5><a style="color:rgba(225,225,225,255);" href="https://github.com/ryanspice" target="_blank">github</a></h5>

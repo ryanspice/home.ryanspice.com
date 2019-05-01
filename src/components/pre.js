@@ -11,8 +11,10 @@ class Pre extends AsyncView {
 	constructor(){
 
 		return super({
-			type:`pre`,
-			style:`padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`,
+
+				type:`span`,
+				style:`    font-family: monospace;
+	    white-space: pre;padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`,
 			renderTo:`main`,
 			className:``,
 			id:``,
@@ -22,51 +24,48 @@ class Pre extends AsyncView {
 
 			},
 			innerHTML:`
-Usage: [command] [flags]
-
-Displays help information.
-Flags are not implemented yet.
+Usage: [command]
 
  Commands:
 
-	auth                                login to ryanspice.com admin panel
-	close                               close window
-	help                                display commands
-	image                               generate new image
-	maximize                            maximize window
-	minimze                             minimize window
-	theme                               set the primary colours of this page based off the image
+	<a href="#">auth</a>                                login to ryanspice.com admin panel
+	<a href="#">close</a>                               close window
+	<a href="#">help</a>                                display commands
+	<a href="#">image</a>                               generate new image
+	<a href="#">maximize</a>                            maximize window
+	<a href="#">minimze</a>                             minimize window
+	<a href="#">theme</a>                               set the primary colours of this page based off the image
 
  Boilerplates / Frameworks:
 
-	Async2018                           my take on a modern JS framework
-	Async2018-VirtualScroll             a list component with only X number of elements
-	Home                                this page based off of Async2018 which used BabelBoilerplate
-	SpiceJS-2015                        a canvas based 2D game engine based on prototype inheritence
-	SpiceJS                             a canvas based 2D game engine based on ES6
-	SpiceDocs                           a document boilerplate
-	WebpackBabelFlowBoilerplate         webpack 4 + babel 7 + flowtype
+	<a href="#">Async2018</a>                           my take on a modern JS framework
+	<a href="#">Async2018-VirtualScroll</a>             a list component with only X number of elements
+	<a href="#">Home</a>                                this page based off of Async2018 which used BabelBoilerplate
+	<a href="#">SpiceJS-2015</a>                        a canvas based 2D game engine based on prototype inheritence
+	<a href="#">SpiceJS</a>                             a canvas based 2D game engine based on ES6
+	<a href="#">SpiceDocs</a>                           a document boilerplate
+	<a href="#">WebpackBabelFlowBoilerplate</a>         webpack 4 + babel 7 + flowtype
 
 
  Games:
 
-	Bovxel
-	Dodgeball
-	FlappyFish
-	Fabagohey
-	KongQuest
-	ReverenceLost
-	SnowBoarding
+	<a href="#">Bovxel</a>
+	<a href="#">Dodgeball</a>
+	<a href="#">FlappyFish</a>
+	<a href="#">Fabagohey</a>
+	<a href="#">KongQuest</a>
+	<a href="#">ReverenceLost</a>
+	<a href="#">SnowBoarding</a>
 
 
  Contributions:
 
-	esdoc-babel-plugion                 update dependencies for Babel7
-	babel-boilerplate                   babel 7 + webpack 4
-	ng4+lightning
-	vuejs-webpack4                      vuejs + babel 7 + webpack 4
+	<a href="#">esdoc-babel-plugin</a>                  update dependencies for Babel7
+	<a href="#">babel-boilerplate</a>                   babel 7 + webpack 4
+	<a href="#">ng4+lightning</a>
+	<a href="#">vuejs-webpack4</a>                      vuejs + babel 7 + webpack 4
 
-	animated-banner                  POC in vanilla JS for drawing moving shapes`
+	<a href="#">animated-banner</a>                    POC in vanilla JS for drawing moving shapes`
 
 		});
 	}

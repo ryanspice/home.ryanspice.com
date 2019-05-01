@@ -15,6 +15,11 @@ $breakpoints: (
 ) !default;
 
 
+.hidden {
+
+	display:none;
+}
+
 /// Mixin to manage responsive breakpoints
 /// @author Hugo Giraudel
 /// @param {String} $breakpoint - Breakpoint name
@@ -35,6 +40,13 @@ $breakpoints: (
   }
 }
 
+
+////////////////
+//////////////
+/////////////
+/////////////
+//////////////
+///////////////
 
 #login > header > span > a { color:rgba(225,225,225,255);}
 #login > header > span > a > svg { color:rgba(225,225,225,255);}

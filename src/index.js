@@ -13,6 +13,7 @@ import Introduction from "./components/introduction";
 import Console from "./components/console";
 import Pre from "./components/pre";
 import Pre2 from "./components/pre2";
+import Copy from "./components/copy";
 
 import Content from "./components/content";
 import Footer from "./components/footer";
