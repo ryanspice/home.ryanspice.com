@@ -7,8 +7,8 @@ window.openInNewWindow = (msg)=>{
 	window.open(`${msg}`,msg,'width=720,height=380');
 }
 
-function openInNewTab(url) {
-	openInNewWindow(url);
+window.openInNewTab = function openInNewTab(url) {
+
 	return `opening "${url}"`;
   var win = window.open(url, '_blank');
   win.focus();
@@ -137,15 +137,22 @@ const commands = {
 
 		return ['done'];
 	}
-	,'close':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-top'); return ['done'];}
-	,'minimize':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-minimize'); return ['done'];}
+	,'close':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-top'); document.getElementById('console-listItem').style.display='block';return ['done'];}
+	,'minimize':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-minimize'); document.getElementById('console-listItem').style.display='block';return ['done'];}
 	,'maximize':(evt)=>{document.getElementById('console').classList.add('slide-out-maximize'); return ['done'];}
 
 	//BOILERPLATES / FRAMEWORKS
 
 	,'Async2018':(evt)=>{openInNewTab('https://github.com/ryanspice/async-2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/async-2018\''];}
-	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
-	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/js.ryanspice.2018\''];}
+	,'async2018':(evt)=>{openInNewTab('https://github.com/ryanspice/async-2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/async-2018\''];}
+	,'SpiceJS-2016':(evt)=>{openInNewTab('https://www.npmjs.com/package/ryanspice2016-spicejs'); return [msg.opening + " '" + 'https://www.npmjs.com/package/ryanspice2016-spicejs\''];}
+	,'SpiceJS':(evt)=>{openInNewTab('https://github.com/ryanspice/spice.js'); return [msg.opening + " '" + 'https://github.com/ryanspice/spice.js\''];}
+	,'Tetris':(evt)=>{openInNewTab('https://ryanspice.com/Tetris/'); return [msg.opening + " '" + 'https://ryanspice.com/Tetris/\''];}
+	,'tetris':(evt)=>{openInNewTab('https://ryanspice.com/Tetris/'); return [msg.opening + " '" + 'https://ryanspice.com/Tetris/\''];}
+	,'snow':(evt)=>{openInNewTab('https://ryanspice.com/examples/particles/'); return [msg.opening + " '" + 'let it snow\''];}
+	,'rain':(evt)=>{openInNewTab('https://ryanspice.com/examples/particles_rain/'); return [msg.opening + " '" + 'let it rain\''];}
+//	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
+//	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/js.ryanspice.2018\''];}
 
 	//CONTRIBUTIONS
 
@@ -407,7 +414,7 @@ class Console extends AsyncView {
 						class="traffic-light traffic-light-close" id="close"></button>
 
 					<button
-						onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-minimize')"
+						onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-minimize');document.getElementById('console-listItem').style.display='block';"
 						class="traffic-light traffic-light-minimize" id="minimize"></button>
 
 					<button

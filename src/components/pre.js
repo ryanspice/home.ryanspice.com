@@ -28,27 +28,35 @@ Usage: [command]
 
  Commands:
 
+	close                               close window
+	help                                display commands
+	image                               generate new image
+	maximize                            maximize window
+	minimize                            minimize window
+	restore                             restore window
+	theme                               set the primary colours of this page based off the image
+
+ Apps / Examples:
+
 	<a href="javascript:openInNewWindow('${messages.links['auth'].link}');">auth</a>                                login to ryanspice.com admin panel
-	<a href="javascript:openInNewWindow('${messages.links['close'].link}');">close</a>                               close window
-	<a href="javascript:openInNewWindow('${messages.links['help'].link}');">help</a>                                display commands
-	<a href="javascript:openInNewWindow('${messages.links['image'].link}');">image</a>                               generate new image
-	<a href="javascript:openInNewWindow('${messages.links['maximize'].link}');">maximize</a>                            maximize window
-	<a href="javascript:openInNewWindow('${messages.links['minimze'].link}');">minimze</a>                             minimize window
-	<a href="javascript:openInNewWindow('${messages.links['theme'].link}');">theme</a>                               set the primary colours of this page based off the image
+	<a href="javascript:openInNewTab('${messages.links['animated-banner'].link}');">animated-banner</a>                     POC in vanilla JS for drawing moving shapes
+	<a href="javascript:openInNewWindow('${messages.links['snow'].link}');">snow</a>                                a canvas particle example
+	<a href="javascript:openInNewWindow('${messages.links['rain'].link}');">rain</a>                                a canvas particle example
+	<a href="javascript:openInNewWindow('${messages.links['Async2018-VirtualScroll'].link}');">virtual-scroll</a>                      a list component with only X number of elements, async2018
 
  Boilerplates / Frameworks:
 
-	<a href="javascript:openInNewWindow('${messages.links['Async2018'].link}');">Async2018</a>                           my take on a modern JS framework
-	<a href="javascript:openInNewWindow('${messages.links['Async2018-VirtualScroll'].link}');">Async2018-VirtualScroll</a>             a list component with only X number of elements
-	<a href="javascript:openInNewWindow('${messages.links['Home'].link}');">Home</a>                                this page based off of Async2018 which used BabelBoilerplate
-	<a href="javascript:openInNewWindow('${messages.links['SpiceJS-2015'].link}');">SpiceJS-2015</a>                        a canvas based 2D game engine based on prototype inheritence
-	<a href="javascript:openInNewWindow('${messages.links['SpiceJS'].link}');">SpiceJS</a>                             a canvas based 2D game engine based on ES6
-	<a href="javascript:openInNewWindow('${messages.links['SpiceDocs'].link}');">SpiceDocs</a>                           a document boilerplate
-	<a href="javascript:openInNewWindow('${messages.links['WebpackBabelFlowBoilerplate'].link}');">WebpackBabelFlowBoilerplate</a>         webpack 4 + babel 7 + flowtype
+	<a href="${messages.links['Async2018'].link}" target="_blank">Async2018</a>                           my take on a modern JS framework
+	<a href="${messages.links['Home'].link}" target="_blank">Home</a>                                this page based off of Async2018 which used BabelBoilerplate
+	<a href="${messages.links['SpiceJS-2016'].link}" target="_blank">SpiceJS-2016</a>                        a canvas based 2D game engine based on prototype inheritence
+	<a href="${messages.links['SpiceJS'].link}" target="_blank">SpiceJS</a>                             a canvas based 2D game engine based on ES6
+	<a href="${messages.links['SpiceDocs'].link}" target="_blank">SpiceDocs</a>                           a document boilerplate
+	<a href="${messages.links['WebpackBabelFlowBoilerplate'].link}" target="_blank">WebpackBabelFlowBoilerplate</a>         webpack 4 + babel 7 + flowtype
 
 
  Games:
 
+	<a href="javascript:openInNewWindow('${messages.links['Tetris'].link}');">Tetris</a>
 	<a href="javascript:openInNewWindow('${messages.links['Bovxel'].link}');">Bovxel</a>
 	<a href="javascript:openInNewWindow('${messages.links['Dodgeball'].link}');">Dodgeball</a>
 	<a href="javascript:openInNewWindow('${messages.links['FlappyFish'].link}');">FlappyFish</a>
@@ -60,12 +68,11 @@ Usage: [command]
 
  Contributions:
 
-	<a href="javascript:openInNewWindow('${messages.links['esdoc-babel-plugin'].link}');">esdoc-babel-plugin</a>                  update dependencies for Babel7
-	<a href="javascript:openInNewWindow('${messages.links['babel-boilerplate'].link}');">babel-boilerplate</a>                   babel 7 + webpack 4
-	<a href="javascript:openInNewWindow('${messages.links['ng4+lightnin'].link}');">ng4+lightning</a>
-	<a href="javascript:openInNewWindow('${messages.links['vuejs-webpack4'].link}');">vuejs-webpack4</a>                      vuejs + babel 7 + webpack 4
-
-	<a href="javascript:openInNewWindow('${messages.links['animated-banner'].link}');">animated-banner</a>                     POC in vanilla JS for drawing moving shapes`
+	<a href="${messages.links['esdoc-babel-plugin'].link}" target="_blank" >esdoc-babel-plugin</a>                  update dependencies for Babel7
+	<a href="${messages.links['babel-boilerplate'].link}" target="_blank" >babel-boilerplate</a>                   babel 7 + webpack 4
+	<a href="${messages.links['ng4+lightnin'].link}" target="_blank" >ng4+lightning</a>
+	<a href="${messages.links['vuejs-webpack4'].link}" target="_blank" >vuejs-webpack4</a>                      vuejs + babel 7 + webpack 4
+            `
 
 		});
 	}

@@ -16,8 +16,12 @@ export default {
 			link:'https://login.ryanspice.com/?ctx=1066',
 			title:'', description:''
 		},
+		'restore':{
+			link:`javascript:document.getElementById('console-listItem').style.display='none'; document.getElementById('console').classList.remove('slide-out-blurred-top'),document.getElementById('console').classList.remove('slide-out-blurred-minimize')`,
+			title:'', description:''
+		},
 		'close':{
-			link:'',
+			link:`javascript:document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-top');document.getElementById('console-listItem').style.display='block';`,
 			title:'', description:''
 		},
 		'help':{
@@ -29,11 +33,11 @@ export default {
 			title:'', description:''
 		},
 		'maximize':{
-			link:'',
+			link:`javascript:document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-top');document.getElementById('console-listItem').style.display='block';`,
 			title:'', description:''
 		},
-		'minimze':{
-			link:'',
+		'minimize':{
+			link:`javascript:document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-minimize')`,
 			title:'', description:''
 		},
 		'theme':{
@@ -44,6 +48,14 @@ export default {
 			link:'',
 			title:'', description:''
 		},
+		'snow':{
+			link:'https://ryanspice.com/examples/particles/',
+			title:'', description:''
+		},
+		'rain':{
+			link:'https://ryanspice.com/examples/particles_rain/',
+			title:'', description:''
+		},
 		'Async2018-VirtualScroll':{
 			link:'',
 			title:'', description:''
@@ -52,8 +64,8 @@ export default {
 			link:'',
 			title:'', description:''
 		},
-		'SpiceJS-2015':{
-			link:'',
+		'SpiceJS-2016':{
+			link:'https://www.npmjs.com/package/ryanspice2016-spicejs',
 			title:'', description:''
 		},
 		'SpiceJS':{
@@ -69,47 +81,51 @@ export default {
 			title:'', description:''
 		},
 		'Bovxel':{
-			link:'',
+			link:'https://ryanspice.com/Bovxel/',
+			title:'', description:''
+		},
+		'Tetris':{
+			link:'https://ryanspice.com/Tetris/',
 			title:'', description:''
 		},
 		'Dodgeball':{
-			link:'',
+			link:'https://ryanspice.com/Dodgeball/Dodgeball.zip',
 			title:'', description:''
 		},
 		'FlappyFish':{
-			link:'',
+			link:'https://ryanspice.com/FlappyFish/',
 			title:'', description:''
 		},
 		'Fabagohey':{
-			link:'',
+			link:'https://ryanspice.com/demo/',
 			title:'', description:''
 		},
 		'KongQuest':{
-			link:'',
+			link:'https://ryanspice.com/KongQuest/',
 			title:'', description:''
 		},
 		'ReverenceLost':{
-			link:'',
+			link:'https://ryanspice.com/ReverenceLost',
 			title:'', description:''
 		},
 		'SnowBoarding':{
-			link:'',
+			link:'https://ryanspice.com/SnowBoarding',
 			title:'', description:''
 		},
 		'esdoc-babel-plugin':{
-			link:'',
+			link:'https://github.com/ryanspice/esdoc-babel-plugin',
 			title:'', description:''
 		},
 		'babel-boilerplate':{
-			link:'',
+			link:'https://github.com/ryanspice/vuejs-webpack4',
 			title:'', description:''
 		},
 		'ng4+lightnin':{
-			link:'',
+			link:'https://github.com/ryanspice/ng4-lightning-currency-compare',
 			title:'', description:''
 		},
 		'vuejs-webpack4':{
-			link:'',
+			link:'https://github.com/ryanspice/babel-flow-webpack4-boilerplate',
 			title:'', description:''
 		},
 		'animated-banner':{
