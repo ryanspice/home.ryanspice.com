@@ -12,7 +12,7 @@ class Pre extends AsyncView {
 
 		return super({
 
-				type:`span`,
+				type:`pre`,
 				style:`    font-family: monospace;
 	    white-space: pre;padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`,
 			renderTo:`main`,

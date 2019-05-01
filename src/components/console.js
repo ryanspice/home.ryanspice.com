@@ -339,7 +339,7 @@ class Console extends AsyncView {
 
 		return super({
 			type:`console`,
-			style:`padding:2rem;display:block;min-width:512px;max-width:1080px;margin:0px auto;color:rgba(255,255,255,0.55);`,
+			style:`padding:2rem;display:block;max-width:1080px;margin:0px auto;color:rgba(255,255,255,0.55);`,
 			renderTo:`main`,
 			className:``,
 			id:`console`,
@@ -411,7 +411,7 @@ class Console extends AsyncView {
 
 			},
 			innerHTML:`
-			<div id ="" class="" style="min-width:512px;border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
+			<div id ="" class="" style="border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
 			<div class="traffic-lights " style="padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;">
 
 				<button
