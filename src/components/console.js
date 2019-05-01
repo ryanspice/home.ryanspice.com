@@ -1,10 +1,18 @@
 //@flow
 
-import Messages from "../messages";
+import messages from "../messages";
+
+window.openInNewWindow = (msg)=>{
+
+	window.open(`${msg}`,msg,'width=720,height=380');
+}
 
 function openInNewTab(url) {
+	openInNewWindow(url);
+	return `opening "${url}"`;
   var win = window.open(url, '_blank');
   win.focus();
+	return 'opening "'+url+'"';
 }
 function getCaretPosition(editableDiv) {
   var caretPos = 0,
@@ -52,39 +60,16 @@ function setEndOfContenteditable(contentEditableElement)
 }
 
 let temp = '';
-const version = `ryanspice.com [Version 9.0.xxxxx.xxx]`;
-const copy = `Copyright (C) ryanspice.com. All rights reserved.`;
-const directory = "~ryanspice.com\\users\\guest>";
 
-const msg = {
-	opening:'opening',
-	links:[
-		'https://github.com/ryanspice/async-2018',
-		'https://ryanspice.com/demo/asyncx/virtual-scroll.html',
-		'https://github.com/ryanspice/js.ryanspice.2018',
-		'https://github.com/ryanspice/esdoc-babel-plugin',
-		'https://github.com/ryanspice/vuejs-webpack4',
-		'https://github.com/ryanspice/ng4-lightning-currency-compare',
-		'https://github.com/ryanspice/babel-flow-webpack4-boilerplate',
-		'https://github.com/ryanspice/fabagohey',
-		'https://ryanspice.com/game.php?game=ReverenceLost',
-		'https://ryanspice.com/game.php?game=KongQuest',
-		'https://ryanspice.com/game.php?game=SnowBoarding',
-		'https://ryanspice.com/game.php?game=FlappyFish',
-		'https://ryanspice.com/game.php?game=Bovxel',
-		'https://ryanspice.com/Dodgeball/Dodgeball.zip'
-	]
-}
+const directory = messages.directory;
 
 const command = (...args) => { return ()=> [...args]};
 const commands = {
 
 	//COMMANDS
 
-	'auth':command('please wait',()=>{
-
-		openInNewTab('http://auth.ryanspice.com/')
-		return 'opening auth.ryanspice.com';},'done'),
+	'login':command('please wait',()=>{return openInNewTab(messages.links.auth.link);},'done'),
+	'auth':command('please wait',()=>{return openInNewTab(messages.links.auth.link);},'done'),
 
 	'yarn':command('you cannot actually run yarn;','or anything in this terminal for that matter', 'try "help"'),
 	'yarn start':()=>{
@@ -169,7 +154,7 @@ const commands = {
 	,'ng4+lightning':(evt)=>{openInNewTab('https://github.com/ryanspice/ng4-lightning-currency-compare'); return [msg.opening + " '" + 'https://github.com/ryanspice/ng4-lightning-currency-compare\''];}
 	,'babel-boilerplate':(evt)=>{openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate'); return [msg.opening + " '" + 'https://github.com/ryanspice/babel-flow-webpack4-boilerplate\''];}
 
-	,'animated-banner':(evt)=>{openInNewTab('https://ryanspice.com/dev/newman/KevinNewmanHomeBannerVanillaJS-POC.html'); return [msg.opening + " '" + 'https://github.com/ryanspice/babel-flow-webpack4-boilerplate\''];}
+	,'animated-banner':command((evt)=>{ return openInNewTab(messages.links.banner.link);},'done')
 
 	//GAMES
 
@@ -300,13 +285,16 @@ let theme = async function(){
 							}
 
 
-						let color = Swatch(0);
-						let linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
+						const color = Swatch(0);
+						const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
 
 						writeToConsole_Swatches = [color,linkcolor];
-						console.log(color);
-						document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}*{
-							transition: all 0.3s ease;
+						//console.log(color);
+
+
+						document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}
+							*{
+							//transition: all 0.3s ease;
 
 						}</style>`));
 
@@ -412,37 +400,38 @@ class Console extends AsyncView {
 			},
 			innerHTML:`
 			<div id ="" class="" style="border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
-			<div class="traffic-lights " style="padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;">
+				<div class="traffic-lights " style="padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;-webkit-touch-callout: none; /* iOS Safari */    -webkit-user-select: none; /* Safari */     -khtml-user-select: none; /* Konqueror HTML */       -moz-user-select: none; /* Firefox */        -ms-user-select: none; /* Internet Explorer/Edge */            user-select: none; ">
 
-				<button
-					onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-top')"
-					class="traffic-light traffic-light-close" id="close"></button>
+					<button
+						onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-top');document.getElementById('console-listItem').style.display='block';"
+						class="traffic-light traffic-light-close" id="close"></button>
 
-				<button
-					onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-minimize')"
-					class="traffic-light traffic-light-minimize" id="minimize"></button>
+					<button
+						onclick="document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.toggle('slide-out-blurred-minimize')"
+						class="traffic-light traffic-light-minimize" id="minimize"></button>
 
-				<button
-					onclick="document.getElementById('console').classList.toggle('slide-out-maximize')"
-					class="traffic-light traffic-light-maximize" id="maximize"></button>
+					<button
+						onclick="document.getElementById('console').classList.toggle('slide-out-maximize')"
+						class="traffic-light traffic-light-maximize" id="maximize"></button>
 
-			</div>
+				</div>
 
-			<div
-				id="console-scroll"
-				value="0"
-				onblur="document.getElementById('blinking-cursor').style.display='inline-block'"
-				onfocus="document.getElementById('blinking-cursor').style.display='none'; this.selectionStart = this.selectionEnd = this.children[0].innerText.length-1;"
-				onkeydown="Terminal.keyup(event)"
-				style="resize:vertical;overflow-y:auto;font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);height:100%; margin-top:6.5rem;padding:1rem;" contenteditable spellcheck="false">
+				<div
+					id="console-scroll"
+					value="0"
+					onblur="document.getElementById('blinking-cursor').style.display='inline-block'"
+					onfocus="document.getElementById('blinking-cursor').style.display='none'; this.selectionStart = this.selectionEnd = this.children[0].innerText.length-1;"
+					onkeydown="Terminal.keyup(event)"
+					style="resize:vertical;overflow-y:auto;font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);height:100%; margin-top:6.5rem;padding:1rem;" contenteditable spellcheck="false">
 
-			<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;</i></span><span id="blinking-cursor" contenteditable="false">_</span>
+				<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" >${messages.version}<br/><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;</i></span><span id="blinking-cursor" contenteditable="false">_</span>
 
-			<h1 hidden style="color:rgba(25,25,25,0.25);pointer-events:none;" contenteditable="false">
-				Web Applications Developer
-			</h1>
+				<h1 hidden style="color:rgba(25,25,25,0.25);pointer-events:none;" contenteditable="false">
+					Web Applications Developer
+				</h1>
 
-			</div>
+				</div>
+
 			</div>
 
 

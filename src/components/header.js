@@ -28,6 +28,9 @@ class Header extends AsyncView {
 						text-shadow: 1px 1px 60px rgba(0, 0, 0, 1);
 						position:relative;
 						z-index:5;
+
+  					-webkit-touch-callout: none; /* iOS Safari */    -webkit-user-select: none; /* Safari */     -khtml-user-select: none; /* Konqueror HTML */       -moz-user-select: none; /* Firefox */        -ms-user-select: none; /* Internet Explorer/Edge */            user-select: none;
+
 					}
 					header span {
 						display:inline-block;
@@ -63,6 +66,7 @@ class Header extends AsyncView {
 								padding:0px;
 					}
 
+					header ul li a { color:rgba(225,225,225,255); }
 					header ul li {
 						display:inline-block;
 						padding:1rem;
@@ -97,6 +101,7 @@ class Header extends AsyncView {
 							box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
 					}
 
+					.dropdown-content h5 a {color:black !important;}
 					.dropdown-content h5 {
 						min-width: 160px;
 						padding-left:3rem;
@@ -128,19 +133,35 @@ class Header extends AsyncView {
 
 					<li>
 
-						  home
+						  apps
 
 						  <div class="dropdown-content acrylic">
-						    <h5><a style="color:rgba(225,225,225,255);"
-									onclick="document.getElementById('console').classList.remove('slide-out-blurred-top'),document.getElementById('console').classList.remove('slide-out-blurred-minimize')">console</a></h5>
+
+						    <h5 id="console-listItem" style="display:none;"><a style="color:rgba(225,225,225,255);"
+									onclick="document.getElementById('console-listItem').style.display='none'; document.getElementById('console').classList.remove('slide-out-blurred-top'),document.getElementById('console').classList.remove('slide-out-blurred-minimize')">console</a></h5>
+
+								<h5><a href="https://ryanspice.com/demo/asyncx/virtual-scroll.html" target="_blank" />virtual list</a></h5>
+
+								<h5><a href="https://ryanspice.com/dev/newman/KevinNewmanHomeBannerVanillaJS-POC.html" target="_blank" />banner</a></h5>
+
 						  </div>
 
 					</li>
 
 					<li>
 
-						applications
-
+						<a href="https://ryanspice.com"> games </a>
+						<!--
+					  <div class="dropdown-content acrylic" disabled>
+					    <h5><a href="#" />Bovxel</a></h5>
+					    <h5><a href="#" />Dodgeball</a></h5>
+					    <h5><a href="#" />FlappyFish</a></h5>
+					    <h5><a href="#" />Fabagohey</a></h5>
+					    <h5><a href="#" />KongQuest</a></h5>
+					    <h5><a href="#" />ReverenceLost</a></h5>
+					    <h5><a href="#" />SnowBoarding</a></h5>
+					  </div>
+						-->
 					</li>
 
 					<li>
@@ -148,8 +169,8 @@ class Header extends AsyncView {
 						resume
 
 					  <div class="dropdown-content acrylic">
-					    <h5 href="https://1drv.ms/b/s!AobiFvI3GaiduPQmp_PkmM0EdWh3cA">pdf</h5>
-					    <h5 href="https://1drv.ms/w/s!AobiFvI3Gaidtol5iCyf_RPjkbXWcg">docx</h5>
+					    <h5><a href="https://1drv.ms/b/s!AobiFvI3GaiduPQmp_PkmM0EdWh3cA">pdf</a></h5>
+					    <h5><a href="https://1drv.ms/w/s!AobiFvI3Gaidtol5iCyf_RPjkbXWcg">docx</a></h5>
 					  </div>
 
 					</li>
