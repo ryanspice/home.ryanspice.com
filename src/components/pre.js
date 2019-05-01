@@ -22,16 +22,12 @@ class Pre extends AsyncView {
 
 			},
 			innerHTML:`
-Usage: yarn start [application/game] [flags]
+Usage: [command] [flags]
 
 Displays help information.
+Flags are not implemented yet.
 
-Options:
-
-	-h, --help                          output usage information
-	-info                               details on the project
-
-Commands:
+ Commands:
 
 	auth                                login to ryanspice.com admin panel
 	close                               close window
@@ -70,16 +66,18 @@ Commands:
 	ng4+lightning
 	vuejs-webpack4                      vuejs + babel 7 + webpack 4
 
-	animated-banner                  POC in vanilla JS for drawing moving shapes
-
-
-Visit https://github.com/ryanspice or;
-Contact me at contact@ryanspice.com to learn more about what I can do.
-				`
+	animated-banner                  POC in vanilla JS for drawing moving shapes`
 
 		});
 	}
 
 }
+/*
 
+Options:
+
+	-h, --help                          output usage information
+	-info                               details on the project
+
+ */
 export default new Pre()

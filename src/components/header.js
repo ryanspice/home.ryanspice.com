@@ -12,7 +12,7 @@ class Header extends AsyncView {
 
 		return super({
 			type:`header`,
-			style:`padding:2rem;padding-top:4.5rem;padding-bottom:2.5rem;max-width:1080px;margin:0px auto;color:white;`,
+			style:`padding:2rem;padding-top:4.5rem;padding-bottom:2.5rem;max-width:1080px;margin:0px auto;color:rgba(225,225,225,255);`,
 			renderTo:`main`,
 			className:``,
 			id:``,
@@ -26,7 +26,8 @@ class Header extends AsyncView {
 					header * {
 
 						text-shadow: 1px 1px 60px rgba(0, 0, 0, 1);
-
+						position:relative;
+						z-index:5;
 					}
 					header span {
 						display:inline-block;
@@ -40,18 +41,17 @@ class Header extends AsyncView {
 						cursor:pointer;
 					}
 
-					header a {
-
+					header h2 {
 						display:inline-block;
+						margin-right:1rem;
 
 					}
 
-					header a h2 {
-
-						color:white;
+					header h2 {
+						color:rgba(225,225,225,255);
 
 						display:inline-block;
-						position:relative;top:2px;
+						position:relative;top:0.3rem;
 
 					}
 
@@ -71,7 +71,7 @@ class Header extends AsyncView {
 					}
 
 										header ul li:hover {
-											padding-bottom:200px;
+											//padding-bottom:200px;
 										}
 
 
@@ -121,9 +121,9 @@ class Header extends AsyncView {
 					}
 
 				</style>
-				<a>
-					<h2>ryanspice.com</h2>
-				</a>
+
+				<h2>ryanspice.com</h2>
+
 
 				<ul>
 
@@ -132,7 +132,7 @@ class Header extends AsyncView {
 						  home
 
 						  <div class="dropdown-content acrylic">
-						    <h5><a style="color:white;"
+						    <h5><a style="color:rgba(225,225,225,255);"
 									onclick="document.getElementById('console').classList.remove('slide-out-blurred-top'),document.getElementById('console').classList.remove('slide-out-blurred-minimize')">console</a></h5>
 						  </div>
 
@@ -167,18 +167,18 @@ class Header extends AsyncView {
 
 					  <div class="dropdown-content acrylic">
 					    <h5>info</h5>
-							<h5><a style="color:white;" href="https://twitter.com/ryanspice?lang=en" target="_blank">twitter</a></h5>
-					    <h5><a style="color:white;" href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank">linkedin</a></h5>
-					    <h5><a style="color:white;" href="https://github.com/ryanspice" target="_blank">github</a></h5>
+							<h5><a style="color:rgba(225,225,225,255);" href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank">linkedin</a></h5>
+							<h5><a style="color:rgba(225,225,225,255);" href="https://twitter.com/ryanspice?lang=en" target="_blank">twitter</a></h5>
+					    <h5><a style="color:rgba(225,225,225,255);" href="https://github.com/ryanspice" target="_blank">github</a></h5>
 					  </div>
 
 					</li>
 				</ul>
 
 				<span>
+				<a href="https://github.com/ryanspice" target="_blank"><i data-feather="github" style="margin-right:0rem;"></i></a>
 					<a href="https://twitter.com/ryanspice?lang=en" target="_blank"><i data-feather="twitter" ></i></a>
 					<a href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank"><i data-feather="linkedin" ></i></a>
-					<a href="https://github.com/ryanspice" target="_blank"><i data-feather="github" style="margin-right:0rem;"></i></a>
 				</span>
 
 				`

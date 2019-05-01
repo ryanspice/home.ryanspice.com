@@ -1,10 +1,9 @@
 
-@import url("../../node_modules/xterm/dist/xterm.css");
 //$main-color:#008c99;
 //$
 //$
 $main-color:#222222;
-$secondary-color:#646464;
+$secondary-color:#88b5dd;
 $scale:2;
 
 
@@ -37,18 +36,19 @@ $breakpoints: (
 }
 
 
-#login > header > span > a { color:white;}
+#login > header > span > a { color:rgba(225,225,225,255);}
+#login > header > span > a > svg { color:rgba(225,225,225,255);}
 
 #login > header > span > a > svg.feather.feather-twitter {
 	&:hover {
 		color:#38A1F3;
-		&:after { content:"eh"}
+		//&:after { content:"eh"}
 	}
  }
 #login > header > span > a > svg.feather.feather-linkedin {
 	&:hover {
 		color:#0077B5;
-		&:after { content:"eh"}
+		//&:after { content:"eh"}
 	}
  }
 #login > header > span > a > svg.feather.feather-github {
@@ -56,32 +56,49 @@ $breakpoints: (
 		color:#4078c0;
 		&:after {
 
-  content: " (" attr(href) ")";
+  //content: " (" attr(href) ")";
 }
 	}
  }
 .blinking-cursor{
 	::before{
-		content:'eh'
+//		content:'eh'
 	}
 }
+
+
+header {
+  position: relative;
+  z-index: 5; }
+  header * {
+    position: relative;
+    z-index: 5; }
+
+section * {
+  position: relative;
+  z-index: 4; }
+
+#login > header > ul > li > div {
+  display: none; }
+
+#login > header > ul > li:hover > div {
+  display: table; }
+
 
 	header ul {
 	}
 
 
 	@media (min-width: 767px) {
-	}
-
 
 		pre {
-			display:none !important;
+			display:inline-block;
 		}
 	}
 	@media (max-width: 767px) {
 
 		pre {
-			display:none;
+			display:none !important;
 		}
 
 		header ul {
