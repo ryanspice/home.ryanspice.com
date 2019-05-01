@@ -151,7 +151,10 @@ const commands = {
 	,'snow':(evt)=>{openInNewTab('https://ryanspice.com/examples/particles/'); return [msg.opening + " '" + 'let it snow\''];}
 	,'rain':(evt)=>{openInNewTab('https://ryanspice.com/rain/'); return [msg.opening + " '" + 'let it rain\''];}
 	,'iso':(evt)=>{openInNewTab('https://ryanspice.com/isometric/'); return [msg.opening + " '" + 'https://ryanspice.com/isometric/\''];}
-//	,'Async2018-VirtualScroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
+	,'virtual-scroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
+	,'mountains':(evt)=>{ return openInNewTab('https://ryanspice.com/background/'); }
+	,'WebpackBabelFlowBoilerplate':(evt)=>{ return openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate/'); }
+	,'WinJS Mock UI':(evt)=>{ return openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate'); }
 //	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return [msg.opening + " '" + 'https://github.com/ryanspice/js.ryanspice.2018\''];}
 
 	//CONTRIBUTIONS
