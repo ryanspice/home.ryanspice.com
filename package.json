@@ -1,7 +1,7 @@
 {
 	"name": "home.ryanspice.com",
 	"short_name": "home.rs",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "home.ryanspice.com",
 	"main": "index.js",
 	"author": "Ryan Spice-Finnie <contact@ryanspice.com>",
@@ -10,7 +10,7 @@
 	"scripts": {
 		"clean:dist": "rimraf dist",
 		"start": "yarn serve",
-		"dev": "yarn webpack --config webpack.dev.js --env.NODE_ENV=development --env.development",
+		"build": "yarn webpack --config webpack.dev.js --env.NODE_ENV=development --env.development",
 		"serve": "yarn webpack-dev-server --env.NODE_ENV=development --env.development",
 		"watch": "yarn dev --watch",
 		"prod": "yarn clean:dist && yarn webpack --config webpack.prod.js --env.NODE_ENV=production --env.production",
@@ -20,6 +20,7 @@
 		"async.2018": "^1.1.0-RC4"
 	},
 	"devDependencies": {
+		"http-server": "^0.11.1",
 		"@babel/core": "^7.2.0",
 		"@babel/plugin-proposal-class-properties": "^7.2.1",
 		"@babel/plugin-proposal-decorators": "^7.2.0",
