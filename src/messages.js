@@ -1,5 +1,5 @@
 export default {
-	version:`ryanspice.com [Version 9.0.0-RC0]`,
+	version:`ryanspice.com [Version 9.0.1]`,
 	copy:`Copyright (C) ryanspice.com. All rights reserved.`,
 	directory:`~ryanspice.com\\users\\guest>`,
 	login:{
