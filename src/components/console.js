@@ -332,9 +332,10 @@ const last = [
 ]
 
 class Console extends AsyncView {
+
 	sequence:any = 3;
 	type:any = `console`;
-	style:any = `padding:2rem;display:block;max-width:1080px;margin:0px auto;color:rgba(255,255,255,0.55);`;
+	style:any = `padding:2rem;display:block;min-height:20vh;max-width:1080px;margin:0px auto;color:rgba(255,255,255,0.55);`;
 	renderTo:any = `main`;
 	className:any = ``;
 	id:any = `console`;
@@ -429,7 +430,7 @@ class Console extends AsyncView {
 			onblur="document.getElementById('blinking-cursor').style.display='inline-block'"
 			onfocus="document.getElementById('blinking-cursor').style.display='none'; this.selectionStart = this.selectionEnd = this.children[0].innerText.length-1;"
 			onkeydown="Terminal.keyup(event)"
-			style="resize:vertical;overflow-y:auto;font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);height:100%; margin-top:6.5rem;padding:1rem;" contenteditable spellcheck="false">
+			style="resize:vertical;overflow-y:auto;font-family:monospace, consolas;color:rgba(255,255,255,0.25);background:rgba(0,0,0,0.75);min-height:20vh;height:100%; margin-top:6.5rem;padding:1rem;" contenteditable spellcheck="false">
 
 		<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" >${messages.version}<br/><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;</i></span><span id="blinking-cursor" contenteditable="false">_</span>
 

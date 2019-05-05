@@ -1,3 +1,4 @@
+const package = require("./package.json");
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.config.js');
@@ -31,8 +32,9 @@ const MinifyPlugins = {
 }
 
 const production = {
+
 	mode: 'production',
-	devtool: 'none',
+	devtool: 'hidden',
 	stats: {
 		colors: false,
 		hash: true,
@@ -50,9 +52,10 @@ const production = {
 
 		usedExports: true,
 
-			minimizer: [
-				new MinifyPlugin(MinifyPlugins)
-			],
+		minimizer: [
+			new MinifyPlugin(MinifyPlugins)
+		],
+
 		splitChunks: {
 
 			cacheGroups: {
@@ -83,8 +86,17 @@ const production = {
 }
 
 module.exports = env => {
+
+	let es6 = {output:{}};
+	es6.output.filename = `${package.short_name}[contenthash].js`;
+	es6.output.chunkFilename = '[name].[contenthash].bundle.js';
+
+	let es5 = {output:{}};
+	es5.output.filename = `${package.short_name}.legacy.js`;
+	es5.output.chunkFilename = '[name].legacy.bundle.js';
+
 	return [
-		merge(common[0](env), production),
-		merge(common[1](env), production)
+		merge(common[0](env), Object.assign(production,es6)),
+		merge(common[1](env), Object.assign(production,es5))
 	]
 };

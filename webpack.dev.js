@@ -6,6 +6,7 @@ const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /*
  *
@@ -169,6 +170,7 @@ const build = env => {
 
 			new webpack.optimize.OccurrenceOrderPlugin(true),
 
+
 			new ManifestPlugin({
 				fileName: 'manifest.json',
 				seed: {
@@ -258,6 +260,25 @@ const build = env => {
 		}
 
 	};
+	
+	if (type != "legacy")
+		bundle.plugins.push(new HtmlWebpackPlugin({
+	 // Required
+	 inject: false,
+	 template: './template.ejs',
+
+	 scripts: [
+
+		 {
+			 src:'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
+			 type: 'module'
+		 }
+	 ]
+
+
+ }))
+
+
 
 	return bundle;
 };
