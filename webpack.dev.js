@@ -260,12 +260,15 @@ const build = env => {
 		}
 
 	};
-	
+
 	if (type != "legacy")
 		bundle.plugins.push(new HtmlWebpackPlugin({
 	 // Required
 	 inject: false,
 	 template: './template.ejs',
+
+	 //
+	 title:'home.ryanspice.com',
 
 	 scripts: [
 

@@ -44,11 +44,6 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
     if (htmlWebpackPlugin.options.headHtmlSnippet) { %>
     <%= htmlWebpackPlugin.options.headHtmlSnippet %><%
     } %>
-
-
-
-		<title>home - ryanspice.com </title>
-
 		<meta name="viewport" content="width=device-width">
 		<link rel="manifest" href="./manifest.json">
 		<link href="https://ryanspice.com/favicon.ico" rel="shortcut icon" type="image/png">
@@ -146,12 +141,6 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 
 		</style>
 
-
-
-
-
-
-
   </head>
 	<body
 		ondblclick="SetColourTheme()"
@@ -220,18 +209,15 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
     <script src="<%= htmlWebpackPlugin.options.devServer %>/webpack-dev-server.js" type="text/javascript"></script><%
     } %>
 
-<!-- todo add automatic add -->
+	<!-- todo add automatic add -->
 
-		<script nomodule type="text/javascript" src="home.rs.legacy.01.js"></script>
+	<script nomodule type="text/javascript" src="home.rs.legacy.01.js"></script>
 
-		<script nomodule type="text/javascript" src="home.rs.legacy.10.js"></script>
+	<script nomodule type="text/javascript" src="home.rs.legacy.10.js"></script>
 
-		<script nomodule type="text/javascript" src="home.rs.legacy.11.js"></script>
+	<script nomodule type="text/javascript" src="home.rs.legacy.11.js"></script>
 
-		<script nomodule defer type="text/javascript" src="home.rs.legacy.js"></script>
-
-
-
+	<script nomodule defer type="text/javascript" src="home.rs.legacy.js"></script>
 
 		<%
     if (htmlWebpackPlugin.options.googleAnalytics) { %>
