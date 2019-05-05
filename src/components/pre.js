@@ -7,23 +7,19 @@ import {
 } from "../entry";
 
 class Pre extends AsyncView {
+	sequence:any = 4;
+	type:any = `pre`;
+	style:any = `    font-family: monospace;
+  white-space: pre;padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`;
+	renderTo:any = `main`;
+	className:any = ``;
+	id:any = ``;
+	mounted:any = ()=>{
 
-	constructor(){
+		  feather.replace();
 
-		return super({
-
-				type:`pre`,
-				style:`    font-family: monospace;
-	    white-space: pre;padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`,
-			renderTo:`main`,
-			className:``,
-			id:``,
-			mounted:()=>{
-
-				  feather.replace();
-
-			},
-			innerHTML:`
+	};
+	innerHTML:any = `
 Usage: [command]
 
  Commands:
@@ -74,18 +70,7 @@ Usage: [command]
 	<a href="${messages.links['babel-boilerplate'].link}" target="_blank" >babel-boilerplate</a>                   babel 7 + webpack 4
 	<a href="${messages.links['ng4+lightnin'].link}" target="_blank" >ng4+lightning</a>
 	<a href="${messages.links['vuejs-webpack4'].link}" target="_blank" >vuejs-webpack4</a>                      vuejs + babel 7 + webpack 4
-            `
+            `;
+};
 
-		});
-	}
-
-}
-/*
-
-Options:
-
-	-h, --help                          output usage information
-	-info                               details on the project
-
- */
-export default new Pre()
+export default new Pre();

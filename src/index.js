@@ -4,23 +4,11 @@ import log from "loglevel";
 
 import AsyncTemplate from "./entry";
 
-import {Main} from "./components/index";
+AsyncTemplate.pre =async function(){
 
-import Header from "./components/header";
-import Login from "./components/login";
+	require("./components");
 
-import Introduction from "./components/introduction";
-import Console from "./components/console";
-import Pre from "./components/pre";
-import Pre2 from "./components/pre2";
-import Copy from "./components/copy";
-
-import Content from "./components/content";
-import Footer from "./components/footer";
-
-import LoginInput from "./components/login_input";
-
-AsyncTemplate.pre = () => {
+	window['async-2018-mvc'].entry.sort((a,b)=>{return (a.sequence?a.sequence:0)-(b.sequence?b.sequence:0)});
 
 	log.setLevel(log.levels.WARN);
 
@@ -30,20 +18,10 @@ AsyncTemplate.pre = () => {
 
 AsyncTemplate.post = () => {
 
-	document.getElementById('loader').style.display = "none";
-
-	setTimeout(function(){
-
-		document.getElementById('userinput_0').focus();
-
-		log.debug(`focused`);
-
-	}, 300);
-
 };
 
-window.onload = function onload(){
+window.onload = function onload(evt){
 
-	window.auth = new AsyncTemplate();
+	window.home = new AsyncTemplate();
 
 };
