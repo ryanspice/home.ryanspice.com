@@ -1,4 +1,10 @@
 
+
+let lastIndex = 0;
+const last = [
+
+];
+
 window.openInNewWindow = (msg)=>{
 
 	window.open(`${msg}`,msg,'width=720,height=380');
@@ -56,6 +62,10 @@ window.setEndOfContenteditable = function setEndOfContenteditable(contentEditabl
     }
 };
 
+/**
+ * [Terminal description]
+ * @type {Object}
+ */
 
 
 
@@ -119,4 +129,141 @@ window.Terminal = {
 		}
 
 	}
+};
+
+
+window.writeToConsole = function(evt){
+
+	let textarea= evt.target.children[0];
+	let taLength = textarea.innerText.length;
+
+	if (taLength<27)
+			evt.target.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>yarn start</span><span id="blinking-cursor" contenteditable="false">_</span>`;
+
+
+			setTimeout(()=>{
+
+				let taValue = textarea.innerText.split(directory)[textarea.innerText.split(directory).length-1];
+				taValue = taValue.trim();
+				last.push(taValue);
+
+				let results = null;
+				let i = 0;
+				try{
+					results = "";
+					(commands[taValue]()).forEach(val=>{
+
+						if (typeof val == 'function')
+							val = val();
+
+
+						results=val;
+						i++;
+
+						//loop each function output
+
+							setTimeout(()=>{
+								textarea.innerHTML = textarea.innerHTML+"<br/>"+val;
+								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+							},100*i)
+
+						});
+
+						//run director output
+
+						setTimeout(()=>{
+								textarea.innerHTML = textarea.innerHTML+"<br/>"+"\n"+"<br/>"+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+						},500+100*i)
+
+				}catch(e){
+					results = `	`+e.toString();
+				}
+
+				if (!commands[taValue])
+					textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+
+				setEndOfContenteditable(evt.target);
+
+				//document.getElementById('written').focus();
+
+				if (evt.target.children[2])
+					evt.target.children[2].remove();
+
+				setTimeout(()=>{
+
+					if (evt.target.children[2])
+						evt.target.children[2].remove();
+
+					document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+
+				},100);
+
+			},100);
+
+}
+
+window.SetColourTheme = ()=>{};
+
+
+let writeToConsole_Swatches = '';
+
+window.theme = async function(){
+
+		let img = await new Image();
+
+		img.style.display = "none";
+		img.crossOrigin = "Anonymous";
+
+		img.onload = async ()=>{
+
+	    var width = img.width,
+	    height = img.height;
+
+			SetColourTheme =async ()=>{
+
+				let vib = await new window.Vibrant(img,32,3);
+
+				const Swatch = (type)=>{
+
+					try{
+					var sw = [
+						'DarkMutedSwatch',
+						'DarkVibrantSwatch',
+						'LightMutedSwatch',
+						'LightVibrantSwatch',
+						'MutedSwatch',
+						'VibrantSwatch'
+					]
+
+					return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
+
+				}	catch(e){
+
+						return false;
+
+					}
+
+			};
+
+				const color = Swatch(0);
+				const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
+
+				writeToConsole_Swatches = [color,linkcolor];
+
+				await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
+
+				await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+
+				writeToConsole_Swatches = ['done'];
+
+			};
+			SetColourTheme();
+		};
+
+		img.src = 'https://source.unsplash.com/random';
+
+		await document.body.append(img);
+
+	return img;
 };
