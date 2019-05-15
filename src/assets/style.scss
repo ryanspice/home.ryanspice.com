@@ -1,12 +1,7 @@
 
-//$main-color:#008c99;
-//$
-//$
 $main-color:#222222;
 $secondary-color:#88b5dd;
 $scale:2;
-
-
 
 $breakpoints: (
   'small':  ( min-width:  767px ),
@@ -14,7 +9,14 @@ $breakpoints: (
   'large':  ( min-width: 1200px )
 ) !default;
 
+html, body, html *, body * {
 
+	//-webkit-transition: alll 200ms linear;
+	//transition: all 200ms linear;
+	-webkit-transition: background-image 200ms ease-in-out;
+	transition: background-image 200ms ease-in-out;
+
+}
 
 .hidden {
 

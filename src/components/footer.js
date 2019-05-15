@@ -23,6 +23,7 @@ class Footer extends AsyncView {
 	mounted: any = () => {
 
 		feather.replace();
+		
 
 	};
 	innerHTML: any = ``;

@@ -236,8 +236,7 @@ const build = env => {
 					secure: false,
 					changeOrigin: true
         }
-		},
-			port: 8080,
+			},
 			contentBase: './dist',
 			hot: false,
 			inline: true,

@@ -268,9 +268,9 @@ let theme = async function(){
 				img.onload = async ()=>{
 				    var width = img.width,
 				    height = img.height;
-						let vib = await new window.Vibrant(img,32,3);
 
-						SetColourTheme = ()=>{
+						SetColourTheme =async ()=>{
+							let vib = await new window.Vibrant(img,32,3);
 
 							const Swatch = (type)=>{
 
@@ -318,6 +318,8 @@ let theme = async function(){
 
 				await document.body.append(img);
 				console.log(img);
+				let x = img.onload;
+				img.onload = ()=>{ x(); SetColourTheme();}
 			return img;
 };
 
