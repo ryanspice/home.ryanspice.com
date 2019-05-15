@@ -55,3 +55,68 @@ window.setEndOfContenteditable = function setEndOfContenteditable(contentEditabl
         range.select();//Select the range (make it the visible selection
     }
 };
+
+
+
+
+window.Terminal = {
+	running:false,
+	keyup:(evt)=>{
+
+
+		let textarea= evt.target.children[0];
+		//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1])
+		//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length)
+
+
+		if (evt.ctrlKey)
+		if (evt.key=="a"){
+			evt.preventDefault();
+		}
+
+			if (evt.key=="ArrowUp"){
+				evt.preventDefault();
+				if (lastIndex<0)
+					lastIndex=0;
+
+				textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-1-(lastIndex++)||0]||last[0]}</i></span>`;
+
+			}
+			if (evt.key=="ArrowDown"){
+				evt.preventDefault();
+				if (lastIndex>last.length-1)
+				lastIndex=last.length-1;
+				textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-(lastIndex--)||last.length-1]||last[last.length-1]}</i></span>`;
+
+			}
+
+		if (getCaretPosition(textarea)<1){
+			if (evt.key=="ArrowLeft"){
+				evt.preventDefault();
+			}
+			if (evt.key=="Backspace"){
+			//	evt.preventDefault();
+			}
+
+		}
+
+		if(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length<29){
+
+			if (evt.key=="Backspace"){
+				evt.preventDefault();
+				//evt.target.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;yarn start</i></span><span id="blinking-cursor" contenteditable="false">_</span>`;
+		}
+	}
+
+		//if (Terminal.running)
+		//							evt.preventDefault();
+
+		if (evt.key=="Enter"){
+			Terminal.running=true;
+			evt.preventDefault();
+			writeToConsole(evt);
+
+		}
+
+	}
+};

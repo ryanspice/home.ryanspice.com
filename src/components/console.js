@@ -4,6 +4,7 @@ import utils from "../utils";
 
 import messages from "../messages";
 
+require("../Vibrant");
 
 let temp = '';
 
@@ -126,6 +127,7 @@ const commands = {
 
 }
 
+
 // ES6
 
 
@@ -208,66 +210,63 @@ window.SetColourTheme = ()=>{};
 let writeToConsole_Swatches = '';
 
 let theme = async function(){
-				await require("../Vibrant");
-				let img = await new Image();
-				img.style.display = "none";
-				img.crossOrigin = "Anonymous";
-				img.onload = async ()=>{
-				    var width = img.width,
-				    height = img.height;
 
-						SetColourTheme =async ()=>{
-							let vib = await new window.Vibrant(img,32,3);
+		let img = await new Image();
 
-							const Swatch = (type)=>{
+		img.style.display = "none";
+		img.crossOrigin = "Anonymous";
 
-								try{
-								var sw = [
-									'DarkMutedSwatch',
-									'DarkVibrantSwatch',
-									'LightMutedSwatch',
-									'LightVibrantSwatch',
-									'MutedSwatch',
-									'VibrantSwatch'
-								]
+		img.onload = async ()=>{
 
-								return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
+	    var width = img.width,
+	    height = img.height;
 
-							}	catch(e){
+			SetColourTheme =async ()=>{
 
-									return false;
+				let vib = await new window.Vibrant(img,32,3);
 
-								}
+				const Swatch = (type)=>{
 
-							}
+					try{
+					var sw = [
+						'DarkMutedSwatch',
+						'DarkVibrantSwatch',
+						'LightMutedSwatch',
+						'LightVibrantSwatch',
+						'MutedSwatch',
+						'VibrantSwatch'
+					]
 
+					return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
 
-						const color = Swatch(0);
-						const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
+				}	catch(e){
 
-						writeToConsole_Swatches = [color,linkcolor];
-						//console.log(color);
+						return false;
 
+					}
 
-						document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}
-							*{
-							//transition: all 0.3s ease;
+			};
 
-						}</style>`));
+				const color = Swatch(0);
+				const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
 
-						Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+				writeToConsole_Swatches = [color,linkcolor];
 
-						writeToConsole_Swatches = ['done'];
-					};
-				}
+				await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
 
-				img.src = 'https://source.unsplash.com/random';
+				await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
 
-				await document.body.append(img);
-				console.log(img);
-				let x = img.onload;
-				img.onload = ()=>{ x(); SetColourTheme();}
-			return img;
+				writeToConsole_Swatches = ['done'];
+
+			};
+			SetColourTheme();
+		};
+
+		img.src = 'https://source.unsplash.com/random';
+
+		await document.body.append(img);
+
+	return img;
 };
 
 import {
@@ -289,70 +288,10 @@ class Console extends AsyncView {
 	className:any = ``;
 	id:any = `console`;
 	mounted:any = async ()=>{
+
 		theme();
 
 
-		window.Terminal = {
-			running:false,
-			keyup:(evt)=>{
-
-
-				let textarea= evt.target.children[0];
-				//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1])
-				//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length)
-
-
-				if (evt.ctrlKey)
-				if (evt.key=="a"){
-					evt.preventDefault();
-				}
-
-					if (evt.key=="ArrowUp"){
-						evt.preventDefault();
-						if (lastIndex<0)
-							lastIndex=0;
-
-						textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-1-(lastIndex++)||0]||last[0]}</i></span>`;
-
-					}
-					if (evt.key=="ArrowDown"){
-						evt.preventDefault();
-						if (lastIndex>last.length-1)
-						lastIndex=last.length-1;
-						textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-(lastIndex--)||last.length-1]||last[last.length-1]}</i></span>`;
-
-					}
-
-				if (getCaretPosition(textarea)<1){
-					if (evt.key=="ArrowLeft"){
-						evt.preventDefault();
-					}
-					if (evt.key=="Backspace"){
-					//	evt.preventDefault();
-					}
-
-				}
-
-				if(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length<29){
-
-					if (evt.key=="Backspace"){
-						evt.preventDefault();
-						//evt.target.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,0.25);" ><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;yarn start</i></span><span id="blinking-cursor" contenteditable="false">_</span>`;
-				}
-			}
-
-				//if (Terminal.running)
-				//							evt.preventDefault();
-
-				if (evt.key=="Enter"){
-					Terminal.running=true;
-					evt.preventDefault();
-					writeToConsole(evt);
-
-				}
-
-			}
-		}
 
 	};
 	innerHTML:any = `
