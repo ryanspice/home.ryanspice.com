@@ -17,7 +17,8 @@ const processA = evt => {
 	temp.output.library = `${package.short_name}`;
 
 	temp.entry = [
-		'./src/index.js'
+		'./src/index.js',
+		'./src/main.scss'
 	];
 
 	temp.plugins.push(

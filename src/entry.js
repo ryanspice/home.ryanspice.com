@@ -1,7 +1,5 @@
 //@flow
 
-require(`./assets/style.scss`);
-
 const log = require('loglevel');
 
 import {

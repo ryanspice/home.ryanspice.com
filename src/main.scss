@@ -17,7 +17,10 @@ html, body, html *, body * {
 	transition: background-image 200ms ease-in-out;
 
 }
+*{
+transition: all 0.3s ease;
 
+}
 .hidden {
 
 	display:none;
@@ -42,6 +45,8 @@ html, body, html *, body * {
         + "Available breakpoints are: #{map-keys($breakpoints)}.";
   }
 }
+
+@import './css/header.scss';
 
 
 ////////////////
@@ -766,8 +771,3 @@ $disabled-gray:                 #ddd;
   }
 }
 @include scrollbars(.5em, slategray);
-
-
-
-
-@import './css/header.scss';
