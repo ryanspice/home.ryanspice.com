@@ -114,7 +114,7 @@ window.Terminal = {
 		if (evt.key=="Enter"){
 			Terminal.running=true;
 			evt.preventDefault();
-			writeToConsole(evt);
+			window.writeToConsole(evt);
 
 		}
 

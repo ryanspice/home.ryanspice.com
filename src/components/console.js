@@ -131,12 +131,12 @@ const commands = {
 // ES6
 
 
-let writeToConsole = function(evt){
+window.writeToConsole = function(evt){
 
-			let textarea= evt.target.children[0];
+	let textarea= evt.target.children[0];
+	let taLength = textarea.innerText.length;
 
-			let taLength = textarea.innerText.length;
-			if (taLength<27)
+	if (taLength<27)
 			evt.target.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>yarn start</span><span id="blinking-cursor" contenteditable="false">_</span>`;
 
 
@@ -145,10 +145,6 @@ let writeToConsole = function(evt){
 				let taValue = textarea.innerText.split(directory)[textarea.innerText.split(directory).length-1];
 				taValue = taValue.trim();
 				last.push(taValue);
-				//console.log(taValue);
-
-			//	if (taLength>12)
-				//	textarea.innerText = directory;
 
 				let results = null;
 				let i = 0;
@@ -156,8 +152,8 @@ let writeToConsole = function(evt){
 					results = "";
 					(commands[taValue]()).forEach(val=>{
 
-							if (typeof val == 'function')
-								val = val();
+						if (typeof val == 'function')
+							val = val();
 
 
 						results=val;
@@ -207,6 +203,7 @@ let writeToConsole = function(evt){
 }
 
 window.SetColourTheme = ()=>{};
+
 let writeToConsole_Swatches = '';
 
 let theme = async function(){
@@ -290,8 +287,6 @@ class Console extends AsyncView {
 	mounted:any = async ()=>{
 
 		theme();
-
-
 
 	};
 	innerHTML:any = `
