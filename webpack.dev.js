@@ -51,7 +51,7 @@ const build = env => {
 		},
 
 		resolve: {
-			extensions: ['.js','.scss', '.css'],
+			extensions: ['.js', '.scss', '.css'],
 			plugins: [],
 			modules: [
 				'./src',
@@ -233,10 +233,10 @@ const build = env => {
 		devServer: {
 			proxy: {
 				'/api/**': {
-	        target: 'https://ryanspice.com',
+					target: 'https://ryanspice.com',
 					secure: false,
 					changeOrigin: true
-        }
+				}
 			},
 			contentBase: './dist',
 			hot: false,
@@ -263,23 +263,23 @@ const build = env => {
 
 	if (type != "legacy")
 		bundle.plugins.push(new HtmlWebpackPlugin({
-	 // Required
-	 inject: false,
-	 template: './template.ejs',
+			// Required
+			inject: false,
+			template: './template.ejs',
 
-	 //
-	 title:'home.ryanspice.com',
+			//
+			title: 'home.ryanspice.com',
 
-	 scripts: [
+			scripts: [
 
-		 {
-			 src:'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
-			 type: 'module'
-		 }
-	 ]
+				{
+					src: 'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
+					type: 'module'
+				}
+			]
 
 
- }))
+		}))
 
 
 
