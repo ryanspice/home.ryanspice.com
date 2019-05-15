@@ -16,7 +16,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const build = env => {
 
-
 	// DEV CHECK TODO: remove one
 
 	if (!env) {
@@ -115,7 +114,9 @@ const build = env => {
 					},
 					include: [path.resolve('src'), path.resolve('test'), path.resolve(
 						'node_modules/webpack-dev-server/client')]
-				},{
+				},
+
+				{
 					test: /\.scss$/,
 					use: [{
 						loader: "style-loader" // creates style nodes from JS strings

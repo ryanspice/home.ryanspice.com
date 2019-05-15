@@ -43,7 +43,7 @@ html * {
 		@warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. " + "Available breakpoints are: #{map-keys($breakpoints)}.";
 	}
 }
-@import './css/header.scss'; ////////////////
+ ////////////////
 //////////////
 /////////////
 /////////////
@@ -744,32 +744,7 @@ $disabled-gray: #ddd;
 		}
 	}
 }
-/// Mixin to customize scrollbars
-/// Beware, this does not work in all browsers
-/// @author Hugo Giraudel
-/// @param {Length} $size - Horizontal scrollbar's height and vertical scrollbar's width
-/// @param {Color} $foreground-color - Scrollbar's color
-/// @param {Color} $background-color [mix($foreground-color, white, 50%)] - Scrollbar's color
-/// @example scss - Scrollbar styling
-///   @include scrollbars(.5em, slategray);
-@mixin scrollbars($size, $foreground-color, $background-color: mix($foreground-color, white, 50%)) {
-	// For Google Chrome
-	::-webkit-scrollbar {
-		width: $size;
-		height: $size;
-	}
 
-	::-webkit-scrollbar-thumb {
-		background: $foreground-color;
-	}
 
-	::-webkit-scrollbar-track {
-		background: $background-color;
-	}
-	// For Internet Explorer
-	body {
-		scrollbar-face-color: $foreground-color;
-		scrollbar-track-color: $background-color;
-	}
-}
-@include scrollbars(0.5em, slategray);
+@import './css/scrollbars.scss';
+@import './css/header.scss';
