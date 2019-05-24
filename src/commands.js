@@ -1,9 +1,4 @@
 
-import messages from "./messages";
-
-
-const directory = messages.directory;
-
 const command = (...args) => { return ()=> [...args]};
 const commands = {
 

@@ -294,6 +294,7 @@ $color_cursor: rgba(255,255,255,0.25); //Blink cursor
 		left: 0;
 		z-index: 200;
 		background: black;
+		display:block;
 	}
 }
 @keyframes slide-out-maximize {

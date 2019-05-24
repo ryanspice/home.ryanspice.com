@@ -2,8 +2,8 @@
 
 import utils from "../utils";
 
-import messages from "../messages";
 import commands from "../commands";
+import messages from "../messages";
 
 require("../Vibrant");
 
@@ -15,19 +15,19 @@ import {
 
 class Console extends AsyncView {
 
-	sequence:any = 3;
-	type:any = `console`;
-	style:any = `padding:2rem;display:block;min-height:20vh;max-width:1080px;margin:0px auto;color:rgba(255,255,255,0.55);`;
-	renderTo:any = `main`;
-	className:any = ``;
-	id:any = `console`;
+	sequence:number = 3;
+	type:string = `console`;
+	style:string = `padding:2rem;display:block;min-height:20vh;max-width:1080px;margin:0px auto;color:rgba(255,255,255,0.55);`;
+	renderTo:string = `main`;
+	className:string = ``;
+	id:string = `console`;
 	mounted:any = async ()=>{
 
 		theme();
 
 	};
-	innerHTML:any = `
-		<div id ="" class="" style="border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
+	innerHTML:string = `
+		<div id ="" class="" style="border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    height:100%; box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">
 
 			<div class="traffic-lights " style="padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;-webkit-touch-callout: none; /* iOS Safari */    -webkit-user-select: none; /* Safari */     -khtml-user-select: none; /* Konqueror HTML */       -moz-user-select: none; /* Firefox */        -ms-user-select: none; /* Internet Explorer/Edge */            user-select: none; ">
 
