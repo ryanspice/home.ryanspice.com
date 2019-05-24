@@ -4,10 +4,9 @@ const commands = {
 
 	//COMMANDS
 
-	'login':command('please wait',()=>{return openInNewTab(messages.links.auth.link);},'done'),
-	'auth':command('please wait',()=>{return openInNewTab(messages.links.auth.link);},'done'),
+	'login':command('please wait',()=>{return openInNewTab(messages.links.auth.link);},'done')
 
-	'yarn':command('you cannot actually run yarn;','or anything in this terminal for that matter', 'try "help"'),
+	,'yarn':command('you cannot actually run yarn;','or anything in this terminal for that matter', 'try "help"'),
 	'yarn start':()=>{
 
 		return [
@@ -73,9 +72,19 @@ const commands = {
 
 		return ['done'];
 	}
-	,'close':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-top'); document.getElementById('console-listItem').style.display='block';return ['done'];}
-	,'minimize':(evt)=>{document.getElementById('console').classList.remove('slide-out-maximize');document.getElementById('console').classList.add('slide-out-blurred-minimize'); document.getElementById('console-listItem').style.display='block';return ['done'];}
-	,'maximize':(evt)=>{document.getElementById('console').classList.add('slide-out-maximize'); return ['done'];}
+
+	//Console Commands
+
+	,'close':(evt)=>{window.Terminal.hide(evt);}
+	,'minimize':(evt)=>{window.Terminal.minimize(evt);}
+	,'maximize':(evt)=>{window.Terminal.maximize(evt);}
+
+	//JAVASCRIPT SJS
+
+	,'auth':command((evt)=>{openInNewTab(messages.links.auth.link); return ['opening']; },'done')
+	,'animated-banner':command((evt)=>{ openInNewTab(messages.links.banner.link); return ['opening']; },'done')
+	,'virtual-scroll':(evt)=>{openInNewTab('https://ryanspice.com/demo/asyncx/virtual-scroll.html'); return [msg.opening + " '" + 'https://ryanspice.com/demo/asyncx/virtual-scroll.html\''];}
+
 
 	//BOILERPLATES / FRAMEWORKS
 
@@ -101,7 +110,6 @@ const commands = {
 	,'ng4+lightning':(evt)=>{openInNewTab('https://github.com/ryanspice/ng4-lightning-currency-compare'); return [msg.opening + " '" + 'https://github.com/ryanspice/ng4-lightning-currency-compare\''];}
 	,'babel-boilerplate':(evt)=>{openInNewTab('https://github.com/ryanspice/babel-flow-webpack4-boilerplate'); return [msg.opening + " '" + 'https://github.com/ryanspice/babel-flow-webpack4-boilerplate\''];}
 
-	,'animated-banner':command((evt)=>{ return openInNewTab(messages.links.banner.link);},'done')
 
 	//GAMES
 

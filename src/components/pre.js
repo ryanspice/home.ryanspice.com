@@ -26,13 +26,19 @@ Usage: [command]
 
  Commands:
 
-	close                               close window
-	help                                display commands
-	image                               generate new image
-	maximize                            maximize window
-	minimize                            minimize window
-	restore                             restore window
-	theme                               set the primary colours of this page based off the image
+ Handmade, this console provides a CLI like experience for you to explore.
+ Simply click on a link below, or type them in the console.
+
+
+ Commands:
+
+	<a onclick="window.Terminal.hide(event);">close</a>                               close window
+	<a onclick="window.Terminal.help(event);">help</a>                                display commands
+	<a onclick="window.theme(event);">image</a>                               generate new image
+	<a onclick="window.Terminal.minimize(event);">maximize</a>                            maximize window
+	<a onclick="window.Terminal.maximize(event);">minimize</a>                            minimize window
+	<a onclick="window.Terminal.restore(event);">restore</a>                             restore window
+	<a onclick="window.theme(event);">theme</a>                               set the primary colours of this page based off the image
 
   Apps / Examples:
 

@@ -26,7 +26,7 @@ class Header extends AsyncView {
 				  <div class="dropdown-content acrylic">
 
 				    <h5 id="console-listItem" style="display:none;"><a style="color:rgba(225,225,225,255);"
-							onclick="document.getElementById('console-listItem').style.display='none'; document.getElementById('console').classList.remove('slide-out-blurred-top'),document.getElementById('console').classList.remove('slide-out-blurred-minimize')">console</a></h5>
+							onclick="window.Terminal.restore(event)">console</a></h5>
 
 						<h5><a href="https://ryanspice.com/demo/asyncx/virtual-scroll.html" target="_blank" />virtual list</a></h5>
 

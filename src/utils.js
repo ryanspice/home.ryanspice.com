@@ -1,6 +1,7 @@
 
 
 import messages from "./messages";
+import commands from "./commands";
 
 const directory = messages.directory;
 
@@ -76,6 +77,36 @@ window.setEndOfContenteditable = function setEndOfContenteditable(contentEditabl
 
 window.Terminal = {
 	running:false,
+	hide:()=>{
+
+		document.getElementById('console').classList.remove('slide-out-maximize');
+		document.getElementById('console').classList.add('slide-out-blurred-top');
+		document.getElementById('console-listItem').style.display='block';
+		return ['done'];
+
+	},
+	minimize:(evt)=>{
+
+		document.getElementById('console').classList.remove('slide-out-maximize');
+		document.getElementById('console').classList.add('slide-out-blurred-minimize');
+		document.getElementById('console-listItem').style.display='block';
+		return ['done'];
+
+	},
+	maximize:(evt)=>{
+
+		document.getElementById('console').classList.add('slide-out-maximize');
+		return ['done'];
+
+	},
+	restore:(evt)=>{
+
+		document.getElementById('console-listItem').style.display='none';
+		document.getElementById('console').classList.remove('slide-out-blurred-top'),
+		document.getElementById('console').classList.remove('slide-out-blurred-minimize')
+
+		return ['done'];
+	},
 	keyup:(evt)=>{
 
 
@@ -213,9 +244,13 @@ window.SetColourTheme = ()=>{};
 
 let writeToConsole_Swatches = '';
 
+let img;
 window.theme = async function(){
 
-		let img = await new Image();
+		if (img)
+			img.src = '';
+
+		img = await new Image();
 
 		img.style.display = "none";
 		img.crossOrigin = "Anonymous";
@@ -267,6 +302,7 @@ window.theme = async function(){
 		};
 
 		img.src = 'https://source.unsplash.com/random';
+		//img.src = 'https://source.unsplash.com/random?query=canada&page='+Math.round(Math.random()*10)+'&per_page=1';
 
 		await document.body.append(img);
 
