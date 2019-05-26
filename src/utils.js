@@ -18,10 +18,11 @@ window.openInNewWindow = (msg)=>{
 
 window.openInNewTab = function openInNewTab(url) {
 
-  var win = window.open(url, '_blank');
+  const win = window.open(url, '_blank');
   win.focus();
-	return 'opening "'+url+'"';
+	return ['opening "'+url+'"'];
 };
+window.openInNewTab = openInNewWindow;
 
 window.getCaretPosition = function getCaretPosition(editableDiv) {
   var caretPos = 0,
@@ -180,15 +181,22 @@ window.writeToConsole = function(evt){
 			setTimeout(()=>{
 
 				let taValue = textarea.innerText.split(directory)[textarea.innerText.split(directory).length-1];
-				taValue = taValue.trim();
+				taValue = String(taValue).trim().toLowerCase();
 				last.push(taValue);
 
 				let results = null;
 				let i = 0;
+
 				try{
+
+
+
 					results = "";
+					console.log(taValue)
+
 					(commands[taValue]()).forEach(val=>{
 
+						//console.log(val);
 						if (typeof val == 'function')
 							val = val();
 
@@ -201,7 +209,7 @@ window.writeToConsole = function(evt){
 							setTimeout(()=>{
 								textarea.innerHTML = textarea.innerHTML+"<br/>"+val;
 								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
-							},100*i)
+							},124*i)
 
 						});
 
@@ -210,7 +218,8 @@ window.writeToConsole = function(evt){
 						setTimeout(()=>{
 								textarea.innerHTML = textarea.innerHTML+"<br/>"+"\n"+"<br/>"+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
 								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
-						},500+100*i)
+						},500+124*i)
+
 
 				}catch(e){
 					results = `	`+e.toString();
@@ -233,9 +242,9 @@ window.writeToConsole = function(evt){
 
 					document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
 
-				},100);
+				},124);
 
-			},100);
+			},124);
 
 }
 

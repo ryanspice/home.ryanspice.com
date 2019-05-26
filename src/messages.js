@@ -3,6 +3,7 @@ export default {
 	done`,
 	copy:`Copyright (C) ryanspice.com. All rights reserved.`,
 	directory:`~ryanspice.com\\users\\guest>`,
+	opening:'opening ',
 	login:{
 
 		img:`./assets/images/if_key_298808.svg`
