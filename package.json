@@ -1,7 +1,7 @@
 {
 	"name": "home.ryanspice.com",
 	"short_name": "home.rs",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "home.ryanspice.com",
 	"main": "index.js",
 	"author": "Ryan Spice-Finnie <contact@ryanspice.com>",

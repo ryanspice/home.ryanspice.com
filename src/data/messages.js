@@ -1,5 +1,8 @@
+
+let pkg = require('../../package.json');
+
 export default {
-	version:`ryanspice.com [Version 9.0.2]<br/>
+	version:`ryanspice.com [Version ${pkg.version}]<br/>
 	done`,
 	copy:`Copyright (C) ryanspice.com. All rights reserved.`,
 	directory:`~ryanspice.com\\users\\guest>`,
