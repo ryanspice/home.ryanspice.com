@@ -1,7 +1,7 @@
 
 
-import messages from "./messages";
-import commands from "./commands";
+import messages from "./data/messages";
+import commands from "./data/commands";
 
 const directory = messages.directory;
 

@@ -1,12 +1,20 @@
 //@flow
 
-import log from "loglevel";
+// Libraries
 
 import AsyncTemplate from "./entry";
 
+import utils from "utils";
+
+const log = require('loglevel');
+
+// Components
+
 require("./components");
 
-AsyncTemplate.pre =async function(){
+// AsyncX Runtime Hooks
+
+AsyncTemplate.pre = async function(){
 
 	window['async-2018-mvc'].entry.sort((a,b)=>{return (a.sequence?a.sequence:0)-(b.sequence?b.sequence:0)});
 

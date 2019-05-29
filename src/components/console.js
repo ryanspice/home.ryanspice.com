@@ -1,11 +1,8 @@
 //@flow
 
-import utils from "../utils";
 
-import commands from "../commands";
-import messages from "../messages";
-
-require("../Vibrant");
+import commands from "../data/commands";
+import messages from "../data/messages";
 
 const directory = messages.directory;
 
@@ -23,7 +20,9 @@ class Console extends AsyncView {
 	id:string = `console`;
 	mounted:any = async ()=>{
 
-		theme();
+		require("../assets/js/Vibrant");
+
+		await theme();
 
 	};
 	innerHTML:string = `

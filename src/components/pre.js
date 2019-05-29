@@ -1,6 +1,6 @@
 //@flow
 
-import messages from "../messages";
+import messages from "../data/messages";
 
 import {
 	AsyncView

@@ -1,7 +1,5 @@
 //@flow
 
-const log = require('loglevel');
-
 import {
 	pipe,
 	view,

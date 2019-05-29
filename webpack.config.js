@@ -18,7 +18,7 @@ const processA = evt => {
 
 	temp.entry = [
 		'./src/index.js',
-		'./src/main.scss'
+		'./src/scss/main.scss'
 	];
 
 	temp.plugins.push(
