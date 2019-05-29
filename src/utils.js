@@ -5,6 +5,7 @@ import commands from "./data/commands";
 
 const directory = messages.directory;
 
+const image2base64 = require('./assets/js/image-to-base65');
 
 let lastIndex = 0;
 const last = [
@@ -73,8 +74,6 @@ window.setEndOfContenteditable = function setEndOfContenteditable(contentEditabl
  * [Terminal description]
  * @type {Object}
  */
-
-
 
 window.Terminal = {
 	running:false,
@@ -168,7 +167,6 @@ window.Terminal = {
 	}
 };
 
-
 window.writeToConsole = function(evt){
 
 	let textarea= evt.target.children[0];
@@ -254,66 +252,77 @@ window.SetColourTheme = ()=>{};
 let writeToConsole_Swatches = '';
 
 let img;
-window.theme = async function(){
 
-		if (img)
-			img.src = '';
+img = new Image();
 
-		img = await new Image();
+img.style.display = "none";
+img.crossOrigin = "Anonymous";
 
-		img.style.display = "none";
-		img.crossOrigin = "Anonymous";
+img.onload = async ()=>{
 
-		img.onload = async ()=>{
+    var width = img.width,
+    height = img.height;
 
-	    var width = img.width,
-	    height = img.height;
+		SetColourTheme =async ()=>{
 
-			SetColourTheme =async ()=>{
+			let vib = await new window.Vibrant(img,32,3);
 
-				let vib = await new window.Vibrant(img,32,3);
+			const Swatch = (type)=>{
 
-				const Swatch = (type)=>{
+				try{
+				var sw = [
+					'DarkMutedSwatch',
+					'DarkVibrantSwatch',
+					'LightMutedSwatch',
+					'LightVibrantSwatch',
+					'MutedSwatch',
+					'VibrantSwatch'
+				]
 
-					try{
-					var sw = [
-						'DarkMutedSwatch',
-						'DarkVibrantSwatch',
-						'LightMutedSwatch',
-						'LightVibrantSwatch',
-						'MutedSwatch',
-						'VibrantSwatch'
-					]
+				return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
 
-					return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
+			}	catch(e){
 
-				}	catch(e){
+					return false;
 
-						return false;
+				}
 
-					}
-
-			};
-
-				const color = Swatch(0);
-				const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
-
-				writeToConsole_Swatches = [color,linkcolor];
-
-				await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
-
-				await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
-
-				writeToConsole_Swatches = ['done'];
-
-			};
-			SetColourTheme();
 		};
 
-		img.src = 'https://source.unsplash.com/random';
-		//img.src = 'https://source.unsplash.com/random?query=canada&page='+Math.round(Math.random()*10)+'&per_page=1';
+			const color = Swatch(0);
+			const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
 
-		await document.body.append(img);
+			writeToConsole_Swatches = [color,linkcolor];
+
+			await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
+
+			await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+
+			writeToConsole_Swatches = ['done'];
+
+		};
+		SetColourTheme();
+};
+
+
+
+let v = null;
+
+window.theme = async function(){
+
+	if (!v)
+		require("./assets/js/Vibrant");
+
+	let response = await image2base64("https://source.unsplash.com/random");
+
+	document.body.style = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${"data:image/png;base64,"+response});`;
+	document.getElementsByTagName('footer')[0].style = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${"data:image/png;base64,"+response});`
+
+	img.src = "data:image/png;base64,"+response;
+
+	document.body.append(img);
 
 	return img;
 };
+
+window.theme();

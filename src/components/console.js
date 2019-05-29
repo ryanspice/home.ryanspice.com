@@ -20,10 +20,6 @@ class Console extends AsyncView {
 	id:string = `console`;
 	mounted:any = async ()=>{
 
-		require("../assets/js/Vibrant");
-
-		await theme();
-
 	};
 	innerHTML:string = `
 		<div id ="" class="" style="border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    height:100%; box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);">

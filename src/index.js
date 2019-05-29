@@ -2,9 +2,10 @@
 
 // Libraries
 
+import utils from "utils";
+
 import AsyncTemplate from "./entry";
 
-import utils from "utils";
 
 const log = require('loglevel');
 
