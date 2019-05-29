@@ -258,51 +258,49 @@ img = new Image();
 img.style.display = "none";
 img.crossOrigin = "Anonymous";
 
-img.onload = async ()=>{
 
-    var width = img.width,
-    height = img.height;
 
-		SetColourTheme =async ()=>{
+SetColourTheme =async ()=>{
 
-			let vib = await new window.Vibrant(img,32,3);
+	let vib = await new window.Vibrant(img,32,3);
 
-			const Swatch = (type)=>{
+	const Swatch = (type)=>{
 
-				try{
-				var sw = [
-					'DarkMutedSwatch',
-					'DarkVibrantSwatch',
-					'LightMutedSwatch',
-					'LightVibrantSwatch',
-					'MutedSwatch',
-					'VibrantSwatch'
-				]
+		try{
+		var sw = [
+			'DarkMutedSwatch',
+			'DarkVibrantSwatch',
+			'LightMutedSwatch',
+			'LightVibrantSwatch',
+			'MutedSwatch',
+			'VibrantSwatch'
+		]
 
-				return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
+		return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
 
-			}	catch(e){
+	}	catch(e){
 
-					return false;
+			return false;
 
-				}
+		}
 
-		};
-
-			const color = Swatch(0);
-			const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
-
-			writeToConsole_Swatches = [color,linkcolor];
-
-			await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
-
-			await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
-
-			writeToConsole_Swatches = ['done'];
-
-		};
-		SetColourTheme();
 };
+
+	const color = Swatch(0);
+	const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
+
+	writeToConsole_Swatches = [color,linkcolor];
+
+	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
+
+	await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+
+	writeToConsole_Swatches = ['done'];
+
+};
+
+
+img.onload = SetColourTheme;
 
 
 
