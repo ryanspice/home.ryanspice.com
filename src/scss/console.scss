@@ -1,0 +1,24 @@
+console:not(.slide-out-maximize) {
+
+
+
+	#console-scroll {
+
+		max-height:20vh !important;
+
+
+	}
+
+
+}
+.slide-out-maximize {
+
+
+		&#console-scroll {
+
+					max-height:100% !important;
+
+
+		}
+
+}

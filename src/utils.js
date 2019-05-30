@@ -190,10 +190,10 @@ window.writeToConsole = function(evt){
 
 
 					results = "";
-					console.log(taValue)
+				//	console.log(taValue)
 
 					commands[taValue]().forEach((val)=>{
-						console.log(val)
+				//		console.log(val)
 
 						if (typeof val == 'function')
 							val = val();
@@ -206,6 +206,8 @@ window.writeToConsole = function(evt){
 							setTimeout(()=>{
 								textarea.innerHTML = textarea.innerHTML+"<br/>"+val;
 								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+
+												setEndOfContenteditable(evt.target);
 							},124*i)
 					})
 /*
@@ -240,10 +242,14 @@ window.writeToConsole = function(evt){
 					results = `	`+e.toString();
 				}
 
-				if (!commands[taValue])
+				if (!commands[taValue]){
+
 					textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
 
-				console.log(commands[taValue]())
+				document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+				}
+
+//				console.log(commands[taValue]())
 
 				setEndOfContenteditable(evt.target);
 
