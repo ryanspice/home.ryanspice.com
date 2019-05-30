@@ -57,8 +57,8 @@ class Header extends AsyncView {
 				resume
 
 			  <div class="dropdown-content acrylic">
-			    <h5><a href="https://1drv.ms/b/s!AobiFvI3GaiduPQmp_PkmM0EdWh3cA">pdf</a></h5>
-			    <h5><a href="https://1drv.ms/w/s!AobiFvI3Gaidtol5iCyf_RPjkbXWcg">docx</a></h5>
+			    <h5><a href="https://home.ryanspice.com/assets/RyanSpice-Resume-2019-June.pdf">pdf</a></h5>
+			    <h5><a href="https://home.ryanspice.com/assets/RyanSpice-Resume-2019-June.docx">docx</a></h5>
 			  </div>
 
 			</li>
