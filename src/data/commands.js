@@ -40,6 +40,7 @@ const commands = {
 		`Launch any of the commands below`,
 		``,
 		`Visit https://github.com/ryanspice or;`,
+		``,
 		`Contact me at contact@ryanspice.com to learn more about what I can do.`,
 
 		];

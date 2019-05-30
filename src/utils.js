@@ -192,12 +192,29 @@ window.writeToConsole = function(evt){
 					results = "";
 					console.log(taValue)
 
-					(commands[taValue]()).forEach(val=>{
+					commands[taValue]().forEach((val)=>{
+						console.log(val)
 
-						//console.log(val);
 						if (typeof val == 'function')
 							val = val();
 
+						results=val;
+						i++;
+
+						//loop each function output
+
+							setTimeout(()=>{
+								textarea.innerHTML = textarea.innerHTML+"<br/>"+val;
+								document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
+							},124*i)
+					})
+/*
+					(commands[taValue]()).forEach(val=>{
+
+						console.log(val);
+
+						if (typeof val == 'function')
+							val = val();
 
 						results=val;
 						i++;
@@ -210,7 +227,7 @@ window.writeToConsole = function(evt){
 							},124*i)
 
 						});
-
+*/
 						//run director output
 
 						setTimeout(()=>{
@@ -225,6 +242,8 @@ window.writeToConsole = function(evt){
 
 				if (!commands[taValue])
 					textarea.innerHTML = textarea.innerHTML+`<br/>`+results+`<br/>`+`<i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;</i>`;
+
+				console.log(commands[taValue]())
 
 				setEndOfContenteditable(evt.target);
 
