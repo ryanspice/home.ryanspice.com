@@ -7,7 +7,7 @@ import {
 class Introduction extends AsyncView {
 
 	id = ``;
-	type:any = `p`;
+	type:any = `section`;
 	renderTo:any = `main`;
 	sequence:any = 1;
 	innerHTML:any = `

@@ -110,7 +110,7 @@ main {
 		margin: 0 auto;
 		max-width: 320px;
 		width: calc(-1vw*175vw);
-
+/*
 		> a:nth-of-type(1) {
 			display: block;
 			width: 77%;
@@ -132,7 +132,7 @@ main {
 				top: 6px;
 			}
 		}
-
+*/
 		img {
 			margin: 0 auto;
 			text-align: center;
@@ -188,12 +188,11 @@ main {
 }
 
 main {
-	p {
+	section {
 		padding: 2rem;
 		display: block;
 		max-width: 780px;
 		margin: 0 auto;
-		color: rgba(255,255,255,0.55);
 		color: rgba(255,255,255,0.5);
 		display: block;
 	}
@@ -201,12 +200,13 @@ main {
 	pre {
 		font-family: monospace;
 		white-space: pre;
-		padding: 2rem;
+		padding: 2.5rem;
 		display: block;
 		min-width: 320;
 		max-width: 780px;
 		margin: 0 auto;
 		color: rgba(255,255,255,0.55);
+		font-size:85%;
 	}
 }
 
@@ -219,12 +219,12 @@ main {
 	//backdrop-filter: blur(30px) saturate(125%);
 	margin: 7px;
 }
-@media (min-width: 767px) {
+@media (min-width: 780px) {
 	pre {
 		display: inline-block;
 	}
 }
-@media (max-width: 767px) {
+@media (max-width: 780px) {
 	pre {
 		display: none !important;
 	}
@@ -242,7 +242,7 @@ main {
 	li,
 	ul {
 		display: block !important;
-		border-radius: 1rem;
+		//border-radius: 1rem;
 		box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
 	}
 
@@ -255,7 +255,7 @@ main {
 @import './footer.scss';
 @import './console.scss';
 
-summary {
+copy {
 	font-family: monospace;
 	text-align: center;
 	display: block !important;

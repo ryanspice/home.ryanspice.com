@@ -5,9 +5,9 @@ import {
 } from "../entry";
 
 class Copy extends AsyncView {
-	
+
 	id = ``;
-	type: string = 'summary';
+	type: string = 'copy';
 	renderTo: string = `main`;
 	sequence: number = 6;
 	mounted: Function = function() {
