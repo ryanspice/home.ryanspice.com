@@ -8,119 +8,16 @@ $breakpoints: (
 )
 !default;
 
+* {
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
 body,
-body *,
-html,
-html * {
-	//-webkit-transition: alll 200ms linear;
-	//transition: all 200ms linear;
+html {
 	-webkit-transition: background-image 200ms ease-in-out;
 	transition: background-image 200ms ease-in-out;
-}
-
-* {
-	transition: all 0.3s ease;
-}
-body, html {
-	transition: all 0.3s ease;
-}
-
-.hidden {
-	display: none;
-}
-
-@import './scrollbars.scss';
-@import './breakpoints.scss';
-@import './animations.scss';
-
-
-#login > header > span > a {
-	color: rgba(225,225,225,255);
-}
-
-#login > header > span > a > svg {
-	color: rgba(225,225,225,255);
-}
-
-#login > header > span > a > svg.feather.feather-twitter {
-	&:hover {
-		color: #38A1F3;
-		//&:after { content:"eh"}
-	}
-}
-
-#login > header > span > a > svg.feather.feather-linkedin {
-	&:hover {
-		color: #0077B5;
-		//&:after { content:"eh"}
-	}
-}
-
-#login > header > span > a > svg.feather.feather-github {
-	&:hover {
-		color: #4078c0;
-
-		&:after {
-			//content: " (" attr(href) ")";
-		}
-	}
-}
-
-.blinking-cursor {
-	::before {
-		//		content:'eh'
-	}
-}
-
-section * {
-	position: relative;
-	z-index: 4;
-}
-
-#login > header > ul > li > div {
-	display: none;
-}
-
-#login > header > ul > li:hover > div {
-	display: table;
-}
-
-header ul {}
-@media (min-width: 767px) {
-	pre {
-		display: inline-block;
-	}
-}
-@media (max-width: 767px) {
-	pre {
-		display: none !important;
-	}
-
-	header ul {}
-
-	li {
-		display: block;
-		clear: right;
-		width: 100%;
-	}
-
-	div,
-	h5,
-	li,
-	ul {
-		display: block !important;
-		border-radius: 1rem;
-		box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
-	}
-
-	.dropdown-content {
-		position: static !important;
-	}
-}
-
-input {
-	background: rgba(25,25,45,0.525) !important;
-	color: rgba(205,205,255,1) !important;
+	text-shadow: rgba(25,25,25,0.25) 1px 1px 1px;
 }
 
 body {
@@ -136,6 +33,59 @@ body {
 	position: relative;
 }
 
+section * {
+	position: relative;
+	z-index: 4;
+}
+
+.hidden {
+	display: none;
+}
+@import './scrollbars.scss';
+@import './breakpoints.scss';
+@import './animations.scss';
+
+main > header > span > a {
+	color: rgba(225,225,225,255);
+}
+
+main > header > span > a > svg {
+	color: rgba(225,225,225,255);
+}
+
+main > header > span > a > svg.feather.feather-twitter {
+	&:hover {
+		color: #38A1F3;
+	}
+}
+
+main > header > span > a > svg.feather.feather-linkedin {
+	&:hover {
+		color: #0077B5;
+	}
+}
+
+main > header > span > a > svg.feather.feather-github {
+	&:hover {
+		color: #4078c0;
+
+		&:after {}
+	}
+}
+
+main > header > ul > li > div {
+	display: none;
+}
+
+main > header > ul > li:hover > div {
+	display: table;
+}
+
+input {
+	background: rgba(25,25,45,0.525) !important;
+	color: rgba(205,205,255,1) !important;
+}
+
 main {
 	a {
 		color: $secondary-color;
@@ -147,7 +97,7 @@ main {
 	}
 }
 
-#login {
+main {
 	position: relative;
 	top: calc(20vh - 50px);
 
@@ -247,162 +197,39 @@ main {
 	margin: 7px;
 }
 
-/** TRTAFFIC LIGHT
-
-
-
-*?//
-*
-**/
-$close-red: #ff6159;
-$close-red-active: #bf4942;
-$close-red-icon: #4d0000;
-$close-red-icon-active: #190000;
-$minimize-yellow: #ffbd2e;
-$minimize-yellow-active: #bf8e22;
-$minimize-yellow-icon: #995700;
-$minimize-yellow-icon-active: #592800;
-$maximize-green: #28c941;
-$maximize-green-active: #1d9730;
-$maximize-green-icon: #006500;
-$maximize-green-icon-active: #003200;
-$disabled-gray: #ddd;
-
-.traffic-lights {
-	// position: absolute;
-	top: 1px;
-	left: 8px;
-
-	&:active,
-	&:hover,
-	.focus & {
-		> .traffic-light-close {
-			background-color: $close-red;
-
-			&:active:hover {
-				background-color: $close-red-active;
-			}
-		}
-
-		> .traffic-light-minimize {
-			background-color: $minimize-yellow;
-
-			&:active:hover {
-				background-color: $minimize-yellow-active;
-			}
-		}
-
-		> .traffic-light-maximize {
-			background-color: $maximize-green;
-
-			&:active:hover {
-				background-color: $maximize-green-active;
-			}
-		}
+@media (min-width: 767px) {
+	pre {
+		display: inline-block;
+	}
+}
+@media (max-width: 767px) {
+	pre {
+		display: none !important;
 	}
 
-	> .traffic-light {
-		&:after,
-		&:before {
-			visibility: hidden;
-		}
+	header ul {}
+
+	li {
+		display: block;
+		clear: right;
+		width: 100%;
 	}
 
-	&:active,
-	&:hover {
-		> .traffic-light {
-			cursor: pointer;
+	div,
+	h5,
+	li,
+	ul {
+		display: block !important;
+		border-radius: 1rem;
+		box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
+	}
 
-			&:after,
-			&:before {
-				visibility: visible;
-			}
-		}
+	.dropdown-content {
+		position: static !important;
 	}
 }
 
-.traffic-light {
-	border-radius: 100%;
-	padding: 0;
-	height: 2rem;
-	width: 2rem;
-	border: 1px solid rgba(0, 0, 0, 0.06);
-	box-sizing: border-box;
-	margin-right: 3.5px;
-	background-color: $disabled-gray;
-	position: relative;
-	outline: none;
-
-	&:after,
-	&:before {
-		content: '';
-		position: absolute;
-		border-radius: 1px;
-		left: 0;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		margin: auto;
-	}
-
-	&-close {
-		&:after,
-		&:before {
-			background-color: $close-red-icon;
-			width: 8px;
-			height: 1px;
-		}
-
-		&:before {
-			transform: rotate(45deg); // translate(-0.5px, -0.5px);
-		}
-
-		&:after {
-			transform: rotate(-45deg); // translate(0.5px, -0.5px);
-		}
-
-		&:active:hover:after,
-		&:active:hover:before {
-			background-color: $close-red-icon-active;
-		}
-	}
-
-	&-minimize {
-		&:before {
-			background-color: $minimize-yellow-icon;
-			width: 8px;
-			height: 1px;
-			//transform: translateY(-0.5px);
-		}
-
-		&:active:hover:before {
-			background-color: $minimize-yellow-icon-active;
-		}
-	}
-
-	&-maximize {
-		&:before {
-			background-color: $maximize-green-icon;
-			width: 6px;
-			height: 6px;
-		}
-
-		&:after {
-			background-color: $maximize-green;
-			width: 10px;
-			height: 2px;
-			transform: rotate(45deg);
-		}
-
-		&:active:hover:before {
-			background-color: $maximize-green-icon-active;
-		}
-
-		&:active:hover:after {
-			background-color: $maximize-green-active;
-		}
-	}
-}
+@import './traffic.scss';
 @import './header.scss';
 @import './footer.scss';
 @import './console.scss';

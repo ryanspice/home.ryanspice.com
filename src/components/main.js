@@ -7,7 +7,6 @@ import {
 class Main extends AsyncView {
 	type = `main`;
 	renderTo = `body`;
-	id = 'login';
 }
 
 export default new Main();
