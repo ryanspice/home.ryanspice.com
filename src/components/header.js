@@ -5,7 +5,7 @@ import {
 } from "../entry";
 
 class Header extends AsyncView {
-	
+
 	id = ``;
 	type: any = `header`;
 	renderTo: any = `main`;
@@ -96,4 +96,4 @@ class Header extends AsyncView {
 
 };
 
-export default new Header()
+export default new Header();

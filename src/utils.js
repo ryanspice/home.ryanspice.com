@@ -5,7 +5,7 @@ import commands from "./data/commands";
 
 const directory = messages.directory;
 
-const image2base64 = require('./assets/js/image-to-base65');
+//const image2base64 = require('./assets/js/image-to-base65');
 
 let lastIndex = 0;
 const last = [
@@ -334,7 +334,9 @@ let v = null;
 window.theme = async function(){
 
 	if (!v)
-		require("./assets/js/Vibrant");
+		import("./assets/js/Vibrant");
+
+		const image2base64 = (await import('./assets/js/image-to-base65')).default;
 
 	let response = await image2base64("https://source.unsplash.com/random");
 

@@ -1,9 +1,8 @@
 //@flow
 
-import commands from "../data/commands";
 import messages from "../data/messages";
 
-const directory = messages.directory;
+const directory:string = messages.directory;
 
 import {
 	AsyncView
