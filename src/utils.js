@@ -5,7 +5,6 @@ import commands from "./data/commands";
 
 const directory = messages.directory;
 
-//const image2base64 = require('./assets/js/image-to-base65');
 
 let lastIndex = 0;
 const last = [
@@ -109,32 +108,30 @@ window.Terminal = {
 	},
 	keyup:(evt)=>{
 
-
-		let textarea= evt.target.children[0];
-		//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1])
-		//console.log(textarea.innerText.split('\n')[textarea.innerText.split('\n').length-1].length)
-
+		let textarea = evt.target.children[0];
 
 		if (evt.ctrlKey)
 		if (evt.key=="a"){
 			evt.preventDefault();
 		}
 
-			if (evt.key=="ArrowUp"){
-				evt.preventDefault();
-				if (lastIndex<0)
-					lastIndex=0;
+		if (evt.key=="ArrowUp"){
 
-				textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-1-(lastIndex++)||0]||last[0]}</i></span>`;
+			evt.preventDefault();
+			if (lastIndex<0)
+				lastIndex=0;
 
-			}
-			if (evt.key=="ArrowDown"){
-				evt.preventDefault();
-				if (lastIndex>last.length-1)
-				lastIndex=last.length-1;
-				textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-(lastIndex--)||last.length-1]||last[last.length-1]}</i></span>`;
+			textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-1-(lastIndex++)||0]||last[0]}</i></span>`;
 
-			}
+		}
+
+		if (evt.key=="ArrowDown"){
+			evt.preventDefault();
+			if (lastIndex>last.length-1)
+			lastIndex=last.length-1;
+			textarea.innerHTML = `<span id="written" style="font-family:monospace, consolas;color:rgba(255,255,255,255);" ><i style="color:rgba(255,255,255,0.5)">${directory}&nbsp;${last[last.length-(lastIndex--)||last.length-1]||last[last.length-1]}</i></span>`;
+
+		}
 
 		if (getCaretPosition(textarea)<1){
 			if (evt.key=="ArrowLeft"){
