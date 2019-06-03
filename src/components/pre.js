@@ -9,13 +9,11 @@ import {
 const preLink = (name,url) => `<a href="${url}">${name}</a>`;
 
 class Pre extends AsyncView {
-	sequence:any = 4;
-	type:any = `pre`;
-	style:any = `    font-family: monospace;
-  white-space: pre;padding:2rem;display:block;min-width:320;max-width:780px;margin:0px auto;color:rgba(255,255,255,0.55);`;
-	renderTo:any = `main`;
-	className:any = ``;
+
 	id:any = ``;
+	type:any = `pre`;
+	renderTo:any = `main`;
+	sequence:any = 4;
 	mounted:any = ()=>{
 
 		  feather.replace();

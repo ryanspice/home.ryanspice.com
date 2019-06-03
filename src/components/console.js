@@ -1,6 +1,5 @@
 //@flow
 
-
 import commands from "../data/commands";
 import messages from "../data/messages";
 
@@ -12,10 +11,10 @@ import {
 
 class Console extends AsyncView {
 
-	sequence:number = 3;
+	id:string = `console`;
 	type:string = `console`;
 	renderTo:string = `main`;
-	id:string = `console`;
+	sequence:number = 3;
 	mounted:any = async ()=>{
 
 	};

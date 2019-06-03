@@ -5,10 +5,11 @@ import {
 } from "../entry";
 
 class Copy extends AsyncView {
-
-	sequence: number = 6;
+	
+	id = ``;
 	type: string = 'summary';
 	renderTo: string = `main`;
+	sequence: number = 6;
 	mounted: Function = function() {
 
 		feather.replace();

@@ -5,11 +5,10 @@ import {
 } from "../entry";
 
 class Header extends AsyncView {
+	
+	id = ``;
 	type: any = `header`;
-	style: any = `padding:2rem;padding-top:4.5rem;padding-bottom:2.5rem;max-width:1080px;margin:0px auto;color:rgba(225,225,225,255);`;
 	renderTo: any = `main`;
-	className: any = ``;
-	id: any = ``;
 	mounted: any = () => {
 
 		feather.replace();
@@ -19,13 +18,14 @@ class Header extends AsyncView {
 
 		<ul>
 
-			<li>
+			<li  style="display:none">
 
 				  apps
 
 				  <div class="dropdown-content acrylic">
 
-				    <h5 id="console-listItem" style="display:none;"><a style="color:rgba(225,225,225,255);"
+				    <h5 id="console-listItem" style="display:none;">
+							<a style="color:rgba(225,225,225,255);"
 							onclick="window.Terminal.restore(event)">console</a></h5>
 
 						<h5><a href="https://ryanspice.com/demo/asyncx/virtual-scroll.html" target="_blank" />virtual list</a></h5>
@@ -57,8 +57,11 @@ class Header extends AsyncView {
 				resume
 
 			  <div class="dropdown-content acrylic">
+
 			    <h5><a href="https://home.ryanspice.com/assets/RyanSpice-Resume-2019-June.pdf">pdf</a></h5>
+
 			    <h5><a href="https://home.ryanspice.com/assets/RyanSpice-Resume-2019-June.docx">docx</a></h5>
+
 			  </div>
 
 			</li>
