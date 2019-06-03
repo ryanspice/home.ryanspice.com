@@ -19,26 +19,50 @@ console {
 	}
 
 	#written {
-		font-family:monospace, consolas;color:rgba(255,255,255,0.25);
+		font-family: monospace, consolas;
+		color: rgba(255,255,255,0.25);
 	}
 
-	.traffic-lights{
-		padding-right:2.5rem;width:100%;position:absolute;top:0px;left:0px;height:6.5rem;font-size:4rem;background:rgba(25,25,25,0.25);text-align:right;-webkit-touch-callout: none; /* iOS Safari */    -webkit-user-select: none; /* Safari */     -khtml-user-select: none; /* Konqueror HTML */       -moz-user-select: none; /* Firefox */        -ms-user-select: none; /* Internet Explorer/Edge */            user-select: none;
+	.traffic-lights {
+		padding-right: 2.5rem;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		height: 6.5rem;
+		font-size: 4rem;
+		background: rgba(25,25,25,0.25);
+		text-align: right;
+		-webkit-touch-callout: none;
+		/* iOS Safari */
+		-webkit-user-select: none;
+		/* Safari */
+		-khtml-user-select: none;
+		/* Konqueror HTML */
+		-moz-user-select: none;
+		/* Firefox */
+		-ms-user-select: none;
+		/* Internet Explorer/Edge */
+		user-select: none;
 	}
 
 	h1 {
-		color:rgba(25,25,25,0.25);pointer-events:none;
+		color: rgba(25,25,25,0.25);
+		pointer-events: none;
 	}
 
-	div:first {
+	div:first-child {
 		border-top-left-radius: 1rem;
 		border-top-right-radius: 1rem;
 	}
 
-	>div {
-		border-radius: 1rem; border:1px solid rgba(25,25,25,0.25); background:rgba(25,25,25,0.25);    height:100%; box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
+	> div {
+		border-radius: 1rem;
+		border: 1px solid rgba(25,25,25,0.25);
+		background: rgba(25,25,25,0.25);
+		height: 100%;
+		box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
 	}
-
 }
 
 console:not(.slide-out-maximize) {
