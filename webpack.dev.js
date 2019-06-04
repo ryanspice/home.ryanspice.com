@@ -6,6 +6,7 @@ const path = require('path');
 const CircularDependencyPlugin = require('circular-dependency-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 /*
  *
@@ -14,7 +15,6 @@ const ManifestPlugin = require('webpack-manifest-plugin');
  */
 
 const build = env => {
-
 
 	// DEV CHECK TODO: remove one
 
@@ -51,7 +51,7 @@ const build = env => {
 		},
 
 		resolve: {
-			extensions: ['.js','.scss', '.css'],
+			extensions: ['.js', '.scss', '.css'],
 			plugins: [],
 			modules: [
 				'./src',
@@ -114,7 +114,9 @@ const build = env => {
 					},
 					include: [path.resolve('src'), path.resolve('test'), path.resolve(
 						'node_modules/webpack-dev-server/client')]
-				},{
+				},
+
+				{
 					test: /\.scss$/,
 					use: [{
 						loader: "style-loader" // creates style nodes from JS strings
@@ -168,6 +170,7 @@ const build = env => {
 			new webpack.optimize.ModuleConcatenationPlugin(),
 
 			new webpack.optimize.OccurrenceOrderPlugin(true),
+
 
 			new ManifestPlugin({
 				fileName: 'manifest.json',
@@ -230,12 +233,11 @@ const build = env => {
 		devServer: {
 			proxy: {
 				'/api/**': {
-	        target: 'https://ryanspice.com',
+					target: 'https://ryanspice.com',
 					secure: false,
 					changeOrigin: true
-        }
-		},
-			port: 8080,
+				}
+			},
 			contentBase: './dist',
 			hot: false,
 			inline: true,
@@ -258,6 +260,28 @@ const build = env => {
 		}
 
 	};
+
+	if (type != "legacy")
+		bundle.plugins.push(new HtmlWebpackPlugin({
+			// Required
+			inject: false,
+			template: './template.ejs',
+
+			//
+			title: 'home.ryanspice.com',
+
+			scripts: [
+
+				{
+					src: 'https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js',
+					type: 'module'
+				}
+			]
+
+
+		}))
+
+
 
 	return bundle;
 };

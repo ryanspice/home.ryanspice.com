@@ -1,47 +1,31 @@
 //@flow
 
-import log from "loglevel";
+// Libraries
+
+import utils from "utils";
 
 import AsyncTemplate from "./entry";
 
-import {Main} from "./components/index";
+const log = console;
 
-import Header from "./components/header";
-import Login from "./components/login";
+// Components
 
-import Introduction from "./components/introduction";
-import Console from "./components/console";
-import Pre from "./components/pre";
+require("./components");
 
-import Content from "./components/content";
-import Footer from "./components/footer";
+// AsyncX Runtime Hooks
 
-import LoginInput from "./components/login_input";
+AsyncTemplate.pre = async function(){
 
-AsyncTemplate.pre = () => {
-
-	log.setLevel(log.levels.WARN);
-
-	log.debug(`debug enabled`);
+	window['async-2018-mvc'].entry.sort((a,b)=>{return (a.sequence?a.sequence:0)-(b.sequence?b.sequence:0)});
 
 };
 
 AsyncTemplate.post = () => {
 
-	document.getElementById('loader').style.display = "none";
-
-	setTimeout(function(){
-
-		document.getElementById('userinput_0').focus();
-
-		log.debug(`focused`);
-
-	}, 300);
-
 };
 
-window.onload = function onload(){
+window.onload = function onload(evt){
 
-	window.auth = new AsyncTemplate();
+	window.home = new AsyncTemplate();
 
 };

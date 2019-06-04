@@ -17,14 +17,12 @@ const processA = evt => {
 	temp.output.library = `${package.short_name}`;
 
 	temp.entry = [
-		'./src/index.js'
+		'./src/index.js',
+		'./src/scss/main.scss'
 	];
 
 	temp.plugins.push(
 		new CopyWebpackPlugin([{
-			from: "./src/index.html",
-			to: "./index.html"
-		}, {
 			from: "./src/assets",
 			to: "./assets/"
 		}]),

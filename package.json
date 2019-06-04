@@ -1,7 +1,7 @@
 {
 	"name": "home.ryanspice.com",
 	"short_name": "home.rs",
-	"version": "1.0.0",
+	"version": "1.0.5",
 	"description": "home.ryanspice.com",
 	"main": "index.js",
 	"author": "Ryan Spice-Finnie <contact@ryanspice.com>",
@@ -10,7 +10,7 @@
 	"scripts": {
 		"clean:dist": "rimraf dist",
 		"start": "yarn serve",
-		"dev": "yarn webpack --config webpack.dev.js --env.NODE_ENV=development --env.development",
+		"build": "yarn webpack --config webpack.dev.js --env.NODE_ENV=development --env.development",
 		"serve": "yarn webpack-dev-server --env.NODE_ENV=development --env.development",
 		"watch": "yarn dev --watch",
 		"prod": "yarn clean:dist && yarn webpack --config webpack.prod.js --env.NODE_ENV=production --env.production",
@@ -52,7 +52,7 @@
 		"friendly-errors-webpack-plugin": "^1.7.0",
 		"glob-all": "^3.1.0",
 		"html-webpack-plugin": "^3.2.0",
-		"loglevel": "latest",
+		"http-server": "^0.11.1",
 		"mini-css-extract-plugin": "^0.4.5",
 		"node-sass": "^4.10.0",
 		"purify-css": "^1.2.6",

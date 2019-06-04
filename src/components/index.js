@@ -1,26 +1,16 @@
-import Main from "./main";
-export {
-	Main
-}
+/*@flow*/
 
-/*
-let context = require.context(".", true, /\.js$/);
-
-let module = {};
+let context:any = require.context(".", true, /\.js$/);
+let _module:any = {};
 
 context.keys().forEach(function(key) {
 
-	let ctx = context(key).default;
+	let ctx:any = context(key).default;
+
 	for (let key in ctx) {
-
-		if (typeof ctx[key] == 'function')
-			ctx[key] = ctx[key].toString();
+		_module[key.replace("./","").replace(".js","")] = ctx;
 	}
-
-	module[key.replace("./", "").replace("components.", "").replace(".js", "").replace(
-		".t", "")] = ctx;
 
 });
 
-export default module;
-*/
+export default _module;

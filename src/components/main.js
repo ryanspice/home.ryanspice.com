@@ -1,18 +1,13 @@
+/*@flow*/
+
 import {
 	AsyncView
-}
-from "../entry";
-class Main extends AsyncView {
+} from "../entry";
 
-	constructor() {
-		return super({
-			type: `main`,
-			style: `display:;`,
-			renderTo: `body`,
-			id: `login`,
-			innerHTML: ``
-		});
-	}
+class Main extends AsyncView {
+	id = ``;
+	type = `main`;
+	renderTo = `body`;
 }
 
 export default new Main();

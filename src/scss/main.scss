@@ -1,0 +1,283 @@
+$main-color: #222222;
+$secondary-color: #88b5dd;
+$scale: 2;
+$breakpoints: (
+	'small': (min-width: 767px),
+	'medium': (min-width: 992px),
+	'large': (min-width: 1200px)
+)
+!default;
+
+* {
+	-webkit-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+body,
+html {
+	-webkit-transition: background-image 200ms ease-in-out;
+	transition: background-image 200ms ease-in-out;
+	text-shadow: rgba(25,25,25,0.25) 1px 1px 1px;
+}
+
+body {
+	border-radius: 1rem;
+	margin: 1rem;
+	height: 20vh;
+	box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
+	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+	/* Position and center the image to scale nicely on all screens */
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: relative;
+}
+
+section * {
+	position: relative;
+	z-index: 4;
+}
+
+.hidden {
+	display: none;
+}
+@import './scrollbars.scss';
+@import './breakpoints.scss';
+@import './animations.scss';
+
+main > header > span > a {
+	color: rgba(225,225,225,255);
+}
+
+main > header > span > a > svg {
+	color: rgba(225,225,225,255);
+}
+
+main > header > span > a > svg.feather.feather-twitter {
+	&:hover {
+		color: #38A1F3;
+	}
+}
+
+main > header > span > a > svg.feather.feather-linkedin {
+	&:hover {
+		color: #0077B5;
+	}
+}
+
+main > header > span > a > svg.feather.feather-github {
+	&:hover {
+		color: #4078c0;
+
+		&:after {}
+	}
+}
+
+main > header > ul > li > div {
+	display: none;
+}
+
+main > header > ul > li:hover > div {
+	display: table;
+}
+
+input {
+	background: rgba(25,25,45,0.525) !important;
+	color: rgba(205,205,255,1) !important;
+}
+
+main {
+	a {
+		color: $secondary-color;
+
+		&:hover {
+			cursor: pointer;
+			text-decoration: none;
+		}
+	}
+}
+
+main {
+	position: relative;
+	top: calc(20vh - 50px);
+
+	& * {
+		@extend %fade-top-down;
+		//font-family: 'Niramit', sans-serif;
+	}
+
+	section {
+		margin: 0 auto;
+		max-width: 320px;
+		width: calc(-1vw*175vw);
+/*
+		> a:nth-of-type(1) {
+			display: block;
+			width: 77%;
+			margin: 0 auto;
+			text-align: center;
+			font-weight: bolder;
+			text-decoration: none;
+			cursor: pointer;
+			color: $main-color;
+
+			:hover {
+				cursor: pointer;
+				text-decoration: none;
+			}
+
+			img {
+				display: inline-block;
+				position: relative;
+				top: 6px;
+			}
+		}
+*/
+		img {
+			margin: 0 auto;
+			text-align: center;
+			display: block;
+			clear: both;
+			margin-bottom: 2rem;
+			height: auto;
+			max-width: 32px;
+		}
+
+		input {
+			line-height: 16px;
+			font-size: 16px;
+			padding: 0.5rem;
+			margin: 1rem auto 0;
+			width: 70%;
+			display: block;
+			clear: left;
+			//text-align:center;
+			&:active,
+			&:focus {
+				&::-webkit-input-placeholder {
+					/* WebKit browsers */
+					color: #fff;
+					opacity: 0;
+				}
+
+				&:-moz-placeholder {
+					/* Mozilla Firefox 4 to 18 */
+					color: #fff;
+					opacity: 0;
+				}
+
+				&::-moz-placeholder {
+					/* Mozilla Firefox 19+ */
+					color: #fff;
+					opacity: 0;
+				}
+
+				&:-ms-input-placeholder {
+					/* Internet Explorer 10+ */
+					color: #fff;
+					opacity: 0;
+				}
+			}
+		}
+
+		input:nth-of-type(3) {
+			background: $main-color;
+			color: rgba(255,255,255,0.75);
+		}
+	}
+}
+
+main {
+	section {
+		padding: 2rem;
+		display: block;
+		max-width: 780px;
+		margin: 0 auto;
+		color: rgba(255,255,255,0.5);
+		display: block;
+	}
+
+	pre {
+		font-family: monospace;
+		white-space: pre;
+		padding: 2.5rem;
+		display: block;
+		min-width: 320;
+		max-width: 780px;
+		margin: 0 auto;
+		color: rgba(255,255,255,0.55);
+		font-size:85%;
+	}
+}
+
+.acrylic {
+	padding: 4em 2em;
+	position: relative;
+	background: rgba(255,255,255,0.55);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px) saturate(105%);
+	//backdrop-filter: blur(30px) saturate(125%);
+	margin: 7px;
+}
+@media (min-width: 780px) {
+	pre {
+		display: inline-block;
+	}
+}
+@media (max-width: 780px) {
+	pre {
+		display: none !important;
+	}
+
+	header ul {}
+
+	li {
+		display: block;
+		clear: right;
+		width: 100%;
+	}
+
+	div,
+	h5,
+	li,
+	ul {
+		display: block !important;
+		//border-radius: 1rem;
+		box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
+	}
+
+	.dropdown-content {
+		position: static !important;
+	}
+}
+@import './traffic.scss';
+@import './header.scss';
+@import './footer.scss';
+@import './console.scss';
+
+copy {
+	font-family: monospace;
+	text-align: center;
+	display: block !important;
+	padding: 2rem;
+	display: block;
+	min-width: 320;
+	margin: 0 auto;
+	color: rgba(255,255,255,0.25);
+
+	p:first-child {
+		text-align: left;
+		font-family: monospace;
+		display: block !important;
+		padding: 2rem;
+		display: block;
+		min-width: 320;
+		max-width: 780px;
+		margin: 0 auto;
+		color: rgba(255,255,255,0.55);
+	}
+
+	img {
+		width: 40px;
+	}
+}
