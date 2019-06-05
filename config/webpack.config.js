@@ -3,7 +3,7 @@ const path = require('path');
 const merge = require('webpack-merge');
 const package = require("../package.json")
 
-const common = require('../../async-2018/config/webpack.config.js');
+const common = require('async.2018/config/webpack.config.js');
 
 const component = {};
 

@@ -4,7 +4,7 @@
  */
 
 const package = require("../package.json")
-const build = require('async-2018/config/webpack.config.js');
+const build = require('async.2018/config/webpack.master.js');
 
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
@@ -20,7 +20,7 @@ module.exports = css = evt => {
 
 	temp.output.chunkFilename = `css~[name].js`;
 
-	temp.entry = `./src/assets/css/main.scss`;
+	temp.entry = `./src/scss/main.scss`;
 
 	temp.plugins = [
 

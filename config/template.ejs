@@ -54,17 +54,7 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
     <%= htmlWebpackPlugin.options.headHtmlSnippet %><%
     }
 		%>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/6.3.3/rxjs.umd.js"></script>
-    <script src="css~entry.js"></script>
-    <script src="css~main.js"></script>
 
-    <script type="module" src="/static-components/ui-foundation/latest/auifoundation.entry.js"></script>
-    <script type="module" src="/static-components/ui-foundation/latest/auifoundation.js"></script>
-    <script nomodule src="/static-components/ui-foundation/latest/auifoundation.entry.legacy.js"></script>
-    <script nomodule src="/static-components/ui-foundation/latest/auifoundation.legacy.js"></script>
-
-        <script defer src="./auishell.entry.legacy.js" nomodule></script>
-        <script defer src="./module~auishell.legacy.js" nomodule></script>
 		<%
     for (key in htmlWebpackPlugin.files.chunks) { %><%
       if (htmlWebpackPlugin.files.jsIntegrity) { %>
@@ -81,15 +71,17 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 
 		%>
 
-
+<script defer="defer" src="css~main.js" type="module"></script>
+<script defer="defer" src="css~entry.js" type="module"></script>
 <!-- EXTRA SCRIPTS
--->
+  <script defer="defer" src="home.rs.js" type="module"></script>
 		<%
 
     for (item of htmlWebpackPlugin.options.scripts) { %><%
       if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
     <script defer <% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script><%
     } %>
+  -->
 
 
 
@@ -159,323 +151,98 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 				INSTANT CSS
 					scss compiled with https://www.sassmeister.com/
 		-->
+    <meta name="viewport" content="width=device-width">
+		<link rel="manifest" href="./manifest.json">
+		<link href="https://ryanspice.com/favicon.ico" rel="shortcut icon" type="image/png">
 
-		<style type="text/css">
-
-			* {
-			  font: "Heebo", Arial, Helvetica, sans-serif;
+		<style>
+			@import url("https://fonts.googleapis.com/css?family=Niramit");
+			/*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css */
+			html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
+				background:rgba(55,55,55,255);
+				font-family: Segoe UI, Open-Sans;
 			}
-			* body, * html {
-				background:white;
+			body{margin:0;}
+			main,section{display:block;}
+			a{background-color:transparent;}
+			a:active,a:hover{outline:0;}
+			input{margin:0;font:inherit;color:inherit;}
+			input::-moz-focus-inner{padding:0;border:0;}
+			input{line-height:normal;}
+			@media print{
+			*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+			a,a:visited{text-decoration:underline;}
+			h2{orphans:3;widows:3;}
+			h2{page-break-after:avoid;}
 			}
-			* body main section, * html main section {
-			  margin: 0px auto;
-			  display: block;
+			*{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+			:after,:before{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;}
+			html{font-size:10px;-webkit-tap-highlight-color:rgba(0,0,0,0);}
+				body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;
+			//	background-color:#fff;
+			}	input{font-family:inherit;font-size:inherit;line-height:inherit;}
+			a{
+				color:#3277b3;text-decoration:none;
 			}
-			* body .spinner, * html .spinner {
+			a:focus,a:hover{
+				color:#23527c;
+				text-decoration:underline;
+			}
+			a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+			h2,h5{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
+			h2{margin-top:20px;margin-bottom:10px;}
+			h5{margin-top:10px;margin-bottom:10px;}
+			h2{font-size:30px;}
+			h5{font-size:14px;}
+			.form-control{display:block;width:100%;height:34px;padding:6px 12px;font-size:14px;line-height:1.42857143;color:#555;background-color:#fff;background-image:none;border:1px solid #ccc;border-radius:4px;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075);box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;}
+			.form-control:focus{border-color:#66afe9;outline:0;-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);box-shadow:inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(102,175,233,.6);}
+			.form-control::-moz-placeholder{color:#999;opacity:1;}
+			.form-control:-ms-input-placeholder{color:#999;}
+			.form-control::-webkit-input-placeholder{color:#999;}
+			.form-control::-ms-expand{background-color:transparent;border:0;}
+			/*! ryanspice.com */
+			#loader {
+				position:absolute;
+				left:0%;top:0%;
+				margin:0px auto;
+				width:100%;
+				height:100%;
+				//background: rgba(255,255,255,0.55);
+				background: rgba(55,55,55,0.55);
+				text-align:center;
+				z-index:100;
+			}
+			.load {
 			  position: absolute;
-			  left: 50%;
-			  top: 35%;
+			  left: 45%;
+				top:30%;
 			  margin: 0px auto;
+			  width: 400px;
 			  margin-left: -25px;
-			  width: 50px;
+			  width: 15%;
+			  opacity: 0.5;
+				text-align:center;
 			}
-			* body loader, * html loader {
-			  width: 100%;
-			  height: 100%;
-			  position: fixed;
-			  left: 0px;
-			  top: 0px;
-			  background: rgba(250,250,250,1);
-			  z-index: 10;
-			  text-align: center;
+			.load-text {
+				margin-top:50vh;
+				font-size:calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
+				//font-weight:bold;
+				//text-transform: uppercase;
+				font-family: Segoe UI, Open-Sans;
 			}
-			* body #loader-logo, * html #loader-logo {
-			  top: 35%;
-			  position: absolute;
-			  left: 50%;
-			  margin-left: -195px;
-			  margin-top: -145px;
-			}
-			* body #loader-message, * html #loader-message {
-			  top: 35%;
-			  position: absolute;
-			  left: 50%;
-			  margin-left: -191px;
-			  margin-top: 75px;
-			  width: 383px;
-			}
-			nav {
-				-webkit-box-shadow: 0 1px 0 0 #8990a0;
-				box-shadow: 0 1px 0 0 #ebecee;
-				margin-bottom: 10px;
-				position: relative;
-				box-shadow: #dfdfdf 0px 4px 6px -2px;
-				position:relative;
-			}
-			nav ul {
-			  width: 100%;
-			  padding: 0px;
-			}
-			nav ul li {
-			  cursor: pointer;
-			  padding-left: 0.6rem;
-			  padding-right: 17px;
-			  padding-top: 0.4rem;
-			  padding-bottom: 0.4rem;
-			  font-size: 1rem;
-			}
-			nav ul img {
-			  display: inline-block;
-			  outline: none;
-			  border: none;
-			  background-position: center;
-			  background-size: cover;
-			}
-			nav ul span#contact {
-			  float: right;
-			  padding: 0 2vw 0 0;
-			  margin: 0 auto;
-			  display: flex;
-			  flex-direction: row;
-			}
-			nav ul span#contact small {
-			  color: black;
-			}
-			nav ul span#contact big a {
-			  position: relative;
-			  top: 2.5px;
-			}
-			watermark {
-				position: fixed;
-		    bottom: 80px;
-		    right: 5px;
-		    opacity: 0.5;
-		    z-index: 99;
-		    color: rgba(25, 25, 25, 0.85);
+			canvas {
+				z-index:0 !important;
 			}
 		</style>
 
+    <script prefetch='true' src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
-	</head>
+  </head>
+	<body>
 
-<body>
+  	<div id="loader" class="slide hidden" style="display:none;"></div>
 
-		<!-- EXTRAS -->
-
-		<watermark></watermark>
-
-		<!-- LOADER -->
-
-		<loader class="show stuck">
-
-			<br />
-			<br />
-
-			<img hidden width='383' height='125' id="loader-logo" src="/static-components/ui-foundation/latest/assets/img/logo.png" />
-			<message id="loader-message"></message>
-
-			<br />
-			<br />
-
-			<img class="spinner" src="https://cdnjs.cloudflare.com/ajax/libs/galleriffic/2.0.1/css/loader.gif" />
-
-		</loader>
-
-		<!-- HEADER - 00 -->
-
-		<header class="row">
-
-			<ul>
-
-				<span id="companyLogo"></span>
-
-				<span id="contact">
-
-					<span>
-
-						<b>Contact Us</b>
-						| <username>Login</username>
-
-					</span>
-					<span class="user-config">
-						<img src="/static-components/ui-foundation/latest/assets/img/user.svg" alt="User Icon" class="user-image"/>
-						<img src="/static-components/ui-foundation/latest/assets/img/triangle-down.png" alt="Avatar" class="user-triangle"/>
-						<div class="user-config-dropdown"></div>
-					</span>
-					<big hidden></big>
-
-				</span>
-
-			</ul>
-		</header>
-
-		<!-- Navigation - 01 -->
-			<nav class="navbar navbar-expand-lg navbar-light ">
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-						<span class="navbar-toggler-icon"></span>
-				</button>
-				<div class="collapse navbar-collapse" id="navbarSupportedContent">
-					<ul class="navbar-nav">
-					</ul>
-				</div>
-			</nav>
-			<div class="search-fts-container"></div>
-		<!-- MAIN -->
-
-		<main>
-
-			<section>
-
-				<!-- TEMP SEARCH BAR -->
-
-
-				<!-- TEMP END SEARCH BAR -->
-
-				<!-- SHELL CONTENT -->
-
-				<!-- TODO: Delete all of these: make your boilerplate/component render to `main section` -->
-
-				<nw-root></nw-root>
-				<nw-recommendations-root></nw-recommendations-root>
-
-				<!-- END SHELL CONTENT -->
-        <!--- NEW WAVE OOPS PAGE -->
-
-        <style>
-          .hidden{
-            display:none;
-          }
-          /*! CSS Used from: https://openauction.qa.nw.adesa.com/styles.c8887f183aa6323e44d6.bundle.css */
-          img{border-style:none;vertical-align:middle;}
-          .img-fluid{max-width:100%;height:auto;}
-          .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;}
-          .col-12,.col-6{min-height:1px;}
-          @media (min-width:768px){
-          .row{margin-right:-15px;margin-left:-15px;}
-          .col-12,.col-6{padding-right:15px;padding-left:15px;}
-          }
-          @media (min-width:992px){
-          .row{margin-right:-15px;margin-left:-15px;}
-          .col-12,.col-6{padding-right:15px;padding-left:15px;}
-          }
-          @media (min-width:1200px){
-          .row{margin-right:-15px;margin-left:-15px;}
-          .col-12,.col-6{padding-right:15px;padding-left:15px;}
-          }
-          @media (min-width:576px){
-          .row{margin-right:-15px;margin-left:-15px;}
-          .col-12,.col-6{padding-right:15px;padding-left:15px;}
-          }
-          @media print{
-          *,::after,::before,div::first-letter,div::first-line{text-shadow:none!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
-          img{page-break-inside:avoid;}
-          }
-          *,::after,::before{-webkit-box-sizing:inherit;box-sizing:inherit;}
-          .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-7.5px;margin-left:-7.5px;}
-          @media (min-width:576px){
-          .row{margin-right:-7.5px;margin-left:-7.5px;}
-          .col-12,.col-6{padding-right:7.5px;padding-left:7.5px;}
-          }
-          @media (min-width:768px){
-          .row{margin-right:-7.5px;margin-left:-7.5px;}
-          .col-12,.col-6{padding-right:7.5px;padding-left:7.5px;}
-          }
-          @media (min-width:992px){
-          .row{margin-right:-7.5px;margin-left:-7.5px;}
-          .col-12,.col-6{padding-right:7.5px;padding-left:7.5px;}
-          }
-          @media (min-width:1200px){
-          .row{margin-right:-7.5px;margin-left:-7.5px;}
-          .col-12,.col-6{padding-right:7.5px;padding-left:7.5px;}
-          }
-          .col-12,.col-6{position:relative;width:100%;min-height:1px;padding-right:7.5px;padding-left:7.5px;}
-          .col-6{-webkit-box-flex:0;-ms-flex:0 0 50%;flex:0 0 50%;max-width:50%;}
-          .col-12{-webkit-box-flex:0;-ms-flex:0 0 100%;flex:0 0 100%;max-width:100%;}
-          .error{display:-webkit-box;display:-moz-flex;display:-ms-flexbox;display:flex;}
-          .error-layout{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center;}
-          .error-layout .oswarld-text{font-family:Heebo,sans-serif;font-size:100px;font-weight:700;color:#000;}
-          @media (max-width:1199px){
-          .error-layout .oswarld-text{font-size:75px;-webkit-box-flex:0;-ms-flex:0;flex:0;max-width:100%;text-align:center;}
-          }
-          .error-layout .error-text{font-size:20px;color:#666;line-height:28px;}
-          .error-layout .error-text span{display:block;}
-          @media (max-width:1199px){
-          .error-layout .error-text{font-size:14px;line-height:23px;padding-left:10px;padding-right:10px;text-align:center;}
-          }
-          .error-layout .error-text-padding{padding-top:20px;}
-          .error-layout img{max-width:100%;height:auto;padding-left:7px;padding-right:7px;}
-          nw-error-page {
-            display:inline-block;
-            width:100%;
-            height:100%;
-            position:fixed;
-            top:0px;
-            left:0px;
-            z-index:10;
-          }
-          </style>
-
-        <nw-error-page _nghost-c13="" class="hidden" style="margin-top:1vh;background:transparent;z-index:-20;position:relative;">
-          <nw-page _ngcontent-c13="" _nghost-c14="" class="ng-tns-c14-3 ng-trigger ng-trigger-routeAnimation" style="display: block; opacity: 1;">
-          <div _ngcontent-c13="" class="row error error-layout">
-            <div _ngcontent-c13="" class="col-6 oswarld-text">Oops!</div>
-            <div _ngcontent-c13="" class="col-12 error-text" style="opacity:0">
-              <span _ngcontent-c13="">Something went wrong, please try again later.</span>
-              <!---->
-              <span _ngcontent-c13="" class="error-text-padding">Contact support at 1-888-526-7326.</span>
-            </div>
-            <div _ngcontent-c13="">
-              <img _ngcontent-c13="" class="img-fluid" src="assets/img/error-page.svg">
-            </div>
-          </div>
-
-
-
-        </nw-page>
-        </nw-error-page>
-
-        <!-- END OF ADESA OOPS PAGE -->
-			</section>
-
-		</main>
-
-		<!-- FOOTER -->
-
-		<footer class="show stuck">
-
-			<ul>
-
-			</ul>
-
-		</footer>
-
-		<!-- Latest v2.x.x -->
-		<script src="https://cdn.jsdelivr.net/npm/css-vars-ponyfill@2"></script>
-
-		<script>
-			// Default values
-				cssVars({
-					// Targets
-					rootElement   : document,
-					shadowDOM     : false,
-
-					// Sources
-					include       : 'link[rel=stylesheet],style',
-					exclude       : '',
-					variables     : {},
-
-					// Options
-					onlyLegacy    : true,
-					preserveStatic: true,
-					preserveVars  : false,
-					silent        : false,
-					updateDOM     : true,
-					updateURLs    : true,
-					watch         : true
-				});
-		</script>
-
+  	<noscript>Please Enable JavaScript</noscript>
 
   </body>
 

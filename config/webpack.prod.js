@@ -2,8 +2,8 @@
 const merge = require('webpack-merge');
 const package = require("../package.json")
 
-const common = require('@async-2018/config/webpack.config.js');
-const production = require('@async-2018/config/webpack.prod.js');
+const common = require('async.2018/config/webpack.config.js');
+const production = require('async.2018/config/webpack.prod.js');
 const component = require('./webpack.config.js');
 
 let entry = {};
