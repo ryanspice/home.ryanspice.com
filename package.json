@@ -38,7 +38,7 @@
 		"release:npm": "npm run deploy && npm publish ."
 	},
 	"dependencies": {
-		"async.2018": "../async-2018/"
+		"async.2018": "../async.2018/"
 	},
 	"devDependencies": {
 	},
