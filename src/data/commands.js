@@ -121,9 +121,12 @@ const commands = {
 	,'r3':(evt)=>{openInNewTab('https://ryanspice.com/legacy/R3'); return [messages.opening + " '" + 'https://ryanspice.com/legacy/R3\''];}
 	,'r4':(evt)=>{openInNewTab('https://ryanspice.com/legacy/R4'); return [messages.opening + " '" + 'https://ryanspice.com/legacy/R4\''];}
 	,'r5':(evt)=>{openInNewTab('https://ryanspice.com/legacy/R5'); return [messages.opening + " '" + 'https://ryanspice.com/legacy/R5\''];}
-	,'r6':(evt)=>{openInNewTab('https://ryanspice.com/legacy/R6'); return [messages.opening + " '" + 'https://ryanspice.com/legacy/R6\''];}
-	,'r6.1':(evt)=>{openInNewTab('https://ryanspice.com/legacy/R6.1'); return [messages.opening + " '" + 'https://ryanspice.com/legacy/R6.1\''];}
-	,'r2016':(evt)=>{openInNewTab('httpshttps://ryanspice.com/RyanSpice2016.Com/'); return [messages.opening + " '" + 'https://ryanspice.com/RyanSpice2016.Com/\''];}
+	,'r6':(evt)=>{openInNewTab('https://ryanspice.com/R6'); return [messages.opening + " '" + 'https://ryanspice.com/R6\''];}
+	,'r6.1':(evt)=>{openInNewTab('https://ryanspice.com/R6.1'); return [messages.opening + " '" + 'https://ryanspice.com/R6.1\''];}
+	,'r6.1':(evt)=>{openInNewTab('https://ryanspice.com/R6.1'); return [messages.opening + " '" + 'https://ryanspice.com/R6.1\''];}
+	,'r7':(evt)=>{openInNewTab('https://ryanspice.com/R7'); return [messages.opening + " '" + 'https://ryanspice.com/R7\''];}
+	,'r8.1':(evt)=>{openInNewTab('https://ryanspice.com/R8.1'); return [messages.opening + " '" + 'https://ryanspice.com/R8.1\''];}
+	,'r2016':(evt)=>{openInNewTab('httpshttps://ryanspice.com/RyanSpice2016.Com/bld'); return [messages.opening + " '" + 'https://ryanspice.com/RyanSpice2016.Com/bld\''];}
 	,'r2019':(evt)=>{openInNewTab('httpshttps://ryanspice.com/'); return [messages.opening + " '" + 'https://ryanspice.com/\''];}
 
 

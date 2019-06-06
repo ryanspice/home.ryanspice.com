@@ -98,7 +98,7 @@ export default {
 			title:'', description:''
 		},
 		'FlappyFish':{
-			link:'https://ryanspice.com/FlappyFish/',
+			link:'https://ryanspice.com/game.php?game=FlappyFish/',
 			title:'', description:''
 		},
 		'Fabagohey':{
@@ -106,15 +106,15 @@ export default {
 			title:'', description:''
 		},
 		'KongQuest':{
-			link:'https://ryanspice.com/KongQuest/',
+			link:'https://ryanspice.com/game.php?game=KongQuest/',
 			title:'', description:''
 		},
 		'ReverenceLost':{
-			link:'https://ryanspice.com/ReverenceLost',
+			link:'https://ryanspice.com/game.php?game=ReverenceLost',
 			title:'', description:''
 		},
 		'SnowBoarding':{
-			link:'https://ryanspice.com/SnowBoarding',
+			link:'https://ryanspice.com/game.php?game=SnowBoarding',
 			title:'', description:''
 		},
 		'esdoc-babel-plugin':{
