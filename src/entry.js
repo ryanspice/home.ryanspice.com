@@ -4,7 +4,7 @@ import {
 	pipe,
 	view,
 	mvc
-} from "async.2018/lib/ATRender";
+} from "async.2018/src";
 
 const AsyncTemplate = pipe;
 const AsyncView = view;
