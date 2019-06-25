@@ -71,17 +71,17 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 
 		%>
 
-<script defer="defer" src="css~main.js" type="module"></script>
-<script defer="defer" src="css~entry.js" type="module"></script>
-<!-- EXTRA SCRIPTS
-  <script defer="defer" src="home.rs.js" type="module"></script>
-		<%
+	<script defer="defer" src="css~main.js" type="module"></script>
+	<script defer="defer" src="css~entry.js" type="module"></script>
+	<!-- EXTRA SCRIPTS
+	  <script defer="defer" src="home.rs.js" type="module"></script>
+			<%
 
-    for (item of htmlWebpackPlugin.options.scripts) { %><%
-      if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
-    <script defer <% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script><%
-    } %>
-  -->
+	    for (item of htmlWebpackPlugin.options.scripts) { %><%
+	      if (typeof item === 'string' || item instanceof String) { item = { src: item, type: 'text/javascript' } } %>
+	    <script defer <% for (key in item) { %> <%= key %>="<%= item[key] %>"<% } %>></script><%
+	    } %>
+	  -->
 
 
 
@@ -147,20 +147,13 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 
 		-->
 
-		<!--
-				INSTANT CSS
-					scss compiled with https://www.sassmeister.com/
-		-->
-    <meta name="viewport" content="width=device-width">
-		<link rel="manifest" href="./manifest.json">
-		<link href="https://ryanspice.com/favicon.ico" rel="shortcut icon" type="image/png">
-
 		<style>
+
 			@import url("https://fonts.googleapis.com/css?family=Niramit");
+
 			/*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css */
 			html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
 				background:rgba(55,55,55,255);
-				font-family: Segoe UI, Open-Sans;
 			}
 			body{margin:0;}
 			main,section{display:block;}
@@ -181,13 +174,17 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 				body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:1.42857143;color:#333;
 			//	background-color:#fff;
 			}	input{font-family:inherit;font-size:inherit;line-height:inherit;}
+
+
 			a{
 				color:#3277b3;text-decoration:none;
 			}
+
 			a:focus,a:hover{
 				color:#23527c;
 				text-decoration:underline;
 			}
+
 			a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
 			h2,h5{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
 			h2{margin-top:20px;margin-bottom:10px;}
@@ -200,6 +197,7 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			.form-control:-ms-input-placeholder{color:#999;}
 			.form-control::-webkit-input-placeholder{color:#999;}
 			.form-control::-ms-expand{background-color:transparent;border:0;}
+
 			/*! ryanspice.com */
 			#loader {
 				position:absolute;
@@ -212,6 +210,7 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 				text-align:center;
 				z-index:100;
 			}
+
 			.load {
 			  position: absolute;
 			  left: 45%;
@@ -222,17 +221,32 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			  width: 15%;
 			  opacity: 0.5;
 				text-align:center;
+
 			}
+
 			.load-text {
+
 				margin-top:50vh;
 				font-size:calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 				//font-weight:bold;
 				//text-transform: uppercase;
 				font-family: Segoe UI, Open-Sans;
 			}
+
 			canvas {
+
 				z-index:0 !important;
+
 			}
+
+
+		</style>
+    <meta name="viewport" content="width=device-width">
+		<link rel="manifest" href="./manifest.json">
+		<link href="https://ryanspice.com/favicon.ico" rel="shortcut icon" type="image/png">
+
+		<style>
+			@import url("https://fonts.googleapis.com/css?family=Niramit");
 		</style>
 
     <script prefetch='true' src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
