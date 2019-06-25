@@ -20,6 +20,7 @@ let evt = () => {
 
 	const es6 = common[0](evt);
 	const es5 = common[1](evt);
+	const css = common[2](evt);
 
 	es6.externals = es5.externals = [];
 
@@ -27,6 +28,7 @@ let evt = () => {
 
 	entry[`${package.short_name}`] = `./src`;
 	es6.entry = entry;
+	css.entry = `./src/scss/main.scss`;
 
 	//set package scope (ES5)
 
@@ -60,7 +62,8 @@ es5.devServer.disableHostCheck = true;
 
 	return [
 		merge(es5, component),
-		merge(es6, component)
+		merge(es6, component),
+		merge(css, component)
 	]
 };
 
