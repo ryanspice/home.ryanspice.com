@@ -5,6 +5,7 @@ import commands from "./data/commands";
 
 const directory = messages.directory;
 
+const hexSorter = require('hexSorter');
 
 let lastIndex = 0;
 const last = [
@@ -268,6 +269,7 @@ window.writeToConsole = function(evt){
 
 }
 
+window.brightness = 0; // fix for hexSorter???
 window.SetColourTheme = ()=>{};
 
 
@@ -275,35 +277,50 @@ let writeToConsole_Swatches = '';
 
 let img;
 
-img = new Image();
-
-img.style.display = "none";
-img.crossOrigin = "Anonymous";
-
 
 
 const increaseBrightness = linkcolor => {return elm =>{
 		elm.style = `color:${linkcolor};filter:brightness(150%)'`;
-	}
-};
+}};
+
+const componentFromStr = function componentFromStr(numStr, percent) {
+    var num = Math.max(0, parseInt(numStr, 10));
+    return percent ?
+        Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
+}
+
+const rgbToHex = function rgbToHex(rgb) {
+    var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
+    var result, r, g, b, hex = "";
+    if ( (result = rgbRegex.exec(rgb)) ) {
+        r = componentFromStr(result[1], result[2]);
+        g = componentFromStr(result[3], result[4]);
+        b = componentFromStr(result[5], result[6]);
+
+        hex = "0x" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
+    }
+    return hex;
+}
 
 SetColourTheme =async ()=>{
 
 	let vib = await new window.Vibrant(img,32,3);
 
+	const sw = [
+		'DarkMutedSwatch',
+		'DarkVibrantSwatch',
+		'LightMutedSwatch',
+		'LightVibrantSwatch',
+		'MutedSwatch',
+		'VibrantSwatch'
+	];
+
+	const colorArray = [];
 	const Swatch = (type)=>{
 
 		try{
-		var sw = [
-			'DarkMutedSwatch',
-			'DarkVibrantSwatch',
-			'LightMutedSwatch',
-			'LightVibrantSwatch',
-			'MutedSwatch',
-			'VibrantSwatch'
-		]
 
-		return `rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})` || false;
+		return colorArray.push(rgbToHex(`rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})`)?.replace('0x','#'));
 
 	}	catch(e){
 
@@ -313,18 +330,29 @@ SetColourTheme =async ()=>{
 
 };
 
-	const color = Swatch(0);
-	const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
-	writeToConsole_Swatches = [color,linkcolor];
+	//await [Swatch(0),Swatch(1),Swatch(2),Swatch(3),Swatch(4),Swatch(5)];
+await Swatch(0);
+await Swatch(1);
+await Swatch(2);
+await Swatch(3);
+await Swatch(4);
+await Swatch(5);
+	const sortedcolor = await hexSorter.sortColors(colorArray,'mostBrightColor');
 
-	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
+	const color = sortedcolor[sortedcolor.length-1];
+	const linkcolor = sortedcolor[1];
 
-	await Array.from(document.getElementsByTagName('a')).forEach(increaseBrightness(linkcolor))
+	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;} a {color:${linkcolor} !important;}</style>`));
+
+	//await Array.from(document.getElementsByTagName('a')).forEach(increaseBrightness(linkcolor))
 
 	writeToConsole_Swatches = ['done'];
 
 };
 
+img = new Image();
+img.style.display = "none";
+img.crossOrigin = "Anonymous";
 
 img.onload = SetColourTheme;
 
