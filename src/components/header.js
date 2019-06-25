@@ -77,10 +77,10 @@ class Header extends AsyncView {
 				contact
 
 			  <div class="dropdown-content acrylic">
-			    <h5><a style="color:rgba(225,225,225,255);" href="mailto:contact@ryanspice.com" target="_self">email</a></h5>
-					<h5><a style="color:rgba(225,225,225,255);" href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank">linkedin</a></h5>
-					<h5><a style="color:rgba(225,225,225,255);" href="https://twitter.com/ryanspice?lang=en" target="_blank">twitter</a></h5>
-			    <h5><a style="color:rgba(225,225,225,255);" href="https://github.com/ryanspice" target="_blank">github</a></h5>
+			    <h5><a href="mailto:contact@ryanspice.com" target="_self">email</a></h5>
+					<h5><a href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank">linkedin</a></h5>
+					<h5><a href="https://twitter.com/ryanspice?lang=en" target="_blank">twitter</a></h5>
+			    <h5><a href="https://github.com/ryanspice" target="_blank">github</a></h5>
 			  </div>
 
 			</li>

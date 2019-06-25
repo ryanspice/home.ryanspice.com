@@ -282,6 +282,11 @@ img.crossOrigin = "Anonymous";
 
 
 
+const increaseBrightness = linkcolor => {return elm =>{
+		elm.style = `color:${linkcolor};filter:brightness(150%)'`;
+	}
+};
+
 SetColourTheme =async ()=>{
 
 	let vib = await new window.Vibrant(img,32,3);
@@ -310,12 +315,11 @@ SetColourTheme =async ()=>{
 
 	const color = Swatch(0);
 	const linkcolor = Swatch(2) || Swatch(3) || Swatch(5);
-
 	writeToConsole_Swatches = [color,linkcolor];
 
 	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;}</style>`));
 
-	await Array.from(document.getElementsByTagName('a')).forEach(elm=>elm.style.color = linkcolor)
+	await Array.from(document.getElementsByTagName('a')).forEach(increaseBrightness(linkcolor))
 
 	writeToConsole_Swatches = ['done'];
 
@@ -331,7 +335,7 @@ let v = null;
 window.theme = async function(){
 
 	if (!v)
-		import("./assets/js/Vibrant");
+		v = import("./assets/js/Vibrant");
 
 		const image2base64 = (await import('./assets/js/image-to-base65')).default;
 

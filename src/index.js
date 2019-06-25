@@ -3,30 +3,27 @@
 // Libraries
 
 import utils from "utils";
-
-import AsyncTemplate from "./entry";
-
-const log = console;
+import ax from "./entry";
 
 // Components
 
 require("./components");
 
-// AsyncX Runtime Hooks
+// Hooks
 
-AsyncTemplate.pre = async function(){
+ax.pre = async function(){
 
 	window['async-2018-mvc'].entry.sort((a,b)=>{return (a.sequence?a.sequence:0)-(b.sequence?b.sequence:0)});
 	if(document.getElementsByTagName('loader')[0])
 		document.getElementsByTagName('loader')[0].remove();
 };
 
-AsyncTemplate.post = () => {
+ax.post = () => {
 
 };
 
 window.onload = function onload(evt){
 
-	window.home = new AsyncTemplate();
+	window.home = new ax();
 
 };
