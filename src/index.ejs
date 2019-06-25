@@ -146,6 +146,16 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
     } %>
 
 		-->
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-38949835-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-38949835-1');
+		</script>
+
 
 		<style>
 
@@ -155,7 +165,7 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
 				background:rgba(55,55,55,255);
 			}
-			body{margin:0;}
+			body {width:calc(100% - 2rem);}
 			main,section{display:block;}
 			a{background-color:transparent;}
 			a:active,a:hover{outline:0;}
