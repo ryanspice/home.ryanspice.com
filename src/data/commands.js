@@ -110,7 +110,7 @@ const commands = {
 	,'dodgeball':(evt)=>{openInNewTab('https://ryanspice.com/Dodgeball/Dodgeball.zip'); return [messages.opening + " '" + 'https://ryanspice.com/Dodgeball/Dodgeball.zip\''];}
 
 
-	,'moon':(evt)=>{openInNewTab('moon'); return [messages.opening + " '" + 'moon\''];}
+	,'moon':(evt)=>{openInNewTab('https://ryanspice.com/abandoned/moon'); return [messages.opening + " '" + 'moon\''];}
 	,'hackio':(evt)=>{openInNewTab('t'); return [messages.opening + " '" + 't\''];}
 	,'the years':(evt)=>{openInNewTab('https://www.64digits.com/user/StanMcgarvy/game/3262'); return [messages.opening + " '" + 'https://www.64digits.com/user/StanMcgarvy/game/3262\''];}
 	,'phwayne':(evt)=>{openInNewTab('https://www.64digits.com/user/StanMcgarvy/game/2473'); return [messages.opening + " '" + 'https://www.64digits.com/user/StanMcgarvy/game/2473\''];}
