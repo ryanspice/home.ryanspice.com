@@ -1,5 +1,14 @@
 //@flow
 
+
+	/*
+
+<a href="javascript:openInNewWindow('${messages.links['Async2018-VirtualScroll'].link}');">virtual-scroll</a>                      an AsyncX, list component which renders only X number of elements
+
+
+
+	 */
+
 import messages from "../data/messages";
 
 import {
@@ -10,9 +19,9 @@ const preLink = (name,url) => `<a href="${url}">${name}</a>`;
 
 class Pre extends AsyncView {
 
-	id:any = ``;
-	type:any = `pre`;
-	renderTo:any = `main`;
+	id:string = ``;
+	type:string = `pre`;
+	renderTo:string = `main`;
 	sequence:any = 4;
 	mounted:any = ()=>{
 
@@ -42,7 +51,6 @@ Usage: [command]
 
 	<a href="javascript:openInNewWindow('${messages.links['auth'].link}');">auth</a>                                login to ryanspice.com admin panel
 	<a href="javascript:openInNewTab('${messages.links['banner'].link}');">animated-banner</a>                     POC in vanilla JS for drawing moving shapes
-	<a href="javascript:openInNewWindow('${messages.links['Async2018-VirtualScroll'].link}');">virtual-scroll</a>                      an AsyncX, list component which renders only X number of elements
 
   JavaScript Frameworks:
 

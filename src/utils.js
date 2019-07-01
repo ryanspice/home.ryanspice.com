@@ -49,7 +49,7 @@ const last = [
 
 window.openInNewWindow = (msg)=>{
 
-	window.open(`${msg}`,msg,'width=720,height=380');
+	window.open(`${msg}`,msg,'width=1228,height=580');
 
 };
 
@@ -283,7 +283,6 @@ window.Terminal = {
 						document.getElementById('console-scroll').scrollTop = document.getElementById('console-scroll').scrollHeight;
 						}
 
-		//				console.log(commands[taValue]())
 
 						setEndOfContenteditable(evt.target);
 
@@ -377,7 +376,7 @@ img.onload = SetColourTheme;
 
 
 
-let v = null;
+let v = false;
 
 /**
  * theme
@@ -388,8 +387,8 @@ window.theme = async function(){
 
 	if (!v){
 
-		import("./assets/js/Vibrant");
-
+		await import("./assets/js/Vibrant");
+		v = true;
 	} else {
 
 		return new Error("Couldn't load Vibrant.js");
@@ -398,7 +397,7 @@ window.theme = async function(){
 
 	const image2base64 = (await import('./assets/js/image-to-base65')).default;
 
-	let response = image2base64("https://source.unsplash.com/random");
+	let response = await image2base64("https://source.unsplash.com/random");
 
 	document.body.style = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${"data:image/png;base64,"+(await response)});`;
 	document.getElementsByTagName('footer')[0].style = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${"data:image/png;base64,"+(await response)});`
@@ -410,8 +409,4 @@ window.theme = async function(){
 	return img;
 };
 
-setTimeout(()=>{
-
-	window.theme();
-
-})
+window.theme();

@@ -61,7 +61,7 @@ es5.devServer.disableHostCheck = true;
 	//return configs
 
 	return [
-		merge(es5, component),
+		//merge(es5, component),
 		merge(es6, component),
 		merge(css, component)
 	]

@@ -77,7 +77,8 @@ section * {
 main section {
 
 	  @include fluid-type($min_width, $max_width, $min_font, $max_font);
-	}
+
+}
 
 	copy {
 	  @include fluid-type($min_width, 720px, $min_font, 18px);
@@ -235,7 +236,7 @@ main {
 
 main {
 	section {
-		padding: 2rem;
+		padding: 2.5rem;
 		display: block;
 		max-width: 1080px;
 		margin: 0 auto;
@@ -265,12 +266,12 @@ main {
 	//backdrop-filter: blur(30px) saturate(125%);
 	margin: 7px;
 }
-@media (min-width: 780px) {
+@media (min-width: 480px) {
 	pre {
 		display: inline-block;
 	}
 }
-@media (max-width: 780px) {
+@media (max-width: 480px) {
 	pre {
 		display: none !important;
 	}

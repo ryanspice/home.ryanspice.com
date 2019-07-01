@@ -31,7 +31,7 @@ class Header extends AsyncView {
 
 				  <div class="dropdown-content acrylic">
 
-				    <h5 id="console-listItem" style="display:none;">
+				    <h5 id="console-listItem" >
 							<a style="color:rgba(225,225,225,255);"
 							onclick="window.Terminal.restore(event)">console</a></h5>
 
