@@ -11,7 +11,6 @@ import HexSorterWorker from 'worker-loader!./hexSorter.worker.js';
 import VibrantWorker from 'worker-loader!./Vibrant.worker.js';
 import RgbToHexWorker from 'worker-loader!./rgbToHex.worker.js';
 
-const Vibrant = new VibrantWorker();
 const RgbToHex = new RgbToHexWorker();
 
 /**
@@ -332,9 +331,9 @@ window.SetColourTheme = ()=>{};
  * @return {Promise} [description]
  */
 
-SetColourTheme = async ()=>{
+SetColourTheme = ()=>{
 
-	const vib = await new window.Vibrant(img,32,3);
+	const vib = new window.Vibrant(img,32,3);
 	const colorArray = [];
 
 	RgbToHex.onmessage = (e)=>{
@@ -360,7 +359,6 @@ SetColourTheme = async ()=>{
 
 };
 
-img.onload = SetColourTheme;
 
 let v = false;
 
@@ -369,16 +367,16 @@ let v = false;
  * @param  {[type]}  e [description]
  */
 
-Vibrant.onmessage = async (e:Event)=>{
+const Vibrant = new VibrantWorker();
+Vibrant.onmessage = e =>{
 
 	const data = e.data.primary;
-	//console.log(e.data);
-	document.body.style = data[0];
-	document.getElementsByTagName('footer')[0].style = data[1];
 
-	img.src = data[2];
-
+	document.body.style =  data[0];
+	document.getElementsByTagName('footer')[0].style =  data[1];
+	img.src =  data[2];
 	document.body.append(img);
+	img.onload = SetColourTheme;
 
 };
 
@@ -387,19 +385,12 @@ Vibrant.onmessage = async (e:Event)=>{
  * @return {[type]} [description]
  */
 
-window.theme = async function(){
+window.theme = async function theme(){
 
-	Vibrant.postMessage([420]);
+	await Vibrant.postMessage([420]);
 
-	if (!v){
+	await import("./assets/js/Vibrant");
 
-		await import("./assets/js/Vibrant");
-		v = true;
-	} else {
-
-		return new Error("Couldn't load Vibrant.js");
-
-	}
 	return img;
 };
 
