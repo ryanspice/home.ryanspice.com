@@ -5,42 +5,44 @@ import commands from "./data/commands";
 
 const directory = messages.directory;
 
-const hexSorter = require('hexSorter');
+//const hexSorter = require('hexSorter');
+//
+import HexSorterWorker from 'worker-loader!./hexSorter.worker.js';
+import VibrantWorker from 'worker-loader!./Vibrant.worker.js';
+import RgbToHexWorker from 'worker-loader!./rgbToHex.worker.js';
 
+const Vibrant = new VibrantWorker();
+const RgbToHex = new RgbToHexWorker();
 
-let writeToConsole_Swatches = '';
+/**
+ * image used for the background
+ * @type {Image}
+ */
 
-let img;
+ let img;
+img = new Image();
+img.style.display = "none";
+img.crossOrigin = "Anonymous";
 
+/**
+ * [HexSort description]
+ * @type {HexSorterWorker}
+ */
 
+const HexSort = new HexSorterWorker();
+HexSort.onmessage = async (e:Event)=>{
+	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${e.data.primary} !important;} a {color:${e.data.secondary} !important;}</style>`));
+}
+
+/**
+ * [increaseBrightness description]
+ * @param  {[type]} linkcolor [description]
+ * @return {[type]}           [description]
+ */
 
 const increaseBrightness = linkcolor => {return elm =>{
 		elm.style = `color:${linkcolor};filter:brightness(150%)'`;
 }};
-
-const componentFromStr = function componentFromStr(numStr, percent) {
-    var num = Math.max(0, parseInt(numStr, 10));
-    return percent ?
-        Math.floor(255 * Math.min(100, num) / 100) : Math.min(255, num);
-}
-
-const rgbToHex = function rgbToHex(rgb) {
-    var rgbRegex = /^rgb\(\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*,\s*(-?\d+)(%?)\s*\)$/;
-    var result, r, g, b, hex = "";
-    if ( (result = rgbRegex.exec(rgb)) ) {
-        r = componentFromStr(result[1], result[2]);
-        g = componentFromStr(result[3], result[4]);
-        b = componentFromStr(result[5], result[6]);
-
-        hex = "0x" + (0x1000000 + (r << 16) + (g << 8) + b).toString(16).slice(1);
-    }
-    return hex;
-}
-
-
-
-
-
 
 let lastIndex = 0;
 const last = [
@@ -315,68 +317,70 @@ window.SetColourTheme = ()=>{};
  * @return {Promise} [description]
  */
 
-SetColourTheme =async ()=>{
-
-	let vib = await new window.Vibrant(img,32,3);
-
-	const sw = [
-		'DarkMutedSwatch',
-		'DarkVibrantSwatch',
-		'LightMutedSwatch',
-		'LightVibrantSwatch',
-		'MutedSwatch',
-		'VibrantSwatch'
-	];
-
-	const colorArray = [];
-	const Swatch = (type)=>{
-
-		try{
-
-		return colorArray.push(rgbToHex(`rgb(${vib[sw[type]].rgb[0]},${vib[sw[type]].rgb[1]},${vib[sw[type]].rgb[2]})`)?.replace('0x','#'));
-
-	}	catch(e){
-
-			return false;
-
-		}
-
-};
-
-	//await [Swatch(0),Swatch(1),Swatch(2),Swatch(3),Swatch(4),Swatch(5)];
-await Swatch(0);
-await Swatch(1);
-await Swatch(2);
-await Swatch(3);
-await Swatch(4);
-await Swatch(5);
-	const sortedcolor = await hexSorter.sortColors(colorArray,'mostBrightColor');
-
-	const color = sortedcolor[sortedcolor.length-1];
-	const linkcolor = sortedcolor[1];
-
-	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${color} !important;} a {color:${linkcolor} !important;}</style>`));
-
-	//await Array.from(document.getElementsByTagName('a')).forEach(increaseBrightness(linkcolor))
-
-	writeToConsole_Swatches = ['done'];
-
-};
+ const sw = [
+	 'DarkMutedSwatch',
+	 'DarkVibrantSwatch',
+	 'LightMutedSwatch',
+	 'LightVibrantSwatch',
+	 'MutedSwatch',
+	 'VibrantSwatch'
+ ];
 
 /**
- * [img description]
- * @type {Image}
+ * use vibrant to generate rgb values from image, then use webworker to make them HEX
+ * 	-note i am probably not using the API correctly and overcompensating to get this value
+ * @return {Promise} [description]
  */
 
-img = new Image();
-img.style.display = "none";
-img.crossOrigin = "Anonymous";
+SetColourTheme = async ()=>{
+
+	const vib = await new window.Vibrant(img,32,3);
+	const colorArray = [];
+
+	RgbToHex.onmessage = (e)=>{
+
+		colorArray.push(e.data.output.color);
+
+		if (colorArray.length==sw.length){
+
+			//RgbToHex.terminate();
+
+			HexSort.postMessage([colorArray,'mostBrightColor']);
+		}
+
+	}
+
+	for(var i = 0; i<sw.length;i++){
+
+		RgbToHex.postMessage({
+			color:vib[sw[i]]?`rgb(${vib[sw[i]].rgb[0]},${vib[sw[i]].rgb[1]},${vib[sw[i]].rgb[2]})`:``
+		})
+
+	}
+
+};
 
 img.onload = SetColourTheme;
 
-
-
 let v = false;
+
+/**
+ * [onmessage description]
+ * @param  {[type]}  e [description]
+ */
+
+Vibrant.onmessage = async (e:Event)=>{
+
+	const data = e.data.primary;
+	//console.log(e.data);
+	document.body.style = data[0];
+	document.getElementsByTagName('footer')[0].style = data[1];
+
+	img.src = data[2];
+
+	document.body.append(img);
+
+};
 
 /**
  * theme
@@ -384,6 +388,8 @@ let v = false;
  */
 
 window.theme = async function(){
+
+	Vibrant.postMessage([420]);
 
 	if (!v){
 
@@ -394,18 +400,6 @@ window.theme = async function(){
 		return new Error("Couldn't load Vibrant.js");
 
 	}
-
-	const image2base64 = (await import('./assets/js/image-to-base65')).default;
-
-	let response = await image2base64("https://source.unsplash.com/random");
-
-	document.body.style = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${"data:image/png;base64,"+(await response)});`;
-	document.getElementsByTagName('footer')[0].style = `background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${"data:image/png;base64,"+(await response)});`
-
-	img.src = "data:image/png;base64,"+(await response);
-
-	document.body.append(img);
-
 	return img;
 };
 

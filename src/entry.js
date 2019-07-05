@@ -8,6 +8,7 @@ import {
 
 const AsyncTemplate = pipe;
 const AsyncView = view;
+const V = AsyncView;
 const AsyncController = mvc;
 
 /**
@@ -18,5 +19,6 @@ export default AsyncTemplate;
 export {
 	AsyncTemplate,
 	AsyncView,
-	AsyncController
+	AsyncController,
+	V
 };

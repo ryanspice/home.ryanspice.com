@@ -1,14 +1,13 @@
 {
 	"name": "home.ryanspice.com",
 	"short_name": "home.rs",
-	"version": "1.0.6",
+	"version": "1.0.7",
 	"description": "home.ryanspice.com",
 	"main": "index.js",
 	"author": "Ryan Spice-Finnie <contact@ryanspice.com>",
 	"license": "MIT",
 	"private": false,
 	"scripts": {
-		"flow-check": "flow --color=always",
 		"start": "yarn serve",
 		"build": "yarn clean:dist && yarn dev",
 		"build:dev": "yarn build",
@@ -35,12 +34,14 @@
 		"library": "yarn clean:lib && node ./node_modules/async.2018/config/script.minify.js ./package.json",
 		"dashboard": "yarn webpack-dashboard yarn prod --watch",
 		"test": "mocha src/**/*.unit.test.js || true",
+		"flow-check": "flow --color=always",
 		"release:npm": "npm run deploy && npm publish ."
 	},
 	"dependencies": {
 		"@babel/plugin-proposal-optional-chaining": "^7.2.0",
 		"async.2018": "../async.2018/",
-		"hexsorter": "^1.5.0"
+		"hexsorter": "^1.5.0",
+		"worker-loader": "^2.0.0"
 	},
 	"devDependencies": {},
 	"resolutions": {
