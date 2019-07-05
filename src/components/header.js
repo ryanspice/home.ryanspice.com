@@ -15,11 +15,11 @@ class Header extends AsyncView {
 	};
 	innerHTML: any = `
 
-			<span>
-			<a href="https://github.com/ryanspice" target="_blank"><i data-feather="github" style="margin-right:0rem;"></i></a>
-				<a href="https://twitter.com/ryanspice?lang=en" target="_blank"><i data-feather="twitter" ></i></a>
-				<a href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank"><i data-feather="linkedin" ></i></a>
-			</span>
+		<span>
+			<a href="https://github.com/ryanspice" target="_blank"><i data-feather="github"></i></a>
+			<a href="https://twitter.com/ryanspice?lang=en" target="_blank"><i data-feather="twitter" ></i></a>
+			<a href="https://www.linkedin.com/in/ryan-spice-finnie-510a295b/" target="_blank"><i data-feather="linkedin" ></i></a>
+		</span>
 
 		<h2>ryanspice.com</h2>
 

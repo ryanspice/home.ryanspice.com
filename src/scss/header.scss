@@ -26,6 +26,11 @@ header {
 	span {
 		display: inline-block;
 		float: right;
+
+		a i[data-feather="github"] {
+		  margin-right:0rem;
+		}
+
 	}
 	svg {
 		float: right;
