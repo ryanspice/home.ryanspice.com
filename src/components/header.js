@@ -25,7 +25,7 @@ class Header extends AsyncView {
 
 		<ul>
 
-			<li  style="display:none">
+			<li  style="display:none" hidden>
 
 				  apps
 
