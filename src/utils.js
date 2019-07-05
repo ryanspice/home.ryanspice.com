@@ -5,16 +5,14 @@ import commands from "./data/commands";
 
 const directory = messages.directory;
 
-//const hexSorter = require('hexSorter');
-//
 import HexSorterWorker from 'worker-loader!./hexSorter.worker.js';
 import VibrantWorker from 'worker-loader!./Vibrant.worker.js';
 import RgbToHexWorker from 'worker-loader!./rgbToHex.worker.js';
 
-const RgbToHex = new RgbToHexWorker();
+window.SetColourTheme = ()=>{};
 
 /**
- * image used for the background
+ * hoisted variables
  * @type {Image}
  */
 
@@ -23,30 +21,14 @@ img = new Image();
 img.style.display = "none";
 img.crossOrigin = "Anonymous";
 
-/**
- * [HexSort description]
- * @type {HexSorterWorker}
- */
-
-const HexSort = new HexSorterWorker();
-HexSort.onmessage = async (e:Event)=>{
-	await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${e.data.primary} !important;} a {color:${e.data.secondary} !important;}</style>`));
-}
-
-/**
- * [increaseBrightness description]
- * @param  {[type]} linkcolor [description]
- * @return {[type]}           [description]
- */
-
-const increaseBrightness = linkcolor => {return elm =>{
-		elm.style = `color:${linkcolor};filter:brightness(150%)'`;
-}};
-
 let lastIndex = 0;
-const last = [
+const last = [];
 
-];
+/**
+ * window helper functions
+ * @param  {[type]} msg [description]
+ * @return {[type]}     [description]
+ */
 
 window.openInNewWindow = (msg)=>{
 
@@ -109,7 +91,7 @@ window.setEndOfContenteditable = function setEndOfContenteditable(contentEditabl
 };
 
 /**
- * [Terminal description]
+ * my shotty attempt at making a terminal
  * @type {Object}
  */
 
@@ -307,44 +289,48 @@ window.Terminal = {
 
 window.writeToConsole = window.Terminal.write;
 
-window.brightness = 0; // fix for hexSorter???
-
-window.SetColourTheme = ()=>{};
-
-/**
- * [SetColourTheme description]
- * @return {Promise} [description]
- */
-
- const sw = [
-	 'DarkMutedSwatch',
-	 'DarkVibrantSwatch',
-	 'LightMutedSwatch',
-	 'LightVibrantSwatch',
-	 'MutedSwatch',
-	 'VibrantSwatch'
- ];
-
 /**
  * use vibrant to generate rgb values from image, then use webworker to make them HEX
  * 	-note i am probably not using the API correctly and overcompensating to get this value
  * @return {Promise} [description]
  */
 
-SetColourTheme = ()=>{
+SetColourTheme = async ()=>{
 
-	const vib = new window.Vibrant(img,32,3);
+	const HexSort = await new HexSorterWorker();
+
+	HexSort.onmessage = async (e:Event)=>{
+
+		await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${e.data.primary} !important;} a {color:${e.data.secondary} !important;}</style>`));
+
+		HexSort.terminate();
+
+	}
+
+	const RgbToHex = await new RgbToHexWorker();
+	await import("./assets/js/Vibrant");
+
+	const sw = [
+ 	 'DarkMutedSwatch',
+ 	 'DarkVibrantSwatch',
+ 	 'LightMutedSwatch',
+ 	 'LightVibrantSwatch',
+ 	 'MutedSwatch',
+ 	 'VibrantSwatch'
+  ];
+
+	const vib = await new window.Vibrant(img,32,3);
+
 	const colorArray = [];
 
-	RgbToHex.onmessage = (e)=>{
+	RgbToHex.onmessage = async (e)=>{
 
-		colorArray.push(e.data.output.color);
+		await colorArray.push(e.data.output.color);
 
-		if (colorArray.length==sw.length){
+		if (colorArray.length>=sw.length-1){
 
-			//RgbToHex.terminate();
-
-			HexSort.postMessage([colorArray,'mostBrightColor']);
+			await HexSort.postMessage([colorArray,'mostBrightColor']);
+			RgbToHex.terminate();
 		}
 
 	}
@@ -360,10 +346,9 @@ SetColourTheme = ()=>{
 };
 
 
-let v = false;
 
 /**
- * [onmessage description]
+ * transformed vibrant values :: appened to the document
  * @param  {[type]}  e [description]
  */
 
@@ -381,15 +366,13 @@ Vibrant.onmessage = e =>{
 };
 
 /**
- * theme
+ * vibrant - postMessage to vibrant
  * @return {[type]} [description]
  */
 
 window.theme = async function theme(){
 
 	await Vibrant.postMessage([420]);
-
-	await import("./assets/js/Vibrant");
 
 	return img;
 };
