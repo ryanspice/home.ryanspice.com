@@ -10,13 +10,13 @@ import RgbToHexWorker from 'worker-loader!./rgbToHex.worker.js';
  * @type {Image}
  */
 
- let img;
+let img;
 img = new Image();
 img.style.display = "none";
 img.crossOrigin = "Anonymous";
 
 /**
- * use vibrant to generate rgb values from image, then use webworker to make them HEX
+ * vibrant - use vibrant to generate rgb values from image, then use webworker to make them HEX
  * 	-note i am probably not using the API correctly and overcompensating to get this value
  * @return {Promise} [description]
  */
@@ -72,7 +72,7 @@ window.SetColourTheme = async ()=>{
 };
 
 /**
- * transformed vibrant values :: appened to the document
+ * vibrant - transformed vibrant values :: appened to the document
  * @param  {[type]}  e [description]
  */
 
