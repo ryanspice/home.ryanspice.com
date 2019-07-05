@@ -6,7 +6,6 @@ import {
 
 class Introduction extends AsyncView {
 
-	id = ``;
 	type:any = `section`;
 	renderTo:any = `main`;
 	sequence:any = 1;

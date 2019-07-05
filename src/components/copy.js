@@ -6,15 +6,9 @@ import {
 
 class Copy extends AsyncView {
 
-	id = ``;
 	type: string = 'copy';
 	renderTo: string = `main`;
 	sequence: number = 6;
-	mounted: Function = function() {
-
-		feather.replace();
-
-	};
 	innerHTML: string = `
 		<p>
 		Visit <a href="https://github.com/ryanspice">https://github.com/ryanspice</a> or;<br/>

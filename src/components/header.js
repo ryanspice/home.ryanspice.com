@@ -1,19 +1,20 @@
 //@flow
 
 import {
-	AsyncView
+	V
 } from "../entry";
 
-class Header extends AsyncView {
+class Header extends V {
 
-	id = ``;
-	type: any = `header`;
-	renderTo: any = `main`;
+	id: string = ``;
+	type: string = `header`;
+	renderTo: string = `main`;
 	mounted: any = () => {
 
 		feather.replace();
 	};
-	innerHTML: any = `
+
+	innerHTML: string = `
 
 		<span>
 			<a href="https://github.com/ryanspice" target="_blank"><i data-feather="github"></i></a>
@@ -24,6 +25,8 @@ class Header extends AsyncView {
 		<h2>ryanspice.com</h2>
 
 		<ul>
+
+			<!--
 
 			<li  style="display:none" hidden>
 
@@ -42,6 +45,8 @@ class Header extends AsyncView {
 				  </div>
 
 			</li>
+
+			-->
 
 			<li>
 
@@ -91,10 +96,10 @@ class Header extends AsyncView {
 			  </div>
 
 			</li>
+
 		</ul>
 
-
-		`;
+	`;
 
 };
 
