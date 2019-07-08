@@ -16,61 +16,11 @@ img.style.display = "none";
 img.crossOrigin = "Anonymous";
 
 /**
- * vibrant - use vibrant to generate rgb values from image, then use webworker to make them HEX
- * 	-note i am probably not using the API correctly and overcompensating to get this value
+ * remove?
  * @return {Promise} [description]
  */
 
-window.SetColourTheme = async ()=>{
-
-	const HexSort = await new HexSorterWorker();
-
-	HexSort.onmessage = async (e:Event)=>{
-
-		await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${e.data.primary} !important;} a {color:${e.data.secondary} !important;}</style>`));
-
-		HexSort.terminate();
-
-	}
-
-	const RgbToHex = await new RgbToHexWorker();
-	await import("./assets/js/Vibrant");
-
-	const sw = [
- 	 'DarkMutedSwatch',
- 	 'DarkVibrantSwatch',
- 	 'LightMutedSwatch',
- 	 'LightVibrantSwatch',
- 	 'MutedSwatch',
- 	 'VibrantSwatch'
-  ];
-
-	const vib = await new window.Vibrant(img,32,3);
-
-	const colorArray = [];
-
-	RgbToHex.onmessage = async (e)=>{
-
-		await colorArray.push(e.data.output.color);
-
-		if (colorArray.length>=sw.length-1){
-
-			await HexSort.postMessage([colorArray,'mostBrightColor']);
-			RgbToHex.terminate();
-		}
-
-	}
-
-	for(var i = 0; i<sw.length;i++){
-
-		RgbToHex.postMessage({
-			color:vib[sw[i]]?`rgb(${vib[sw[i]].rgb[0]},${vib[sw[i]].rgb[1]},${vib[sw[i]].rgb[2]})`:``
-		})
-
-	}
-
-};
-
+window.SetColourTheme = window.theme;
 /**
  * vibrant - transformed vibrant values :: appened to the document
  * @param  {[type]}  e [description]
