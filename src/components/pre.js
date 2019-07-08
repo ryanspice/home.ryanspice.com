@@ -19,8 +19,9 @@ const preLink = (name,url) => `<a href="${url}">${name}</a>`;
 
 class Pre extends AsyncView {
 
+	sequence:any = 4;
 	type:string = `pre`;
-	style=`		font-family: monospace;
+	style:string =`font-family: monospace;
 			white-space: pre;
 			padding: 2.5rem;
 			display: block;
@@ -30,12 +31,7 @@ class Pre extends AsyncView {
 			color: rgba(255,255,255,0.55);
 			font-size:85%;`
 	renderTo:string = `main`;
-	sequence:any = 4;
-	mounted:any = ()=>{
 
-		  feather.replace();
-
-	};
 	innerHTML:any = `
 Usage: [command]
 

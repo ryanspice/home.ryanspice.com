@@ -14,9 +14,6 @@ class Console extends AsyncView {
 	type:string = `console`;
 	renderTo:string = `main`;
 	sequence:number = 3;
-	mounted:any = async ()=>{
-
-	};
 	innerHTML:string = `
 		<div>
 

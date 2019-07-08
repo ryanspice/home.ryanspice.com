@@ -6,7 +6,6 @@ import {
 
 class Header extends V {
 
-	id: string = ``;
 	type: string = `header`;
 	renderTo: string = `main`;
 	mounted: any = () => {
