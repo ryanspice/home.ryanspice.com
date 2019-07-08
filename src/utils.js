@@ -30,7 +30,7 @@ const Vibrant = new VibrantWorker();
 
 Vibrant.onmessage = e =>{
 
-	const data = e.data.primary;
+	const data:Object = e.data.primary;
 
 	document.body.style =  data[0];
 	document.getElementsByTagName('footer')[0].style =  data[1];
@@ -97,7 +97,7 @@ window.theme = async function theme(){
 
 	await Vibrant.postMessage([420]);
 
-	return img;
+	//return img;
 };
 
 window.theme();
