@@ -19,8 +19,16 @@ const preLink = (name,url) => `<a href="${url}">${name}</a>`;
 
 class Pre extends AsyncView {
 
-	id:string = ``;
 	type:string = `pre`;
+	style=`		font-family: monospace;
+			white-space: pre;
+			padding: 2.5rem;
+			display: block;
+			min-width: 320px;
+			max-width: 780px;
+			margin: 0 auto;
+			color: rgba(255,255,255,0.55);
+			font-size:85%;`
 	renderTo:string = `main`;
 	sequence:any = 4;
 	mounted:any = ()=>{

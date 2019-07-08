@@ -1,40 +1,5 @@
-$main-color: #222222;
-$secondary-color: #88b5dd;
-$scale: 2;
-$breakpoints: (
-	'small': (min-width: 767px),
-	'medium': (min-width: 992px),
-	'large': (min-width: 1200px)
-)
-!default;
 
-
-@function strip-unit($value) {
-  @return $value / ($value * 0 + 1);
-}
-
-@mixin fluid-type($min-vw, $max-vw, $min-font-size, $max-font-size) {
-  $u1: unit($min-vw);
-  $u2: unit($max-vw);
-  $u3: unit($min-font-size);
-  $u4: unit($max-font-size);
-
-  @if $u1 == $u2 and $u1 == $u3 and $u1 == $u4 {
-    & {
-      font-size: $min-font-size;
-      @media screen and (min-width: $min-vw) {
-        font-size: calc(#{$min-font-size} + #{strip-unit($max-font-size - $min-font-size)} * ((100vw - #{$min-vw}) / #{strip-unit($max-vw - $min-vw)}));
-      }
-      @media screen and (min-width: $max-vw) {
-        font-size: $max-font-size;
-      }
-    }
-  }
-}
-$min_width: 320px;
-$max_width: 2448px;//1080px;//3840px;
-$min_font: 16px;
-$max_font: 24px;
+@import './variables.scss';
 
 * {
 	-webkit-transition: all 0.3s ease;
@@ -70,81 +35,19 @@ section * {
 .hidden {
 	display: none;
 }
+
 @import './scrollbars.scss';
 @import './breakpoints.scss';
 @import './animations.scss';
 
 main section {
 
-	  @include fluid-type($min_width, $max_width, $min_font, $max_font);
 
 }
 
-	copy {
-	  @include fluid-type($min_width, 720px, $min_font, 18px);
-}
-
-main > header > span > a {
-	color: rgba(225,225,225,255);
-}
-
-main > header > span > a > svg {
-	color: rgba(225,225,225,255);
-}
-
-main > header > span > a > svg.feather.feather-twitter {
-	&:hover {
-		color: #38A1F3;
-	}
-}
-
-main > header > span > a > svg.feather.feather-linkedin {
-	&:hover {
-		color: #0077B5;
-	}
-}
-
-main > header > span > a > svg.feather.feather-github {
-	&:hover {
-		color: #4078c0;
-
-		&:after {}
-	}
-}
-
-main > header > ul > li > div {
-	display: none;
-}
-
-main > header > ul > li:hover > div {
-	display: table;
-}
-
-input {
-	background: rgba(25,25,45,0.525) !important;
-	color: rgba(205,205,255,1) !important;
-}
 
 main {
-	a {
-		color: $secondary-color;
-		//text-shadow: $secondary-color 0px 0px 1px;
-		&:hover {
-			cursor: pointer;
-			text-decoration: none;
-			opacity:0.5;
-				-webkit-transform: scale(1.1) 0.2s ease;
-				transform: scale(1.1) 0.2s ease;
-				animation: bubble 1.0s forwards;
--webkit-animation: bubble 1.0s forwards; /* for less modern browsers */
 
-		}
-
-
-	}
-}
-
-main {
 	position: relative;
 	top: calc(20vh - 50px);
 
@@ -153,33 +56,32 @@ main {
 		//font-family: 'Niramit', sans-serif;
 	}
 
+	a {
+
+		color: $secondary-color;
+		//text-shadow: $secondary-color 0px 0px 1px;
+		&:hover {
+			cursor: pointer;
+			text-decoration: none;
+			opacity:0.5;
+			-webkit-transform: scale(1.1) 0.2s ease;
+			transform: scale(1.1) 0.2s ease;
+			animation: bubble 1.0s forwards;
+			-webkit-animation: bubble 1.0s forwards; /* for less modern browsers */
+
+		}
+
+
+	}
+
 	section {
+
+		@include fluid-type($min_width, $max_width, $min_font, $max_font);
+
 		margin: 0 auto;
 		max-width: 320px;
 		width: calc(-1vw*175vw);
-/*
-		> a:nth-of-type(1) {
-			display: block;
-			width: 77%;
-			margin: 0 auto;
-			text-align: center;
-			font-weight: bolder;
-			text-decoration: none;
-			cursor: pointer;
-			color: $main-color;
 
-			:hover {
-				cursor: pointer;
-				text-decoration: none;
-			}
-
-			img {
-				display: inline-block;
-				position: relative;
-				top: 6px;
-			}
-		}
-*/
 		img {
 			margin: 0 auto;
 			text-align: center;
@@ -231,8 +133,65 @@ main {
 			background: $main-color;
 			color: rgba(255,255,255,0.75);
 		}
+
+	}
+
+	> header {
+
+		> span {
+
+			> a {
+
+				color: rgba(225,225,225,255);
+
+				> svg {
+
+					color: rgba(225,225,225,255);
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+main > header > span > a > svg.feather.feather-twitter {
+	&:hover {
+		color: #38A1F3;
 	}
 }
+
+main > header > span > a > svg.feather.feather-linkedin {
+	&:hover {
+		color: #0077B5;
+	}
+}
+
+main > header > span > a > svg.feather.feather-github {
+	&:hover {
+		color: #4078c0;
+
+		&:after {}
+	}
+}
+
+main > header > ul > li > div {
+	display: none;
+}
+
+main > header > ul > li:hover > div {
+	display: table;
+}
+
+input {
+	background: rgba(25,25,45,0.525) !important;
+	color: rgba(205,205,255,1) !important;
+}
+
 
 main {
 	section {
@@ -244,17 +203,6 @@ main {
 		display: block;
 	}
 
-	pre {
-		font-family: monospace;
-		white-space: pre;
-		padding: 2.5rem;
-		display: block;
-		min-width: 320;
-		max-width: 780px;
-		margin: 0 auto;
-		color: rgba(255,255,255,0.55);
-		font-size:85%;
-	}
 }
 
 .acrylic {
@@ -301,30 +249,4 @@ main {
 @import './header.scss';
 @import './footer.scss';
 @import './console.scss';
-
-copy {
-	font-family: monospace;
-	text-align: center;
-	display: block !important;
-	padding: 2rem;
-	display: block;
-	min-width: 320;
-	margin: 0 auto;
-	color: rgba(255,255,255,0.25);
-
-	p:first-child {
-		text-align: left;
-		font-family: monospace;
-		display: block !important;
-		padding: 2rem;
-		display: block;
-		min-width: 320;
-		max-width: 780px;
-		margin: 0 auto;
-		color: rgba(255,255,255,0.55);
-	}
-
-	img {
-		width: 40px;
-	}
-}
+@import './copy.scss';
