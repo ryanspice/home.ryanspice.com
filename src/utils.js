@@ -1,9 +1,9 @@
 
 import "./terminal";
 
-import HexSorterWorker from 'worker-loader!./hexSorter.worker.js';
-import VibrantWorker from 'worker-loader!./Vibrant.worker.js';
-import RgbToHexWorker from 'worker-loader!./rgbToHex.worker.js';
+import HexSorterWorker from 'worker-loader!./workers/hexSorter.worker.js';
+import VibrantWorker from 'worker-loader!./workers/Vibrant.worker.js';
+import RgbToHexWorker from 'worker-loader!./workers/rgbToHex.worker.js';
 
 /**
  * hoisted variables
