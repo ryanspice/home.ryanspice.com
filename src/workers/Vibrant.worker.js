@@ -1,5 +1,4 @@
 
-//const Vibrant = require('./Vibrant-WebWorker.js');
 const image2base64 = (require('./image-to-base64-WebWorker'));
 const response = image2base64("https://source.unsplash.com/random");
 
