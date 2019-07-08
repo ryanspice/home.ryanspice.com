@@ -77,8 +77,7 @@ Usage: [command]
 	<a href="javascript:openInNewWindow('${messages.links['ReverenceLost'].link}');">ReverenceLost</a>			    a 2016 reinterpretation of ReverenceLost in SpiceJS
 	<a href="javascript:openInNewWindow('${messages.links['SnowBoarding'].link}');">SnowBoarding</a>
 
-	${preLink('Moon')}                                sidescrolling platformer + animations + camera
-
+	<a  href="javascript:openInNewWindow('${messages.links['Moon'].link}');" >Moon</a>                           sidescrolling platformer + animations + camera
 	<a  href="javascript:openInNewWindow('${messages.links['Hackio'].link}');" >Hackio</a>                              "Keep it up" concept
 	${preLink('Isomemtric', 'https://ryanspice.com/isometric/')}                          isometric tileset
 
