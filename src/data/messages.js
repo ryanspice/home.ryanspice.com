@@ -65,12 +65,20 @@ export default {
 			link:'https://ryanspice.com/demo/asyncx/virtual-scroll.html',
 			title:'', description:''
 		},
-		'moon':{
-			link:'https://home.ryanspice.com/abandoned/moon',
+		'Moon':{
+			link:'https://ryanspice.com/abandoned/moon',
+			title:'', description:''
+		},
+		'Hackio':{
+			link:'https://ryanspice.com/abandoned/hackio',
 			title:'', description:''
 		},
 		'Home':{
 			link:'',
+			title:'', description:''
+		},
+		'Jay':{
+			link:'https://ryanspice.com/legacy/jay/',
 			title:'', description:''
 		},
 		'SpiceJS-2016':{

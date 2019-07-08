@@ -78,7 +78,8 @@ Usage: [command]
 	<a href="javascript:openInNewWindow('${messages.links['SnowBoarding'].link}');">SnowBoarding</a>
 
 	${preLink('Moon')}                                sidescrolling platformer + animations + camera
-	${preLink('Hakio')}                               "Keep it up" concept
+
+	<a  href="javascript:openInNewWindow('${messages.links['Hackio'].link}');" >Hackio</a>                              "Keep it up" concept
 	${preLink('Isomemtric', 'https://ryanspice.com/isometric/')}                          isometric tileset
 
 	<a href="javascript:openInNewWindow('${messages.links['snow'].link}');">Snow</a>                                a canvas particle example
@@ -96,6 +97,7 @@ Usage: [command]
   Websites
 
 	<a href="http://backontrack.io/" target="_blank">backontrack.io</a>                      enterprise level web consulting
+	<a href="https://ryanspice.com/legacy/jay/" target="_blank">jayyoung.ca</a>                         portfolio site
 
 	<a href="${messages.links['Home'].link}" target="_blank">Home</a>                                this page based off of Async2018 which used BabelBoilerplate
 	<a href="https://ryanspice.com/mapper/" target="_blank">WinJS Mock UI</a>                       an unfinished UI

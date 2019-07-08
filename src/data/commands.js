@@ -149,6 +149,16 @@ const commands = {
 		}
 		//	,'Async2018-MapEditor':(evt)=>{openInNewTab('https://github.com/ryanspice/js.ryanspice.2018'); return [messages.opening + " '" + 'https://github.com/ryanspice/js.ryanspice.2018\''];}
 
+		,
+	'jay': (evt) => {
+		openInNewTab('https://ryanspice.com/legacy/jay/');
+		return [messages.opening + " '" + 'https://ryanspice.com/legacy/jay/\''];
+	}		,
+		'jayyoung.ca': (evt) => {
+			openInNewTab('https://ryanspice.com/legacy/jay/');
+			return [messages.opening + " '" + 'https://ryanspice.com/legacy/jay/\''];
+		}
+
 		//CONTRIBUTIONS
 
 		,
@@ -206,11 +216,11 @@ const commands = {
 		,
 	'moon': (evt) => {
 		openInNewTab('https://ryanspice.com/abandoned/moon');
-		return [messages.opening + " '" + 'moon\''];
+		return [messages.opening + " '" + 'https://ryanspice.com/abandoned/moon\''];
 	},
 	'hackio': (evt) => {
-		openInNewTab('t');
-		return [messages.opening + " '" + 't\''];
+		openInNewTab('https://ryanspice.com/abandoned/hackio');
+		return [messages.opening + " '" + 'https://ryanspice.com/abandoned/hackio\''];
 	},
 	'the years': (evt) => {
 		openInNewTab('https://www.64digits.com/user/StanMcgarvy/game/3262');
