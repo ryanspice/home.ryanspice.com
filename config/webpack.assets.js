@@ -9,6 +9,10 @@ const build = require('async.2018/config/webpack.master.js');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
+/**
+ * append CSS properties to foundation/config/webpack.config.js
+ */
+
 module.exports = css = evt => {
 
 	const temp = build(evt);
