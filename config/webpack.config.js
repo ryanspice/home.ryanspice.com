@@ -39,11 +39,13 @@ let evt = () => {
 
 	//set package scope (ES6)
 
+	const extension = 'mjs';//ejs?'mjs':'js';
+
 	entry[`${package.short_name}`] = `./src`;
 	es6.entry = entry;
-	es6.output.filename = `[name].[contenthash].mjs`;
+	es6.output.filename = `[name].[contenthash].${extension}`;
 	es6.output.library = `${package.short_name}`;
-	es6.output.chunkFilename = `module~[name].[contenthash].mjs`;
+	es6.output.chunkFilename = `module~[name].[contenthash].${extension}`;
 
 	/*
 	//set package scope (ES5)
