@@ -22,7 +22,7 @@ const component = require('./webpack.config.js');
  * @return {WebpackConfig} returns both the es5 and es6 builds
  */
 
-let evt = () => {
+const evt = () => {
 
 	let entry = {};
 
