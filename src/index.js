@@ -1,15 +1,25 @@
 //@flow
 
-// Libraries
+/**
+ * include utility functions and asynx
+ * @type {[type]}
+ */
 
 import utils from "utils";
 import ax from "./entry";
 
-// Components
+/**
+ * requires the components folder
+ *  - components are loaded automatically and are instanciated by 'sequence'
+ * @param  {[type]} components [description]
+ * @return {[type]}            [description]
+ */
 
 require("./components");
 
-// Hooks
+/**
+ *  code executed to the templating engine before it runs
+ */
 
 ax.pre = async function(){
 
@@ -18,9 +28,19 @@ ax.pre = async function(){
 		document.getElementsByTagName('loader')[0].remove();
 };
 
-ax.post = () => {
+/**
+ *  code executed to the templating engine after it runs
+ */
 
-};
+ax.post = async function(){
+
+}
+
+/**
+ *  code to execute the templating engine onload
+ * @param  {[type]} evt [description]
+ * @return {[type]}     [description]
+ */
 
 window.onload = function onload(evt){
 
