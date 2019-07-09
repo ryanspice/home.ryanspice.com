@@ -69,9 +69,9 @@ class Header extends V {
 
 			  <div class="dropdown-content acrylic">
 
-			    <h5><a href="https://home.ryanspice.com/assets/RyanSpice-Resume-2019-June.pdf">pdf</a></h5>
+			    <h5><a href="https://ryanspice.com/assets/rspice-resume-generic.pdf">pdf</a></h5>
 
-			    <h5><a href="https://home.ryanspice.com/assets/RyanSpice-Resume-2019-June.docx">docx</a></h5>
+			    <h5><a href="https://ryanspice.com/assets/rspice-resume-generic.docx">docx</a></h5>
 
 			  </div>
 
