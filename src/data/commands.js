@@ -188,24 +188,24 @@ const commands = {
 		return [messages.opening + " '" + 'https://github.com/ryanspice/fabagohey\''];
 	},
 	'reverencelost': (evt) => {
-		openInNewTab('https://ryanspice.com/game.php?game=ReverenceLost');
-		return [messages.opening + " '" + 'https://ryanspice.com/game.php?game=ReverenceLost\''];
+		openInNewTab('https://ryanspice.com/game?game=ReverenceLost');
+		return [messages.opening + " '" + 'https://ryanspice.com/game?game=ReverenceLost\''];
 	},
 	'kongquest': (evt) => {
-		openInNewTab('https://ryanspice.com/game.php?game=KongQuest');
-		return [messages.opening + " '" + 'https://ryanspice.com/game.php?game=KongQuest\''];
+		openInNewTab('https://ryanspice.com/game?game=KongQuest');
+		return [messages.opening + " '" + 'https://ryanspice.com/game?game=KongQuest\''];
 	},
 	'snowboarding': (evt) => {
-		openInNewTab('https://ryanspice.com/game.php?game=SnowBoarding');
-		return [messages.opening + " '" + 'https://ryanspice.com/game.php?game=SnowBoarding\''];
+		openInNewTab('https://ryanspice.com/game?game=SnowBoarding');
+		return [messages.opening + " '" + 'https://ryanspice.com/game?game=SnowBoarding\''];
 	},
 	'flappyfish': (evt) => {
-		openInNewTab('https://ryanspice.com/game.php?game=FlappyFish');
-		return [messages.opening + " '" + 'https://ryanspice.com/game.php?game=FlappyFish\''];
+		openInNewTab('https://ryanspice.com/game?game=FlappyFish');
+		return [messages.opening + " '" + 'https://ryanspice.com/game?game=FlappyFish\''];
 	},
 	'bovxel': (evt) => {
-		openInNewTab('https://ryanspice.com/game.php?game=Bovxel');
-		return [messages.opening + " '" + 'https://ryanspice.com/game.php?game=Bovxel\''];
+		openInNewTab('https://ryanspice.com/game?game=Bovxel');
+		return [messages.opening + " '" + 'https://ryanspice.com/game?game=Bovxel\''];
 	},
 	'dodgeball': (evt) => {
 			openInNewTab('https://ryanspice.com/Dodgeball/Dodgeball.zip');

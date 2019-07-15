@@ -65,15 +65,16 @@ Usage: [command]
   JavaScript Games:
 
 	<a href="javascript:openInNewWindow('${messages.links['Tetris'].link}');">Tetris</a>                              a SpiceJS interpretation of Tetris
-	<a href="javascript:openInNewWindow('${messages.links['Bovxel'].link}');">Bovxel</a>                              a 2013 gamejam game designed to be used with the mouse
 	<a href="https://ryanspice.com/minesweeper/" target="_blank">Minesweeper</a>                         a vanilla Js interpretation of minesweeper
+
+	<a href="javascript:openInNewWindow('${messages.links['Bovxel'].link}');">Bovxel</a>                              a 2013 gamejam game designed to be used with the mouse
 	<a href="javascript:openInNewWindow('${messages.links['FlappyFish'].link}');">FlappyFish</a>                          a SpiceJS game
-	<a href="javascript:openInNewWindow('${messages.links['Fabagohey'].link}');">Fabagohey</a>                           a SpiceJS prototype
 	<a href="javascript:openInNewWindow('${messages.links['KongQuest'].link}');">KongQuest</a>                           a SpiceJS prototype
 	<a href="javascript:openInNewWindow('${messages.links['ReverenceLost'].link}');">ReverenceLost</a>			    a 2016 reinterpretation of ReverenceLost in SpiceJS
 	<a href="javascript:openInNewWindow('${messages.links['SnowBoarding'].link}');">SnowBoarding</a>
 
-	<a  href="javascript:openInNewWindow('${messages.links['Moon'].link}');" >Moon</a>                           sidescrolling platformer + animations + camera
+	<a href="javascript:openInNewWindow('${messages.links['Fabagohey'].link}');">Fabagohey</a>                           a SpiceJS prototype
+	<a  href="javascript:openInNewWindow('${messages.links['Moon'].link}');" >Moon</a>                                sidescrolling platformer + animations + camera
 	<a  href="javascript:openInNewWindow('${messages.links['Hackio'].link}');" >Hackio</a>                              "Keep it up" concept
 	${preLink('Isomemtric', 'https://ryanspice.com/isometric/')}                          isometric tileset
 
