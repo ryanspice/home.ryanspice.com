@@ -5,9 +5,9 @@
  * @type {[type]}
  */
 
-import utils from "utils";
+//import utils from "utils";
 import ax from "./entry";
-
+const storage = window.ax = new ax.storage();
 /**
  * requires the components folder
  *  - components are loaded automatically and are instanciated by 'sequence'
@@ -42,8 +42,10 @@ ax.post = async function(){
  * @return {[type]}     [description]
  */
 
-window.onload = function onload(evt){
+window.onload =async function onload(evt){
 
-	window.home = new ax();
+	await storage.fetch('copy', '/en/copy/copy.json');
+	window.home = await new ax();
+	require("utils");
 
 };
