@@ -49,7 +49,8 @@ class Header extends V {
 
 			<li>
 
-				<a href="https://ryanspice.com/?old#games"> games </a>
+				<!--<a href="https://ryanspice.com/?old#games"> games </a>-->
+				<a href="https://ryanspice.com/game"> games </a>
 				<!--
 			  <div class="dropdown-content acrylic" disabled>
 			    <h5><a href="#" />Bovxel</a></h5>
