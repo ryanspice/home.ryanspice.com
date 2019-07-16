@@ -67,11 +67,11 @@ Usage: [command]
 	<a href="javascript:openInNewWindow('${messages.links['Tetris'].link}');">Tetris</a>                              a SpiceJS interpretation of Tetris
 	<a href="https://ryanspice.com/minesweeper/" target="_blank">Minesweeper</a>                         a vanilla Js interpretation of minesweeper
 
-	<a href="javascript:openInNewWindow('${messages.links['Bovxel'].link}');">Bovxel</a>                              a 2013 gamejam game designed to be used with the mouse
-	<a href="javascript:openInNewWindow('${messages.links['FlappyFish'].link}');">FlappyFish</a>                          a SpiceJS game
-	<a href="javascript:openInNewWindow('${messages.links['KongQuest'].link}');">KongQuest</a>                           a SpiceJS prototype
-	<a href="javascript:openInNewWindow('${messages.links['ReverenceLost'].link}');">ReverenceLost</a>			    a 2016 reinterpretation of ReverenceLost in SpiceJS
-	<a href="javascript:openInNewWindow('${messages.links['SnowBoarding'].link}');">SnowBoarding</a>
+	<a href="${messages.links['Bovxel'].link}" target='_balnk'>Bovxel</a>                              a 2013 gamejam game designed to be used with the mouse
+	<a href="${messages.links['FlappyFish'].link}" target='_balnk'>FlappyFish</a>                          a SpiceJS game
+	<a href="${messages.links['KongQuest'].link}" target='_balnk'>KongQuest</a>                           a SpiceJS prototype
+	<a href="${messages.links['ReverenceLost'].link}" target='_balnk'>ReverenceLost</a>			    a 2016 reinterpretation of ReverenceLost in SpiceJS
+	<a href="${messages.links['SnowBoarding'].link}" target='_balnk'>SnowBoarding</a>
 
 	<a href="javascript:openInNewWindow('${messages.links['Fabagohey'].link}');">Fabagohey</a>                           a SpiceJS prototype
 	<a  href="javascript:openInNewWindow('${messages.links['Moon'].link}');" >Moon</a>                                sidescrolling platformer + animations + camera
