@@ -19,6 +19,7 @@
 		"clean:dist": "rimraf dist",
 		"clean:lib": "rimraf lib",
 		"serve": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
+		"analyze": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.analyze.js --env.NODE_ENV=development --env.development",
 		"serve:dev": "yarn serve",
 		"serve:prod": "yarn preview",
 		"dev": "yarn clean:dist && yarn parallel:assets && yarn parallel:dev",
