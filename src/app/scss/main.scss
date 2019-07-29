@@ -40,12 +40,6 @@ section * {
 @import './breakpoints.scss';
 @import './animations.scss';
 
-main section {
-
-
-}
-
-
 main {
 
 	position: relative;
@@ -53,25 +47,10 @@ main {
 
 	& * {
 		@extend %fade-top-down;
-		//font-family: 'Niramit', sans-serif;
 	}
 
 	a {
-
 		color: $secondary-color;
-		//text-shadow: $secondary-color 0px 0px 1px;
-		&:hover {
-			cursor: pointer;
-			//text-decoration: none;
-			opacity:0.5;
-			-webkit-transform: scale(1.1) 0.2s ease;
-			transform: scale(1.1) 0.2s ease;
-			animation: bubble 1.0s forwards;
-			-webkit-animation: bubble 1.0s forwards; /* for less modern browsers */
-
-		}
-
-
 	}
 
 	section {
