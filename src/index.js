@@ -6,7 +6,7 @@
  */
 
 //import utils from "utils";
-import ax from "./entry";
+import ax from "./app/entry";
 const storage = window.ax = new ax.storage();
 /**
  * requires the components folder
@@ -15,14 +15,13 @@ const storage = window.ax = new ax.storage();
  * @return {[type]}            [description]
  */
 
-require("./components");
+require("./app/components");
 
 /**
  *  code executed to the templating engine before it runs
  */
 
 ax.pre = async function(){
-
 	window['async-2018-mvc'].entry.sort((a,b)=>{return (a.sequence?a.sequence:0)-(b.sequence?b.sequence:0)});
 	if(document.getElementsByTagName('loader')[0])
 		document.getElementsByTagName('loader')[0].remove();
@@ -46,6 +45,6 @@ window.onload =async function onload(evt){
 
 	await storage.fetch('copy', '/en/copy/copy.json');
 	window.home = await new ax();
-	require("utils");
+	require("./app/utils");
 
 };

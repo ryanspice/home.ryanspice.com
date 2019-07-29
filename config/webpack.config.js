@@ -62,7 +62,7 @@ const evt = () => {
 
 	//set package scope (CSS)
 
-	css.entry = `./src/scss/main.scss`;
+	css.entry = `./src/app/scss/main.scss`;
 
 	//return configs
 

@@ -49,7 +49,7 @@ Vibrant.onmessage = e =>{
 		}
 
 		const RgbToHex = await new RgbToHexWorker();
-		await import("./assets/js/Vibrant");
+		await import("../assets/js/Vibrant");
 
 		const sw = [
 	 	 'DarkMutedSwatch',

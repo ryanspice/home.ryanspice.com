@@ -24,7 +24,7 @@ module.exports = css = evt => {
 
 	temp.output.chunkFilename = `css~[name].js`;
 
-	temp.entry = `./src/scss/main.scss`;
+	temp.entry = `./src/app/scss/main.scss`;
 
 	temp.plugins = [
 
