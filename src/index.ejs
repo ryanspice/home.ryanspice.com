@@ -174,7 +174,6 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			input{line-height:normal;}
 			@media print{
 			*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
-			a,a:visited{text-decoration:underline;}
 			h2{orphans:3;widows:3;}
 			h2{page-break-after:avoid;}
 			}
@@ -187,15 +186,16 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 
 
 			a{
-				color:#3277b3;text-decoration:none;
+				color:#3277b3;
 			}
-
-			a:focus,a:hover{
-				color:#23527c;
+			a,a:visited{
 				text-decoration:underline;
 			}
-
+			a:focus,a:hover{
+				color:#23527c;
+			}
 			a:focus{outline:5px auto -webkit-focus-ring-color;outline-offset:-2px;}
+
 			h2,h5{font-family:inherit;font-weight:500;line-height:1.1;color:inherit;}
 			h2{margin-top:20px;margin-bottom:10px;}
 			h5{margin-top:10px;margin-bottom:10px;}

@@ -62,7 +62,7 @@ main {
 		//text-shadow: $secondary-color 0px 0px 1px;
 		&:hover {
 			cursor: pointer;
-			text-decoration: none;
+			//text-decoration: none;
 			opacity:0.5;
 			-webkit-transform: scale(1.1) 0.2s ease;
 			transform: scale(1.1) 0.2s ease;
@@ -214,15 +214,11 @@ main {
 	//backdrop-filter: blur(30px) saturate(125%);
 	margin: 7px;
 }
+
+
 @media (min-width: 480px) {
-	pre {
-		display: inline-block;
-	}
 }
 @media (max-width: 480px) {
-	pre {
-		display: none !important;
-	}
 
 	header ul {}
 
@@ -249,4 +245,5 @@ main {
 @import './header.scss';
 @import './footer.scss';
 @import './console.scss';
+@import './pre.scss';
 @import './copy.scss';

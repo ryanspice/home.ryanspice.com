@@ -21,15 +21,6 @@ class Pre extends AsyncView {
 
 	sequence:any = 4;
 	type:string = `pre`;
-	style:string =`font-family: monospace;
-			white-space: pre;
-			padding: 2.5rem;
-			display: block;
-			min-width: 320px;
-			max-width: 780px;
-			margin: 0 auto;
-			color: rgba(255,255,255,0.55);
-			font-size:85%;`
 	renderTo:string = `main`;
 
 	innerHTML:any = `
