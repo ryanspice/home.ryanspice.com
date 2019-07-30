@@ -1,7 +1,7 @@
 {
 	"name": "home.ryanspice.com",
 	"short_name": "home.rs",
-	"version": "1.0.10",
+	"version": "1.1.0",
 	"description": "home.ryanspice.com",
 	"main": "index.js",
 	"author": "Ryan Spice-Finnie <contact@ryanspice.com>",
@@ -18,7 +18,8 @@
 		"clean:install": "rimraf node_modules",
 		"clean:dist": "rimraf dist",
 		"clean:lib": "rimraf lib",
-		"serve": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
+		"serve": "yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
+		"assetsserve": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
 		"analyze": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.analyze.js --env.NODE_ENV=development --env.development",
 		"serve:dev": "yarn serve",
 		"serve:prod": "yarn preview",
