@@ -5,7 +5,7 @@ MAINTAINER Martino Fornasa <mf@fornasa.it>
 WORKDIR /opt/app
 
 
-RUN apk add --no-cache --virtual .build-deps \
+RUN apk add --virtual .build-deps \
     ca-certificates \
     wget \
     tar && \
