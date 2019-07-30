@@ -26,11 +26,13 @@ body {
 	position: relative;
 }
 
+/*
 section * {
 	position: relative;
 	z-index: 4;
 
 }
+*/
 
 .hidden {
 	display: none;
@@ -58,8 +60,12 @@ main {
 		@include fluid-type($min_width, $max_width, $min_font, $max_font);
 
 		margin: 0 auto;
-		max-width: 320px;
 		width: calc(-1vw*175vw);
+		padding: 2.5rem;
+		max-width: 1080px;
+		margin: 0 auto;
+		color: rgba(255,255,255,0.5);
+		display: block;
 
 		img {
 			margin: 0 auto;
@@ -137,6 +143,7 @@ main {
 
 }
 
+/* S O C I A L  I C O N S */
 
 main > header > span > a > svg.feather.feather-twitter {
 	&:hover {
@@ -158,6 +165,8 @@ main > header > span > a > svg.feather.feather-github {
 	}
 }
 
+/* */
+
 main > header > ul > li > div {
 	display: none;
 }
@@ -171,35 +180,9 @@ input {
 	color: rgba(205,205,255,1) !important;
 }
 
+/* */
 
-main {
-	section {
-		padding: 2.5rem;
-		display: block;
-		max-width: 1080px;
-		margin: 0 auto;
-		color: rgba(255,255,255,0.5);
-		display: block;
-	}
-
-}
-
-.acrylic {
-	padding: 4em 2em;
-	position: relative;
-	background: rgba(255,255,255,0.55);
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: blur(10px) saturate(105%);
-	//backdrop-filter: blur(30px) saturate(125%);
-	margin: 7px;
-}
-
-
-@media (min-width: 480px) {
-}
 @media (max-width: 480px) {
-
-	header ul {}
 
 	li {
 		display: block;
@@ -219,7 +202,9 @@ main {
 	.dropdown-content {
 		position: static !important;
 	}
+
 }
+
 @import './traffic.scss';
 @import './header.scss';
 @import './footer.scss';

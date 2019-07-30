@@ -35,3 +35,13 @@ $min_width: 420px;
 $max_width: 2448px;//1080px;//3840px;
 $min_font: 16px;
 $max_font: 24px;
+
+.acrylic {
+	padding: 4em 2em;
+	position: relative;
+	background: rgba(255,255,255,0.55);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: blur(10px) saturate(105%);
+	//backdrop-filter: blur(30px) saturate(125%);
+	margin: 7px;
+}

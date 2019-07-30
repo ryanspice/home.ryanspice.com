@@ -162,18 +162,36 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			@import url("https://fonts.googleapis.com/css?family=Niramit");
 
 			/*! CSS Used from: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css */
-			html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
+			html{
+				font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;
 				background:rgba(55,55,55,255);
 			}
-			body {width:calc(100% - 2rem);}
-			main,section{display:block;}
-			a{background-color:transparent;}
-			a:active,a:hover{outline:0;}
-			input{margin:0;font:inherit;color:inherit;}
-			input::-moz-focus-inner{padding:0;border:0;}
-			input{line-height:normal;}
+
+			body {
+				width:calc(100% - 2rem);
+			}
+			main,section{
+				display:block;
+			}
+			a{
+				background-color:transparent;
+			}
+			a:active,a:hover{
+				outline:0;
+			}
+			input{
+				margin:0;font:inherit;color:inherit;
+			}
+			input::-moz-focus-inner{
+				padding:0;border:0;
+			}
+			input{
+				line-height:normal;
+			}
 			@media print{
-			*,:after,:before{color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;}
+			*,:after,:before{
+				color:#000!important;text-shadow:none!important;background:0 0!important;-webkit-box-shadow:none!important;box-shadow:none!important;
+			}
 			h2{orphans:3;widows:3;}
 			h2{page-break-after:avoid;}
 			}
@@ -242,7 +260,6 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			}
 
 			.load-text {
-
 				margin-top:50vh;
 				font-size:calc(14px + (26 - 14) * ((100vw - 300px) / (1600 - 300)));
 				//font-weight:bold;
@@ -251,14 +268,13 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
 			}
 
 			canvas {
-
 				z-index:0 !important;
-
 			}
 
-
 		</style>
+
     <meta name="viewport" content="width=device-width">
+
 		<link rel="manifest" href="./manifest.json">
 		<link href="https://ryanspice.com/favicon.ico" rel="shortcut icon" type="image/png">
 
@@ -269,12 +285,17 @@ htmlWebpackPlugin.options.scripts = htmlWebpackPlugin.options.scripts || []
     <script prefetch='true' src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 
   </head>
+
+	<!-- HTML -->
+
 	<body>
 
-  	<div id="loader" class="slide hidden" style="display:none;"></div>
+  	<div id="loader" class="slide hidden" hidden></div>
 
   	<noscript>Please Enable JavaScript</noscript>
 
   </body>
+
+	<!-- -->
 
 </html>
