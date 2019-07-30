@@ -5,21 +5,21 @@ MAINTAINER Martino Fornasa <mf@fornasa.it>
 WORKDIR /opt/app
 
 
-# Install yarn
-RUN mkdir -p /opt/
-
 RUN apk add --no-cache --virtual .build-deps \
     ca-certificates \
     wget \
     tar && \
+    cd /usr/local/bin && \
     wget https://yarnpkg.com/latest.tar.gz && \
     tar zvxf latest.tar.gz && \
-    ln -s /dist/bin/yarn.js /opt/dist/bin/yarn.js && \
+    ln -s /usr/local/bin/dist/bin/yarn.js /usr/local/bin/yarn.js && \
     apk del .build-deps
 
+# Install yarn
+RUN mkdir -p /opt/
 ADD /latest.tar.gz /opt/
 
-ENV PATH "$PATH:/opt/dist/bin"
+ENV PATH "$PATH:/usr/local/bin"
 
 ADD package.json yarn.lock /tmp/
 
