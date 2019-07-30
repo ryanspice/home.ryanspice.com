@@ -1,5 +1,5 @@
 
-let hexSorter = require('hexSorter');
+let hexSorter = require('hexsorter');
 
 onmessage = async function(e) {
 
