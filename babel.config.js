@@ -9,7 +9,7 @@ module.exports = function (api) {
 				"useBuiltIns": false,
 				"shippedProposals":true,
 				"targets": {
-					"browsers": "cover 94% in CA"
+					"browsers": "cover 90% in CA"
 				},
 				"loose": true
 			}

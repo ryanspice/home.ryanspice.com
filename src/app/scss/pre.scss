@@ -1,0 +1,26 @@
+
+pre {
+	@include fluid-type(420px, 1080px, 6px, 18px);
+	font-family: Consolas, monospace;
+	white-space: pre;
+	padding: 2.5rem;
+	display: block;
+	min-width: 320px;
+	//max-width: 780px;
+	max-width: 1080px;
+	margin: 0 auto;
+	color: rgba(255,255,255,0.55);
+}
+
+/*
+@media (min-width: 480px) {
+	pre {
+		display: inline-block;
+	}
+}
+@media (max-width: 480px) {
+	pre {
+		display: none !important;
+	}
+}
+*/

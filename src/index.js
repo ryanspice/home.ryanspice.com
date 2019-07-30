@@ -1,46 +1,56 @@
 //@flow
 
-import log from "loglevel";
+/**
+ * include utility functions and asynx
+ */
 
-import AsyncTemplate from "./entry";
+import ax from "./app/entry";
 
-import {Main} from "./components/index";
+// WIP :: asynx storage
 
-import Header from "./components/header";
-import Login from "./components/login";
+const storage = window.ax = new ax.storage();
 
-import Introduction from "./components/introduction";
-import Console from "./components/console";
-import Pre from "./components/pre";
+/**
+ * requires the components folder
+ *  - components are loaded automatically and are instanciated by 'sequence'
+ */
 
-import Content from "./components/content";
+require("./app/components");
 
-import LoginInput from "./components/login_input";
+/**
+ *  code executed to the templating engine before it runs
+ */
 
-AsyncTemplate.pre = () => {
+ax.pre = async function(){
 
-	log.setLevel(log.levels.WARN);
+	window['async-2018-mvc'].entry.sort((a,b)=>{return (a.sequence?a.sequence:0)-(b.sequence?b.sequence:0)});
 
-	log.debug(`debug enabled`);
+	if(document.getElementsByTagName('loader')[0]){
 
-};
+		document.getElementsByTagName('loader')[0].remove();
 
-AsyncTemplate.post = () => {
-
-	document.getElementById('loader').style.display = "none";
-
-	setTimeout(function(){
-
-		document.getElementById('userinput_0').focus();
-
-		log.debug(`focused`);
-
-	}, 300);
+	}
 
 };
 
-window.onload = function onload(){
+/**
+ *  code executed to the templating engine after it runs
+ */
 
-	window.auth = new AsyncTemplate();
+ax.post = async function(){
+
+};
+
+/**
+ *  code to execute the templating engine onload
+ */
+
+window.onload =async function onload(evt){
+
+	await storage.fetch('copy', '/en/copy/copy.json');
+
+	window.home = await new ax();
+
+	require("./app/utils");
 
 };

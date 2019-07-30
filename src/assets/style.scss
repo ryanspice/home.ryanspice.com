@@ -1,5 +1,4 @@
 
-@import url("../../node_modules/xterm/dist/xterm.css");
 //$main-color:#008c99;
 //$
 //$
@@ -66,20 +65,85 @@ $breakpoints: (
 	}
 }
 
-	header ul {
+header {
+	position:relative;z-index:5;
+
+	* {position:relative;z-index:5;}
+}
+
+section {
+	* {position:relative;z-index:4;}
+}
+
+#login > header > ul  {
+	> li {
+
+			> div {
+				display:none;
+			}
+
+			&:hover {
+
+					> div {
+						display:table;
+					}
+
+		}
 	}
+	&:hover {
+
+		//display:table;
+	}
+}
 
 
-	@media (min-width: 767px) {
+header a {
+	margin-right:1rem;
+}
+
+header ul {
+	display:inline-block;
+	margin:1.1rem auto;
+	font-size:2.25rem;
+	min-width:220px;
+	padding:0px;
+}
+
+	header ul li:hover {
+		color:rgba(255,255,255,0.75);
 	}
-	@media (max-width: 767px) {
+
+.dropdown-content {
+
+	display: none;
+	opacity:0;
+	transform: translateY(-2em);
+
+	:hover {
+		display: inline-block;
+		opacity:1;
+	}
+
+}
+
+
+	@media (min-width: 487px) {
+
+		header ul {
+//			position:absolute;
+		}
+
+	}
+	@media (max-width: 487px) {
+
+
 
 		header ul {
 
 
 		}
 		li {display:block;clear:right;width:100%;}
-		li, ul,  div, h5 {display:block !important;
+		li, ul,  div, h5 {display:block;
 			border-radius: 1rem;
 			box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);}
 		.dropdown-content {
@@ -97,19 +161,19 @@ input {
 
 
 body {
+
 	border-radius: 1rem;
+	margin:1rem;
+	height:20vh;
+
 	box-shadow: 1px 1px 60px rgba(0, 0, 0, 0.1);
 
-
-margin:1rem;
-height:20vh;
-	background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://source.unsplash.com/random");
 
 	/* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
 
 
      /* Position and center the image to scale nicely on all screens */
-     background-position: center;
+     background-position: center top;
      background-repeat: no-repeat;
      background-size: cover;
      position: relative;
@@ -371,7 +435,7 @@ $color_cursor:rgba(255,255,255,0.25);
 
 #blinking-cursor {
   font-weight: 100;
-  font-size: 30px;
+  //font-size: 30px;
   color: #2E3D48;
   -webkit-animation: 1s blink step-end infinite;
   -moz-animation: 1s blink step-end infinite;
@@ -380,9 +444,17 @@ $color_cursor:rgba(255,255,255,0.25);
   animation: 1s blink step-end infinite;
 }
 
-//ANIATMIONS
-//ANIATMIONS
-//ANIATMIONS
+#console-scroll {
+
+	* {
+
+		animation:none;
+		transition: none;
+
+	}
+
+}
+
 //ANIATMIONS
 
 
