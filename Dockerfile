@@ -1,11 +1,8 @@
 FROM node:9.7-alpine
 
-MAINTAINER Martino Fornasa <mf@fornasa.it>
-
 WORKDIR /opt/app
 
-
-RUN apk add --virtual .build-deps \
+RUN apk add --no-cache --virtual .build-deps \
     ca-certificates \
     wget \
     tar && \
@@ -20,7 +17,7 @@ RUN mkdir -p /opt/
 
 ENV PATH "$PATH:/usr/local/bin"
 
-ADD package.json yarn.lock /tmp/
+ADD package.json *yarn* /tmp/
 
 # Copy cache contents (if any) from local machine
 # ADD .yarn-cache.tgz /
@@ -32,3 +29,7 @@ RUN mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modules
 
 # Copy the code
 ADD . /opt/app
+
+RUN echo "Successfully ran deploy"
+
+RUN ls
