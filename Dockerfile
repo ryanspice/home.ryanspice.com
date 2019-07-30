@@ -17,7 +17,6 @@ RUN apk add --no-cache --virtual .build-deps \
 
 # Install yarn
 RUN mkdir -p /opt/
-ADD /latest.tar.gz /opt/
 
 ENV PATH "$PATH:/usr/local/bin"
 
