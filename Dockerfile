@@ -5,7 +5,7 @@ MAINTAINER Martino Fornasa <mf@fornasa.it>
 WORKDIR /opt/app
 
 
-RUN apk add --no-cache --virtual .build-deps \
+RUN apk add --virtual .build-deps \
     ca-certificates \
     wget \
     tar && \
@@ -23,7 +23,7 @@ ENV PATH "$PATH:/usr/local/bin"
 ADD package.json yarn.lock /tmp/
 
 # Copy cache contents (if any) from local machine
-ADD .yarn-cache.tgz /
+# ADD .yarn-cache.tgz /
 
 # Install packages
 RUN cd /tmp
