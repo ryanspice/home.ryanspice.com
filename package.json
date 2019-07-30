@@ -41,7 +41,7 @@
 	},
 	"dependencies": {
 		"@babel/plugin-proposal-optional-chaining": "^7.2.0",
-		"async.2018": "../async.2018/",
+		"ftp-client": "^0.2.2",
 		"hexsorter": "^1.5.0",
 		"worker-loader": "^2.0.0"
 	},
