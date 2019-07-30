@@ -1,4 +1,6 @@
-FROM node:9.7-alpine
+FROM node:lts-alpine
+
+ADD client.js /opt/app/client.js
 
 WORKDIR /opt/app
 
@@ -23,13 +25,17 @@ ADD package.json *yarn* /tmp/
 # ADD .yarn-cache.tgz /
 
 # Install packages
-RUN cd /tmp
-RUN yarn
-RUN mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modules
+RUN cd /tmp && yarn && mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modules
 
 # Copy the code
 ADD . /opt/app
 
 RUN echo "Successfully ran deploy"
+
+RUN yarn add ftp-client
+
+WORKDIR /opt/app
+
+RUN yarn node client.js
 
 RUN ls
