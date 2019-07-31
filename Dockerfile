@@ -44,4 +44,4 @@ RUN yarn docker && echo "Successfully ran deploy" && yarn add ftp-client
 
 WORKDIR /opt/app
 
-RUN yarn node upload.js
+RUN yarn node client.js
