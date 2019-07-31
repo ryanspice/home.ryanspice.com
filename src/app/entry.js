@@ -1,5 +1,6 @@
 //@flow
 
+/*
 import {
 	pipe,
 	view,
@@ -9,13 +10,13 @@ import {
 
 import "../async/src/core/def/storage/storage.getobject";
 import "../async/src/core/def/storage/storage.setobject";
+*/
+const AsyncTemplate = async2018.pipe;
+AsyncTemplate.storage = async2018.storage;
 
-const AsyncTemplate = pipe;
-AsyncTemplate.storage = storage;
-
-const AsyncView = view;
+const AsyncView = async2018.view;
 const V = AsyncView;
-const AsyncController = mvc;
+const AsyncController = async2018.mvc;
 
 /**
  * exports
