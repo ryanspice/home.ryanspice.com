@@ -20,7 +20,7 @@ const evt = () => {
 	let entry = {};
 
 	const es6 = common[0](evt);
- 	const es5 = common[1](evt);
+ 	//const es5 = common[1](evt);
 
 	//set package scope (ES6)
 
@@ -33,7 +33,7 @@ const evt = () => {
 
 
 	//set package scope (ES5)
-
+/*
 	es5.devtool = 'source-map';
 	entry = {};
 	entry[`${package.short_name}`]=`webpack-polyfill-injector?${JSON.stringify({
@@ -43,11 +43,11 @@ const evt = () => {
 	es5.output.filename = `[name].legacy.js`;
 	es5.output.library = `${package.short_name}_legacy`;
 	es5.output.chunkFilename = `module~[name].legacy.js`;
-
+*/
 	//return configs
 
 	return [
-		merge(es5, production),
+		//merge(es5, production),
 		merge(es6, production)//,
 		//merge(css, production)
 	]
