@@ -18,7 +18,7 @@
 		"clean:install": "yarn rimraf node_modules",
 		"clean:dist": "yarn rimraf dist",
 		"clean:lib": "yarn rimraf lib",
-		"serve": "yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
+		"serve": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
 		"assetsserve": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.config.js --env.NODE_ENV=development --env.development",
 		"analyze": "yarn parallel:assets && yarn webpack-dev-server --config ./config/webpack.analyze.js --env.NODE_ENV=development --env.development",
 		"serve:dev": "yarn serve",
@@ -48,8 +48,7 @@
 		"hexsorter": "^1.5.0",
 		"worker-loader": "^2.0.0"
 	},
-	"devDependencies": {
-	},
+	"devDependencies": {},
 	"resolutions": {
 		"webpack-cli": "^3.1.2",
 		"@babel/runtime": "7.4.0",

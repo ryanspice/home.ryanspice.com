@@ -46,7 +46,7 @@ const evt = () => {
 	es6.output.filename = `[name].[contenthash].${extension}`;
 	es6.output.library = `${package.short_name}`;
 	es6.output.chunkFilename = `module~[name].[contenthash].${extension}`;
-
+//es6.module.rules[4].use.include.push(path.resolve('../async.2018/src'));
 	/*
 	//set package scope (ES5)
 
@@ -69,7 +69,7 @@ const evt = () => {
 	return [
 		//merge(es5, component),
 		merge(es6, component),
-	//	merge(css, component)
+		merge(css, component)
 	]
 };
 
