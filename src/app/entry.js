@@ -4,7 +4,7 @@
  * Async Framework
  */
 
-import * as async2018 from "async.2018/src";
+import * as async2018 from "async.2018";
 
 /**
  * Async Framework Components
@@ -14,11 +14,11 @@ import * as async2018 from "async.2018/src";
  * @type {mvc}
  */
 
-const AsyncTemplate = async2018.pipe;
-AsyncTemplate.storage = async2018.storage;
+const AsyncTemplate = async2018.pipe || window.async2018.pipe;
+AsyncTemplate.storage = async2018.storage || window.async2018.storage;
 
-const AsyncView = async2018.view;
-const AsyncController = async2018.mvc;
+const AsyncView = async2018.view || window.async2018.view;
+const AsyncController = async2018.mvc || window.async2018.mvc;
 
 /**
  * Async Shortform
