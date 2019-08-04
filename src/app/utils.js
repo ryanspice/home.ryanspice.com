@@ -100,4 +100,4 @@ window.theme = async function theme(){
 	//return img;
 };
 
-window.theme();
+requestAnimationFrame(e=>{window.theme();});
