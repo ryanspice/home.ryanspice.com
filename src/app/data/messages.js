@@ -3,7 +3,6 @@ let pkg = require('../../../package.json');
 
 export default {
 	version:`ryanspice.com [Version ${pkg.version}]<br/>
-async.2018 [Version 1.2.0-beta.x]<br/>
 	ready`,
 	copy:`Copyright (C) ryanspice.com. All rights reserved.`,
 	directory:`~ryanspice.com\\users\\guest>`,
