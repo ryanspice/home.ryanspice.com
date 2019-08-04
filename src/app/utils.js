@@ -42,7 +42,7 @@ Vibrant.onmessage = e =>{
 
 		HexSort.onmessage = async (e:Event)=>{
 
-			await document.body.insertAdjacentHTML( 'beforeend', (`<style>html {background:${e.data.primary} !important;} a {color:${e.data.secondary} !important;}</style>`));
+			await document.body.insertAdjacentHTML( 'beforeend', `<style>html {background:${e.data.primary} !important;} a {color:${e.data.secondary} !important;} spinner {box-shadow:0px 2px 0 0 ${e.data.secondary};}</style>`);
 
 			HexSort.terminate();
 
