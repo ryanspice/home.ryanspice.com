@@ -1,5 +1,7 @@
 FROM nevergone/alpine-yarn:3.10.0
 
+RUN apk add --no-cache git
+
 ADD client.js /opt/app/client.js
 
 WORKDIR /opt/app
@@ -19,7 +21,7 @@ RUN cd /tmp && yarn && mkdir -p /opt/app && cd /opt/app && ln -s /tmp/node_modul
 # Copy the code
 ADD . /opt/app
 
-RUN yarn deployWithoutDocs
+RUN yarn deploy
 #RUN yarn deployWithoutDocs && yarn add basic-ftp && yarn add fs
 
 WORKDIR /opt/app
