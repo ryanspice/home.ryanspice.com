@@ -17,7 +17,7 @@ const common = require('async.2018/config/webpack.config.js');
 
 const component = {
 	externals:[
-		{"async.2018":"async-2018"}
+		{"async.2018":"async.2018"}
 	],
 	devServer:{
 		disableHostCheck:true
