@@ -1,6 +1,6 @@
 
 const env = 'dev';
-const name = 'upload_test0';
+const name = 'home';
 
 try {
 
