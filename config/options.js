@@ -1,6 +1,5 @@
 export default {
-	shell:{
+	storage:{
 		clear:false
-		
 	}
 };
