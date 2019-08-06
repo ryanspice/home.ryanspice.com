@@ -34,7 +34,7 @@ const evt = () => {
 	let entry = {};
 
 	const es6 = common[0](evt);
-	//const es5 = common[1](evt);
+	const es5 = common[1](evt);
 	const css = common[2](evt);
 
 	//set package scope (ES6)
@@ -42,14 +42,14 @@ const evt = () => {
 	const extension = 'mjs';//ejs?'mjs':'js';
 
 	entry[`${package.short_name}`] = `./src`;
-	es6.entry = entry;
-	es6.output.filename = `[name].[contenthash].${extension}`;
-	es6.output.library = `${package.short_name}`;
-	es6.output.chunkFilename = `module~[name].[contenthash].${extension}`;
+ 	es5.entry = es6.entry = entry;
+ 	es5.output.filename = es6.output.filename = `[name].[contenthash].${extension}`;
+ 	es5.output.library = es6.output.library = `${package.short_name}`;
+ 	es5.output.chunkFilename = es6.output.chunkFilename = `module~[name].[contenthash].${extension}`;
 //es6.module.rules[4].use.include.push(path.resolve('../async.2018/src'));
-	/*
 	//set package scope (ES5)
 
+	/*
 	entry = {};
 	entry[`${package.short_name}`]=`webpack-polyfill-injector?${JSON.stringify({
 			modules: './src' // list your entry modules for the `app` entry chunk
@@ -67,7 +67,7 @@ const evt = () => {
 	//return configs
 
 	return [
-		//merge(es5, component),
+		merge(es5, component),
 		merge(es6, component),
 		merge(css, component)
 	]

@@ -20,7 +20,8 @@ const evt = () => {
 	let entry = {};
 
 	const es6 = common[0](evt);
- 	//const es5 = common[1](evt);
+ 	const es5 = common[1](evt);
+ 	const css = common[2](evt);
 
 	//set package scope (ES6)
 
@@ -47,9 +48,9 @@ const evt = () => {
 	//return configs
 
 	return [
-		//merge(es5, production),
-		merge(es6, production)//,
-		//merge(css, production)
+		merge(es5, production),
+		merge(es6, production),
+		merge(css, production)
 	]
 };
 
