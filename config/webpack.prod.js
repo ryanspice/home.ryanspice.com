@@ -11,6 +11,19 @@ const common = require('async.2018/config/webpack.config.js');
 const production = require('async.2018/config/webpack.prod.js');
 
 /**
+ * component overrides
+ * @type {Object}
+ */
+
+const component = {
+	externals:[
+		{"async.2018":"async.2018"}
+	],
+	devServer:{
+		disableHostCheck:true
+	}
+};
+/**
  * append project properties to foundation/config/webpack.config.js
  * @return {WebpackConfig} returns both the es5 and es6 builds
  */
@@ -55,9 +68,9 @@ const evt = () => {
 	//return configs
 
 	return [
-		merge(es5, production),
-		merge(es6, production),
-		merge(css, production)
+		merge(es5, production, component),
+		merge(es6, production, component),
+		merge(css, production, component)
 	]
 };
 
