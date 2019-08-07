@@ -1,5 +1,5 @@
 
-const name = 'home_test';
+const name = 'home';
 
 const ftp = require("basic-ftp")
 
