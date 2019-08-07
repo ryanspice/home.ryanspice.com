@@ -1,9 +1,9 @@
 
-let pkg = require('../../../package.json');
+const pkg:Object = require('../../../package.json');
 
 export default {
 	version:`ryanspice.com [Version ${pkg.version}]<br/>
-	done`,
+	ready`,
 	copy:`Copyright (C) ryanspice.com. All rights reserved.`,
 	directory:`~ryanspice.com\\users\\guest>`,
 	opening:'opening ',

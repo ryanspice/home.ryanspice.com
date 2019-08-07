@@ -7,10 +7,13 @@ import {
 class Header extends V {
 
 	type: string = `header`;
+
 	renderTo: string = `main`;
+
 	mounted: any = () => {
 
 		feather.replace();
+
 	};
 
 	innerHTML: string = `

@@ -1,5 +1,4 @@
 
-const env = 'dev';
 const name = 'home';
 
 const ftp = require("basic-ftp")
@@ -7,13 +6,9 @@ const ftp = require("basic-ftp")
 example()
 
 async function example() {
-
     const client = new ftp.Client()
-
     client.ftp.verbose = true
-
     try {
-
         await client.access({
 				    host: 'ftp.ryanspice.com',
 				    port: 21,
@@ -21,17 +16,17 @@ async function example() {
 				    password: 'Brussels234!'
         })
 
-				const out = `/domains/ryanspice.com/private_html/${env}/${name}/`;
+				const out = `/domains/ryanspice.com/private_html/${name}/`;
 				await client.ensureDir(out);
+
 				await client.clearWorkingDir();
-				await client.uploadDir("lib/");
+				await client.uploadDir("dist/");
 
-    } catch(err) {
-
-      console.log(err);
-
+        console.log(await client.list())
+        //await client.upload(fs.createReadStream("README.md"), "README.md")
     }
-
-    client.close();
-
+    catch(err) {
+        console.log(err)
+    }
+    client.close()
 }
