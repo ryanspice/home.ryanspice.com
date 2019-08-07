@@ -1,5 +1,5 @@
 
-const name = 'home';
+const name = 'home_test';
 
 const ftp = require("basic-ftp")
 
@@ -22,7 +22,7 @@ async function example() {
 				await client.clearWorkingDir();
 				await client.uploadDir("dist/");
 
-        //console.log(await client.list())
+        console.log(await client.list())
         //await client.upload(fs.createReadStream("README.md"), "README.md")
     }
     catch(err) {

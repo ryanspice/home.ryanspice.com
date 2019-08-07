@@ -2,37 +2,36 @@
 const env = 'dev';
 const name = 'home';
 
-try {
+const ftp = require("basic-ftp")
 
-var ftpClient = require('ftp-client'),
+example()
 
-config = {
-    host: 'ftp.ryanspice.com',
-    port: 21,
-    user: 'rspice',
-    password: 'Brussels234!'
-},
-options = {
-    logging: 'debug'
-},
-client = new ftpClient(config, options);
+async function example() {
 
-client.connect(function () {
+    const client = new ftp.Client()
 
-	console.log('connected');
+    client.ftp.verbose = true
 
-  client.upload(['dist/**'], `/domains/ryanspice.com/private_html/${env}/${name}`, {
-      baseDir: 'dist',
-      overwrite: 'older'
-  }, function (result) {
-      console.log(result);
-  });
+    try {
 
-});
+        await client.access({
+				    host: 'ftp.ryanspice.com',
+				    port: 21,
+				    user: 'rspice',
+				    password: 'Brussels234!'
+        })
 
-}catch(e){
+				const out = `/domains/ryanspice.com/private_html/${env}/${name}/`;
+				await client.ensureDir(out);
+				await client.clearWorkingDir();
+				await client.uploadDir("lib/");
 
-	console.log('failed to connect');
-	console.log(e);
+    } catch(err) {
+
+      console.log(err);
+
+    }
+
+    client.close();
 
 }
