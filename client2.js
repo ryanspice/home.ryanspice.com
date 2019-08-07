@@ -22,8 +22,6 @@ async function example() {
 				await client.clearWorkingDir();
 				await client.uploadDir("dist/");
 
-        console.log(await client.list())
-        //await client.upload(fs.createReadStream("README.md"), "README.md")
     }
     catch(err) {
         console.log(err)

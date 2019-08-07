@@ -1,6 +1,7 @@
 FROM nevergone/alpine-yarn:3.10.0
 
 RUN apk add --no-cache git
+
 ADD client2.js /opt/app/client2.js
 
 WORKDIR /opt/app
