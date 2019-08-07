@@ -39,7 +39,7 @@ const evt = () => {
 
 	//set package scope (ES6)
 
-	const extension = 'mjs';//ejs?'mjs':'js';
+	const extension = 'js';//ejs?'mjs':'js';
 
 	entry[`${package.short_name}`] = `./src`;
  	es5.entry = es6.entry = entry;

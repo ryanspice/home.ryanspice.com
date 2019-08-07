@@ -1,5 +1,5 @@
 
-let pkg = require('../../../package.json');
+const pkg:Object = require('../../../package.json');
 
 export default {
 	version:`ryanspice.com [Version ${pkg.version}]<br/>

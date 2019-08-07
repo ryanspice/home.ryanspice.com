@@ -18,6 +18,7 @@ const production = require('async.2018/config/webpack.prod.js');
 const evt = () => {
 
 	let entry = {};
+	const extension = 'js';//ejs?'mjs':'js';
 
 	const es6 = common[0](evt);
  	const es5 = common[1](evt);
@@ -32,7 +33,13 @@ const evt = () => {
 	es6.output.library = `${package.short_name}`;
 	es6.output.chunkFilename = `module~[name].[contenthash].js`;
 
+		entry[`${package.short_name}`] = `./src`;
+	 	es5.entry = es6.entry = entry;
+	 	es5.output.filename = es6.output.filename = `[name].[contenthash].${extension}`;
+	 	es5.output.library = es6.output.library = `${package.short_name}`;
+	 	es5.output.chunkFilename = es6.output.chunkFilename = `module~[name].[contenthash].${extension}`;
 
+			css.entry = `./src/app/scss/main.scss`;
 	//set package scope (ES5)
 /*
 	es5.devtool = 'source-map';

@@ -2,11 +2,14 @@
 
 import messages from "../data/messages";
 
-const directory:string = messages.directory;
-
 import {
 	AsyncView
 } from "../entry";
+
+/**
+ * Component :: Console
+ * @extends AsyncView
+ */
 
 class Console extends AsyncView {
 
@@ -41,7 +44,7 @@ class Console extends AsyncView {
 				onkeydown="Terminal.keyup(event)"
 				 contenteditable spellcheck="false">
 
-			<span id="written"  >${messages.version}<br/><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${directory}&nbsp;</i></span><span id="blinking-cursor" contenteditable="false">_</span>
+			<span id="written"  >${messages.version}<br/><i style="color:rgba(255,255,255,0.5)" contenteditable="false">${messages.directory}&nbsp;</i></span><span id="blinking-cursor" contenteditable="false">_</span>
 
 			<h1 hidden style="" contenteditable="false">
 				Web Applications Developer
